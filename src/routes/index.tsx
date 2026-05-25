@@ -1,9 +1,6 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { Link } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { SectionLabel } from "@/components/section-label";
 import { projects } from "@/lib/projects-data";
-import { ProjectCard } from "@/components/project-card";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -23,109 +20,212 @@ function Index() {
   const featured = projects[0];
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden border-b border-[var(--hairline)]">
-        <div className="absolute inset-0 grid-bg opacity-50 [mask-image:radial-gradient(ellipse_at_top,black,transparent_70%)]" />
-        <div className="absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-[color-mix(in_oklab,var(--indigo)_18%,transparent)] blur-3xl" />
-        <div className="absolute -left-40 bottom-0 h-[360px] w-[360px] rounded-full bg-[color-mix(in_oklab,var(--teal)_22%,transparent)] blur-3xl" />
+      {/* Editorial masthead */}
+      <section className="border-b border-[var(--rule)]">
+        <div className="mx-auto max-w-5xl px-6 py-16 md:px-10 md:py-24">
+          <div className="relative">
+            <div className="absolute inset-0 grid-bg pointer-events-none" />
+            <div className="relative grid gap-12 md:grid-cols-[1fr_2fr] md:gap-16">
+              {/* Methodology / sidebar */}
+              <aside className="order-2 space-y-7 md:order-1 md:border-r md:border-[var(--rule)] md:pr-10">
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
+                    Researcher
+                  </p>
+                  <p className="border-b border-[var(--rule)] pb-2 text-base font-medium">
+                    Sophia Shen
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
+                      Institution
+                    </p>
+                    <p className="text-sm leading-relaxed">UNC&nbsp;–&nbsp;Chapel Hill</p>
+                  </div>
+                  <div>
+                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
+                      Class
+                    </p>
+                    <p className="text-sm">2027</p>
+                  </div>
+                </div>
+                <div>
+                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
+                    Laboratory
+                  </p>
+                  <p className="text-sm leading-relaxed">
+                    Boerwinkle Lab
+                    <br />
+                    Department of Genetics
+                  </p>
+                </div>
+                <div className="border border-[var(--rule)] bg-[color:var(--paper-warm)] p-4">
+                  <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--teal-deep)]">
+                    Current Study
+                  </p>
+                  <p className="text-xs italic leading-relaxed text-[color:var(--foreground)]/75">
+                    Automated rs-fMRI Component Classification — achieved 77% recall on
+                    clinical validation sets.
+                  </p>
+                </div>
+              </aside>
 
-        <div className="relative mx-auto max-w-6xl px-6 pb-28 pt-24 md:pt-32">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-          >
-            <p className="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
-              <span className="text-[color:var(--indigo)]">●</span>&nbsp; Available for Summer 2026 internships
-            </p>
-            <h1 className="mt-6 max-w-4xl font-display text-5xl font-semibold leading-[1.02] tracking-tight md:text-7xl">
-              Sophia&nbsp;Shen.
-              <br />
-              <span className="text-muted-foreground">
-                Data Science <span className="text-[color:var(--indigo)]">×</span> Health Policy.
-              </span>
-            </h1>
-            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-              I build machine-learning tools that help clinicians make sense of messy biomedical data —
-              currently engineering an automated rs-fMRI classification pipeline at the Boerwinkle Lab.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-3">
-              <Link
-                to="/projects"
-                className="group inline-flex items-center gap-3 rounded-full bg-foreground px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-background transition-transform hover:-translate-y-0.5"
+              {/* Abstract / lead */}
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                className="order-1 md:order-2"
               >
-                View projects
-                <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-              </Link>
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-3 rounded-full border border-[var(--hairline)] px-6 py-3 font-mono text-xs uppercase tracking-[0.18em] text-foreground transition-colors hover:bg-secondary"
-              >
-                Get in touch
-              </Link>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Quick stats strip */}
-        <div className="relative border-t border-[var(--hairline)] bg-background/60">
-          <div className="mx-auto grid max-w-6xl grid-cols-2 divide-x divide-[var(--hairline)] px-6 md:grid-cols-4">
-            {[
-              { k: "University", v: "UNC – Chapel Hill" },
-              { k: "Class of", v: "2027" },
-              { k: "Majors", v: "DS · HPM" },
-              { k: "Currently", v: "Boerwinkle Lab" },
-            ].map((s, i) => (
-              <div key={s.k} className={`py-6 ${i === 0 ? "pr-6" : "px-6"}`}>
-                <p className="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                  {s.k}
+                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
+                  Perspective &amp; Profile
                 </p>
-                <p className="mt-2 font-display text-base font-medium">{s.v}</p>
-              </div>
-            ))}
+                <h1 className="mt-5 font-display text-4xl leading-[1.08] tracking-tight md:text-6xl">
+                  Bridging clinical intuition and{" "}
+                  <span className="italic font-normal text-[color:var(--blue-ink)]">
+                    algorithmic precision
+                  </span>
+                  .
+                </h1>
+                <p className="mt-8 max-w-xl font-display text-lg font-light leading-relaxed text-[color:var(--foreground)]/80 md:text-xl">
+                  A dual-major in{" "}
+                  <span className="border-b border-[color:var(--blue-ink)]/30 px-0.5 text-[color:var(--blue-ink)]">
+                    Data Science
+                  </span>{" "}
+                  and{" "}
+                  <span className="border-b border-[color:var(--teal-deep)]/30 px-0.5 text-[color:var(--teal-deep)]">
+                    Health Policy &amp; Management
+                  </span>{" "}
+                  at UNC-CH, exploring the messy intersection of biomedical signals,
+                  public health equity, and the models we trust to interpret them.
+                </p>
+                <div className="mt-10 flex flex-wrap items-center gap-6">
+                  <Link
+                    to="/projects"
+                    className="border-b-2 border-[color:var(--teal-deep)] pb-1 text-sm font-semibold tracking-wide transition-colors hover:text-[color:var(--teal-deep)]"
+                  >
+                    Read research
+                  </Link>
+                  <span className="h-px w-12 bg-[color:var(--rule)]" />
+                  <Link
+                    to="/contact"
+                    className="text-sm text-[color:var(--muted-ink)] transition-colors hover:text-foreground"
+                  >
+                    Correspondence
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+
+            <div className="mt-14 flex items-center justify-end gap-2 border-t border-[var(--rule)] pt-4">
+              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
+                Vol. 01 / No. 01
+              </span>
+              <div className="h-px w-4 bg-[color:var(--rule)]" />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* About teaser */}
-      <section className="border-b border-[var(--hairline)]">
-        <div className="mx-auto grid max-w-6xl gap-10 px-6 py-24 md:grid-cols-[1fr_2fr]">
-          <SectionLabel index="01">About</SectionLabel>
+      {/* Editorial note */}
+      <section className="border-b border-[var(--rule)] bg-[color:var(--paper-warm)]/40">
+        <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 md:grid-cols-[160px_1fr] md:gap-12 md:px-10">
+          <div className="space-y-2">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
+              From the Editor
+            </p>
+            <p className="text-[11px] italic text-[color:var(--muted-ink)]">Note 01</p>
+          </div>
           <div>
-            <p className="font-display text-2xl leading-snug md:text-3xl">
-              Rising junior at UNC-CH, dual-majoring in{" "}
-              <span className="text-[color:var(--indigo)]">Data Science</span> and{" "}
-              <span className="text-[color:var(--indigo)]">Health Policy &amp; Management</span>.
-              I&apos;m most curious about the messy intersection of biomedical signals,
-              policy, and the models we trust to read them.
+            <p className="font-display text-2xl leading-snug text-foreground/85 md:text-3xl">
+              I&apos;m curious about how clinicians, patients, and policymakers learn to
+              trust a model — and what it costs them when that trust is misplaced. My
+              work lives in that small, careful margin.
             </p>
             <Link
               to="/about"
-              className="mt-8 inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.18em] text-foreground hover:text-[color:var(--indigo)]"
+              className="mt-8 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground hover:text-[color:var(--teal-deep)]"
             >
-              More about me <span aria-hidden>→</span>
+              <span className="border-b border-[color:var(--teal-deep)] pb-0.5">More on the work</span>
+              <span aria-hidden>→</span>
             </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured project */}
+      {/* Featured article */}
       <section>
-        <div className="mx-auto max-w-6xl px-6 py-24">
-          <div className="flex items-end justify-between">
-            <SectionLabel index="02">Featured work</SectionLabel>
+        <div className="mx-auto max-w-5xl px-6 py-20 md:px-10">
+          <div className="flex items-end justify-between border-b border-[var(--rule)] pb-6">
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
+                Featured Article
+              </p>
+              <h2 className="mt-2 font-display text-3xl italic tracking-tight">
+                Selected research
+              </h2>
+            </div>
             <Link
               to="/projects"
-              className="font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground"
+              className="text-[11px] uppercase tracking-[0.22em] text-[color:var(--muted-ink)] hover:text-foreground"
             >
-              All projects →
+              Index of work →
             </Link>
           </div>
-          <div className="mt-6">
-            <ProjectCard project={featured} index={0} />
+          <div className="mt-2">
+            {featured && <FeaturedArticle project={featured} />}
           </div>
         </div>
       </section>
     </>
+  );
+}
+
+function FeaturedArticle({
+  project,
+}: {
+  project: (typeof projects)[number];
+}) {
+  return (
+    <article className="grid gap-10 py-12 md:grid-cols-[160px_1fr] md:gap-12">
+      <div className="space-y-2">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
+          Article No. 01
+        </p>
+        <p className="text-[11px] italic text-[color:var(--muted-ink)]">{project.dates}</p>
+      </div>
+      <div>
+        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
+          {project.role}{project.org ? ` — ${project.org}` : ""}
+        </p>
+        <h3 className="mt-3 font-display text-4xl leading-[1.1] tracking-tight md:text-5xl">
+          {project.title}
+        </h3>
+        <p className="mt-6 max-w-2xl font-display text-lg leading-relaxed text-foreground/80">
+          {project.description}
+        </p>
+        <div className="mt-8 flex flex-wrap items-center gap-3">
+          {project.metric && (
+            <span className="inline-flex items-baseline gap-2 border border-[color:var(--teal-deep)]/30 bg-[color:var(--paper-warm)] px-3 py-1.5">
+              <span className="font-display text-lg italic text-[color:var(--teal-deep)]">
+                {project.metric.value}
+              </span>
+              <span className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--muted-ink)]">
+                {project.metric.label}
+              </span>
+            </span>
+          )}
+          {project.tags.map((t) => (
+            <span
+              key={t}
+              className="border border-[var(--rule)] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[color:var(--muted-ink)]"
+            >
+              {t}
+            </span>
+          ))}
+        </div>
+      </div>
+    </article>
   );
 }
