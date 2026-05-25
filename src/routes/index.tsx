@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { motion } from "framer-motion";
 import { projects } from "@/lib/projects-data";
 
 export const Route = createFileRoute("/")({
@@ -72,12 +71,7 @@ function Index() {
               </aside>
 
               {/* Abstract / lead */}
-              <motion.div
-                initial={{ opacity: 0.001, y: 12 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className="order-1 md:order-2"
-              >
+              <div className="order-1 md:order-2">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
                   Perspective &amp; Profile
                 </p>
@@ -115,7 +109,7 @@ function Index() {
                     Correspondence
                   </Link>
                 </div>
-              </motion.div>
+              </div>
             </div>
 
             <div className="mt-14 flex items-center justify-end gap-2 border-t border-[var(--rule)] pt-4">
