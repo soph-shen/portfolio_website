@@ -14,39 +14,44 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   const num = String(index + 1).padStart(2, "0");
   if (project.placeholder) {
     return (
-      <article className="group relative grid gap-6 border-t border-[var(--hairline)] py-10 md:grid-cols-[120px_1fr] md:gap-10">
-        <div className="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
-          {num} / soon
+      <article className="group relative grid gap-6 border-t border-[var(--rule)] py-12 md:grid-cols-[160px_1fr] md:gap-12">
+        <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
+          No. {num} / forthcoming
         </div>
-        <div className="rounded-lg border border-dashed border-[var(--hairline)] p-8 text-muted-foreground">
-          <p className="font-display text-xl text-foreground/60">Add your next project</p>
-          <p className="mt-2 text-sm">A placeholder card — swap this with a future case study.</p>
+        <div className="rounded-sm border border-dashed border-[var(--rule)] bg-[color:var(--paper-warm)] p-8">
+          <p className="font-display text-2xl italic text-foreground/70">A study in progress.</p>
+          <p className="mt-2 text-sm text-[color:var(--muted-ink)]">
+            This entry is reserved for a future case study.
+          </p>
         </div>
       </article>
     );
   }
   return (
-    <article className="group relative grid gap-6 border-t border-[var(--hairline)] py-10 md:grid-cols-[120px_1fr] md:gap-10">
-      <div className="font-mono text-xs uppercase tracking-[0.22em] text-muted-foreground">
-        {num} / {project.dates}
+    <article className="group relative grid gap-6 border-t border-[var(--rule)] py-12 md:grid-cols-[160px_1fr] md:gap-12">
+      <div className="space-y-2">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
+          Article No. {num}
+        </p>
+        <p className="text-[11px] italic text-[color:var(--muted-ink)]">{project.dates}</p>
       </div>
       <div>
-        <h2 className="font-display text-3xl font-semibold leading-tight md:text-4xl">
+        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
+          {project.role}{project.org ? ` — ${project.org}` : ""}
+        </p>
+        <h2 className="mt-3 font-display text-3xl leading-[1.15] tracking-tight md:text-[2.5rem]">
           {project.title}
         </h2>
-        <p className="mt-2 font-mono text-xs uppercase tracking-[0.18em] text-[color:var(--indigo)]">
-          {project.role}{project.org ? ` · ${project.org}` : ""}
-        </p>
-        <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted-foreground">
+        <p className="mt-5 max-w-2xl font-display text-lg leading-relaxed text-[color:var(--foreground)]/80">
           {project.description}
         </p>
-        <div className="mt-6 flex flex-wrap items-center gap-3">
+        <div className="mt-7 flex flex-wrap items-center gap-3">
           {project.metric && (
-            <span className="inline-flex items-baseline gap-2 rounded-md bg-[color-mix(in_oklab,var(--teal)_20%,transparent)] px-3 py-1.5">
-              <span className="font-display text-lg font-semibold text-foreground">
+            <span className="inline-flex items-baseline gap-2 border border-[color:var(--teal-deep)]/30 bg-[color:var(--paper-warm)] px-3 py-1.5">
+              <span className="font-display text-lg italic text-[color:var(--teal-deep)]">
                 {project.metric.value}
               </span>
-              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <span className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--muted-ink)]">
                 {project.metric.label}
               </span>
             </span>
@@ -54,7 +59,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
           {project.tags.map((t) => (
             <span
               key={t}
-              className="rounded-full border border-[var(--hairline)] px-3 py-1 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground"
+              className="border border-[var(--rule)] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[color:var(--muted-ink)]"
             >
               {t}
             </span>
