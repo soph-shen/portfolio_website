@@ -73,7 +73,7 @@ function Index() {
 
               {/* Abstract / lead */}
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0.001, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
                 className="order-1 md:order-2"
