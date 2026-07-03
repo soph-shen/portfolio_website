@@ -106,28 +106,31 @@ function Index() {
               Data Science &amp; Health Policy @ UNC–Chapel Hill
             </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-3">
+          <div className="flex items-center justify-center gap-5">
             <a
               href={GITHUB}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
+              aria-label="GitHub"
+              className="text-charcoal/70 transition-colors hover:text-gold"
             >
-              <Github className="h-4 w-4 text-gold" /> GitHub
+              <Github className="h-5 w-5" />
             </a>
             <a
               href={LINKEDIN}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
+              aria-label="LinkedIn"
+              className="text-charcoal/70 transition-colors hover:text-gold"
             >
-              <Linkedin className="h-4 w-4 text-gold" /> LinkedIn
+              <Linkedin className="h-5 w-5" />
             </a>
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-md bg-charcoal px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-charcoal-soft"
+              aria-label="Email"
+              className="text-charcoal/70 transition-colors hover:text-gold"
             >
-              <Mail className="h-4 w-4 text-gold" /> Email
+              <Mail className="h-5 w-5" />
             </a>
           </div>
         </div>
