@@ -205,7 +205,7 @@ function Index() {
       <section id="experience" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader number="02" eyebrow="Experience" title="Where I've worked" />
-          <ol className="relative mt-12 space-y-10 pl-10 md:pl-14">
+          <ol className="relative mt-10 space-y-5 pl-10 md:pl-14">
             {/* vertical timeline line */}
             <span
               aria-hidden
@@ -216,17 +216,17 @@ function Index() {
                 {/* gold dot marker */}
                 <span
                   aria-hidden
-                  className="absolute -left-[30px] top-6 h-3 w-3 rounded-full bg-gold ring-4 ring-cream md:-left-[38px]"
+                  className="absolute -left-[30px] top-5 h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-cream md:-left-[38px]"
                 />
-                <article className="rounded-xl border border-charcoal/20 bg-paper p-6 shadow-sm">
-                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                <article className="rounded-xl border border-charcoal/20 bg-paper px-5 py-4 shadow-sm">
+                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
                     {item.dates}
                   </p>
-                  <h3 className="mt-2 font-display text-2xl font-medium tracking-tight text-foreground">
+                  <h3 className="mt-1.5 font-display text-lg font-medium leading-snug tracking-tight text-foreground">
                     {item.role}
                   </h3>
-                  <p className="mt-1 text-sm text-muted-foreground">{item.org}</p>
-                  <p className="mt-3 text-base leading-relaxed text-foreground/85">
+                  <p className="mt-0.5 text-xs text-muted-foreground">{item.org}</p>
+                  <p className="mt-2 text-sm leading-snug text-foreground/85">
                     {item.description}
                   </p>
                 </article>
