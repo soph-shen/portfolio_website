@@ -167,7 +167,15 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background: linear-gradient(
+      180deg,
+      var(--cream) 0%,
+      color-mix(in oklab, var(--butter) 60%, var(--cream)) 28%,
+      color-mix(in oklab, var(--gold-soft) 55%, var(--cream)) 50%,
+      color-mix(in oklab, var(--butter) 60%, var(--cream)) 72%,
+      var(--cream) 100%
+    );
+    background-attachment: fixed;
     color: var(--color-foreground);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
