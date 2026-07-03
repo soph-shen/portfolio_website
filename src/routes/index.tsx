@@ -224,10 +224,12 @@ function Index() {
           />
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
-              href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-md bg-charcoal px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-charcoal-soft"
+              href={GITHUB}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
             >
-              <Mail className="h-4 w-4 text-gold" /> {EMAIL}
+              <Github className="h-4 w-4 text-gold" /> GitHub
             </a>
             <a
               href={LINKEDIN}
@@ -238,12 +240,10 @@ function Index() {
               <Linkedin className="h-4 w-4 text-gold" /> LinkedIn
             </a>
             <a
-              href={GITHUB}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
+              href={`mailto:${EMAIL}`}
+              className="inline-flex items-center gap-2 rounded-md bg-charcoal px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-charcoal-soft"
             >
-              <Github className="h-4 w-4 text-gold" /> GitHub
+              <Mail className="h-4 w-4 text-gold" /> Email
             </a>
           </div>
         </div>
