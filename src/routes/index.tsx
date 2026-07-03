@@ -172,34 +172,32 @@ function Index() {
         </div>
       </section>
 
-      {/* ABOUT — deep muted teal with cream text */}
-      <section id="about" className="scroll-mt-20 bg-teal text-cream">
+      {/* ABOUT — soft butter-yellow */}
+      <section id="about" className="scroll-mt-20 border-t border-border bg-butter">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
           <SectionHeader
             number="03"
             eyebrow="About"
             title="Why I build with data"
             compact
-            invert
           />
-          <div className="space-y-6 text-base leading-relaxed text-cream/85 md:text-lg">
-            <p className="italic text-cream/60">
+          <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
+            <p className="italic text-muted-foreground">
               [Replace with a short, personal paragraph on what draws you to data
               and building software.]
             </p>
           </div>
         </div>
-        <div className="mx-auto h-px max-w-6xl bg-cream/10" />
+        <div className="mx-auto h-px max-w-6xl bg-border" />
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
           <SectionHeader
             number="04"
             eyebrow="Beyond Code"
             title="Off the clock"
             compact
-            invert
           />
-          <div className="space-y-6 text-base leading-relaxed text-cream/85 md:text-lg">
-            <p className="italic text-cream/60">
+          <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
+            <p className="italic text-muted-foreground">
               [Replace with a couple of sentences about what you like to do
               outside of tech — hobbies, interests.]
             </p>
@@ -208,7 +206,7 @@ function Index() {
       </section>
 
       {/* CONTACT — cream */}
-      <section id="contact" className="scroll-mt-20 border-t border-border bg-cream">
+      <section id="contact" className="scroll-mt-20 border-t border-border bg-butter">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
           <SectionHeader
             number="05"
