@@ -1,32 +1,38 @@
-import { Link } from "@tanstack/react-router";
-
 const nav = [
-  { to: "/", label: "Home" },
-  { to: "/about", label: "About" },
-  { to: "/projects", label: "Projects" },
-  { to: "/contact", label: "Contact" },
-] as const;
+  { href: "#home", label: "Home" },
+  { href: "#projects", label: "Projects" },
+  { href: "#skills", label: "Skills" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
+];
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--rule)] bg-[color:var(--paper)]/85 backdrop-blur">
-      <div className="mx-auto flex h-20 max-w-5xl items-center justify-between px-6 md:px-10">
-        <Link to="/" className="group flex items-baseline gap-3">
-          <span className="font-display text-2xl italic leading-none text-foreground">
-            Sophia Shen
-          </span>
-        </Link>
-        <nav className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
+    <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur">
+      <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6 md:px-10">
+        <a href="#home" className="text-sm font-semibold tracking-tight text-foreground">
+          Sophia Shen
+        </a>
+        <nav className="hidden items-center gap-1 text-sm md:flex">
           {nav.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              activeOptions={{ exact: item.to === "/" }}
-              className="px-3 py-2 font-medium text-[color:var(--muted-ink)] transition-colors hover:text-foreground"
-              activeProps={{ className: "text-foreground underline decoration-[color:var(--teal-deep)] decoration-2 underline-offset-[6px]" }}
+            <a
+              key={item.href}
+              href={item.href}
+              className="rounded-md px-3 py-2 text-muted-foreground transition-colors hover:text-foreground"
             >
               {item.label}
-            </Link>
+            </a>
+          ))}
+        </nav>
+        <nav className="flex items-center gap-4 text-sm md:hidden">
+          {nav.slice(1).map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="text-muted-foreground transition-colors hover:text-foreground"
+            >
+              {item.label}
+            </a>
           ))}
         </nav>
       </div>
