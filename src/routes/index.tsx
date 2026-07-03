@@ -5,7 +5,7 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Sophia (Xiyuan) Shen — Data Science & Health Policy" },
+      { title: "Sophia Shen Portfolio" },
       {
         name: "description",
         content:
