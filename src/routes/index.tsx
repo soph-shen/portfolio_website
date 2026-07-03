@@ -129,14 +129,15 @@ function Index() {
         </div>
       </section>
 
-      {/* PROJECTS → ABOUT — mixed yellow gradient */}
-      <div className="yellow-mix border-t border-charcoal/30">
-      {/* PULL QUOTE — standalone hook */}
-      <section aria-label="Statement" className="scroll-mt-20">
-        <div className="mx-auto max-w-4xl px-6 py-24 text-center md:px-10 md:py-28">
+      {/* PULL QUOTE — standalone butter block */}
+      <section
+        aria-label="Statement"
+        className="scroll-mt-20 border-y border-charcoal/30 bg-butter"
+      >
+        <div className="mx-auto max-w-[680px] px-6 py-20 text-center md:px-8 md:py-24">
           <blockquote
             style={{ fontFamily: "var(--font-quote)" }}
-            className="text-[28px] italic leading-[1.5] tracking-tight text-charcoal md:text-[32px] md:leading-[1.55]"
+            className="text-[28px] italic leading-[1.25] tracking-tight text-charcoal md:text-[32px] md:leading-[1.3]"
           >
             <span className="mr-1 text-gold">“</span>
             Data is everywhere, but the glamorous part is the smallest part. You
@@ -150,7 +151,9 @@ function Index() {
         </div>
       </section>
 
-      <section id="projects" className="scroll-mt-20 border-t border-charcoal/30">
+      {/* PROJECTS → OFF THE CLOCK — mixed yellow gradient */}
+      <div className="yellow-mix">
+      <section id="projects" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader
             number="01"
