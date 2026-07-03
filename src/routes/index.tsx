@@ -130,7 +130,7 @@ function Index() {
       </section>
 
       {/* PROJECTS → ABOUT — mixed yellow gradient */}
-      <div className="yellow-mix border-t-2 border-white">
+      <div className="yellow-mix border-t border-charcoal/30">
       <section id="projects" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader
@@ -148,20 +148,20 @@ function Index() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="scroll-mt-20 border-t-2 border-white">
+      <section id="skills" className="scroll-mt-20 border-t border-charcoal/30">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader number="02" eyebrow="Skills" title="Tools I build with" />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {skills.map((group) => (
               <div key={group.label}>
-                <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-charcoal">
                   {group.label}
                 </h3>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-md border border-border bg-paper px-3 py-1.5 text-sm text-foreground"
+                      className="rounded-md border border-charcoal/20 bg-paper px-3 py-1.5 text-sm text-foreground"
                     >
                       {item}
                     </li>
@@ -174,7 +174,7 @@ function Index() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="scroll-mt-20 border-t-2 border-white">
+      <section id="about" className="scroll-mt-20 border-t border-charcoal/30">
         <div className="mx-auto max-w-6xl px-6 py-28 md:px-10">
           <SectionHeader
             number="03"
@@ -192,7 +192,7 @@ function Index() {
             <span className="ml-1 text-gold">”</span>
           </blockquote>
         </div>
-        <div className="mx-auto h-px max-w-6xl bg-border" />
+        <div className="h-px w-full bg-charcoal/30" />
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
           <SectionHeader
             number="04"
@@ -212,7 +212,7 @@ function Index() {
       </div>
 
       {/* CONTACT — white */}
-      <section id="contact" className="scroll-mt-20 border-t-2 border-white bg-paper">
+      <section id="contact" className="scroll-mt-20 border-t border-charcoal/30 bg-paper">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
           <SectionHeader
             number="05"
@@ -272,7 +272,7 @@ function SectionHeader({
   const descColor = invert ? "text-cream/70" : "text-muted-foreground";
   return (
     <div className={center ? "mx-auto max-w-2xl" : compact ? "" : "max-w-2xl"}>
-      <p className={`font-mono text-xs font-semibold uppercase tracking-[0.22em] text-gold ${center ? "justify-center" : ""}`}>
+      <p className={`font-mono text-xs font-semibold uppercase tracking-[0.22em] ${invert ? "text-gold" : "text-charcoal"} ${center ? "justify-center" : ""}`}>
         {number ? `${number} — ` : ""}{eyebrow}
       </p>
       <h2 className={`mt-4 font-display text-4xl leading-[1.1] tracking-tight md:text-5xl ${titleColor}`}>
@@ -289,19 +289,19 @@ function SectionHeader({
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="card-lift group flex flex-col justify-between rounded-xl border border-border bg-paper p-6 hover:border-gold/50">
+    <article className="card-lift group flex flex-col justify-between rounded-xl border border-charcoal/20 bg-paper p-6 hover:border-gold">
       <div>
         <h3 className="font-display text-2xl font-medium tracking-tight text-foreground">
           {project.title}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+        <p className="mt-3 text-sm leading-relaxed text-foreground/80">
           {project.description}
         </p>
         <ul className="mt-5 flex flex-wrap gap-1.5">
           {project.tags.map((t) => (
             <li
               key={t}
-              className="rounded-md bg-cream px-2 py-1 font-mono text-[11px] font-medium text-foreground/75"
+              className="rounded-md border border-charcoal/15 bg-paper px-2 py-1 font-mono text-[11px] font-medium text-foreground"
             >
               {t}
             </li>
