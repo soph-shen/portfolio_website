@@ -2,7 +2,6 @@ const nav = [
   { href: "#home", label: "Home" },
   { href: "#projects", label: "Projects" },
   { href: "#skills", label: "Skills" },
-  { href: "#off-the-clock", label: "Off the clock" },
   { href: "#contact", label: "Contact" },
 ];
 
