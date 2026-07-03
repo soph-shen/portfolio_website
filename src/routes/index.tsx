@@ -175,19 +175,22 @@ function Index() {
 
       {/* ABOUT */}
       <section id="about" className="scroll-mt-20 border-t-2 border-white">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
+        <div className="mx-auto max-w-6xl px-6 py-28 md:px-10">
           <SectionHeader
             number="03"
             eyebrow="About"
             title="Why I build with data"
-            compact
           />
-          <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
-            <p className="italic text-muted-foreground">
-              [Replace with a short, personal paragraph on what draws you to data
-              and building software.]
-            </p>
-          </div>
+          <blockquote className="mt-10 max-w-4xl font-display text-2xl leading-snug tracking-tight text-foreground md:text-3xl">
+            <span className="mr-1 text-gold">“</span>
+            Data is everywhere, but the glamorous part is the smallest part. You
+            spend something like 95% of your time cleaning data and maybe 5%
+            actually modeling it. I've also stopped believing good data science
+            means hitting 90%+ accuracy. It means serving the people the data
+            came from, and that starts with picking the right metric to measure
+            in the first place.
+            <span className="ml-1 text-gold">”</span>
+          </blockquote>
         </div>
         <div className="mx-auto h-px max-w-6xl bg-border" />
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
@@ -198,9 +201,10 @@ function Index() {
             compact
           />
           <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
-            <p className="italic text-muted-foreground">
-              [Replace with a couple of sentences about what you like to do
-              outside of tech — hobbies, interests.]
+            <p>
+              Things I do off the clock: gym, get outside, and rate meals on
+              Beli. Currently hunting for good hiking trails around RTP (recs
+              welcome).
             </p>
           </div>
         </div>
