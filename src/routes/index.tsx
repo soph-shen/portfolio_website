@@ -114,7 +114,7 @@ function Index() {
 
             <div className="mt-14 flex items-center justify-end gap-2 border-t border-[var(--rule)] pt-4">
               <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
-                Vol. 01 / No. 01
+                Issue 01 / No. 01
               </span>
               <div className="h-px w-4 bg-[color:var(--rule)]" />
             </div>
