@@ -1,173 +1,238 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { projects } from "@/lib/projects-data";
+import { createFileRoute } from "@tanstack/react-router";
+import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
 
 export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Sophia Shen — Data Science × Health Policy" },
-      { name: "description", content: "Portfolio of Sophia Shen, a Data Science and Health Policy student at UNC-CH working on ML for healthcare and neuroimaging." },
-      { property: "og:title", content: "Sophia Shen — Data Science × Health Policy" },
-      { property: "og:description", content: "Portfolio of Sophia Shen — ML, neuroimaging, and healthcare data." },
-      { property: "og:url", content: "/" },
+      { title: "Sophia (Xiyuan) Shen — Data Science & Health Policy" },
+      {
+        name: "description",
+        content:
+          "Portfolio of Sophia (Xiyuan) Shen — Data Science & Health Policy at UNC–Chapel Hill. Machine learning, healthcare analytics, and software projects.",
+      },
+      { property: "og:title", content: "Sophia (Xiyuan) Shen — Portfolio" },
+      {
+        property: "og:description",
+        content:
+          "Data Science & Health Policy at UNC–Chapel Hill. ML, healthcare analytics, and software projects.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
 });
 
+type Project = {
+  title: string;
+  description: string;
+  tags: string[];
+  code: string;
+  demo?: string;
+};
+
+const projects: Project[] = [
+  {
+    title: "Chinese Digit Classifier",
+    description:
+      "A neural network built from scratch (no ML libraries) with a draw-to-predict web app.",
+    tags: ["Python", "FastAPI", "React", "TypeScript", "NumPy"],
+    code: "https://github.com/soph-shen/neuralnetwork",
+  },
+  {
+    title: "FrozenLake RL",
+    description:
+      "Reinforcement learning agents (DQN, DRQN, QR-DRQN, RND-DRQN) for a partially observable, windy grid world, with a full research paper.",
+    tags: ["Python", "PyTorch", "Gymnasium"],
+    code: "https://github.com/soph-shen/FrozenLake-RL",
+  },
+  {
+    title: "Predicting Diabetes Risk",
+    description: "Modeling the top drivers of diabetes from CDC survey data.",
+    tags: ["Python", "scikit-learn", "pandas"],
+    code: "https://github.com/soph-shen/predictingdiabetes",
+  },
+  {
+    title: "Federal Budget Analysis",
+    description:
+      "Predicting federal grant cuts across the UNC system with ML.",
+    tags: ["Python", "scikit-learn", "pandas"],
+    code: "https://github.com/soph-shen/DataAnalysis_FederalBudget",
+  },
+];
+
+const skills = [
+  {
+    label: "Languages",
+    items: ["Python", "TypeScript", "JavaScript", "SQL"],
+  },
+  {
+    label: "Frameworks & Libraries",
+    items: ["React", "FastAPI", "PyTorch", "scikit-learn", "pandas", "NumPy"],
+  },
+  {
+    label: "Tools",
+    items: ["Git", "GitHub", "Vite"],
+  },
+];
+
+const GITHUB = "https://github.com/soph-shen";
+const LINKEDIN = "https://www.linkedin.com/in/xiyuan-shen-13a41b2b1";
+const EMAIL = "xiyuan.shen@outlook.com";
+
 function Index() {
-  const featured = projects[0];
   return (
     <>
-      {/* Editorial masthead */}
-      <section className="border-b border-[var(--rule)]">
-        <div className="mx-auto max-w-5xl px-6 py-16 md:px-10 md:py-24">
-          <div className="relative">
-            <div className="absolute inset-0 grid-bg pointer-events-none" />
-            <div className="relative grid gap-12 md:grid-cols-[1fr_2fr] md:gap-16">
-              {/* Methodology / sidebar */}
-              <aside className="order-2 space-y-7 md:order-1 md:border-r md:border-[var(--rule)] md:pr-10">
-                <div className="aspect-[4/5] w-full overflow-hidden border border-[var(--rule)] bg-[color:var(--paper-warm)]">
-                  {/* Portrait — replace src with your photo */}
-                  <div className="flex h-full w-full items-center justify-center text-[10px] uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
-                    Portrait
-                  </div>
-                </div>
-                <div>
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
-                    Researcher
-                  </p>
-                  <p className="border-b border-[var(--rule)] pb-2 text-base font-medium">
-                    Sophia Shen
-                  </p>
-                </div>
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
-                      Institution
-                    </p>
-                    <p className="text-sm leading-relaxed">UNC&nbsp;–&nbsp;Chapel Hill</p>
-                  </div>
-                  <div>
-                    <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
-                      Class
-                    </p>
-                    <p className="text-sm">2028</p>
-                  </div>
-                </div>
-                <div>
-                  <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
-                    Laboratory
-                  </p>
-                  <p className="text-sm leading-relaxed">
-                    Boerwinkle Lab
-                    <br />
-                    Department of Genetics
-                  </p>
-                </div>
-                <div className="border border-[var(--rule)] bg-[color:var(--paper-warm)] p-4">
-                  <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-[color:var(--teal-deep)]">
-                    Current Study
-                  </p>
-                  <p className="text-xs italic leading-relaxed text-[color:var(--foreground)]/75">
-                    Automated rs-fMRI Component Classification — achieved 77% recall on
-                    clinical validation sets.
-                  </p>
-                </div>
-              </aside>
+      {/* HERO */}
+      <section
+        id="home"
+        className="scroll-mt-20 border-b border-border"
+      >
+        <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-24 text-center md:px-10 md:py-32">
+          <div className="h-32 w-32 overflow-hidden rounded-full border border-border bg-muted md:h-40 md:w-40">
+            <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
+              Photo
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
+              Sophia (Xiyuan) Shen
+            </h1>
+            <p className="text-lg text-muted-foreground md:text-xl">
+              {/* tagline placeholder — update later */}
+            </p>
+            <p className="text-sm text-muted-foreground md:text-base">
+              Data Science &amp; Health Policy @ UNC–Chapel Hill
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={GITHUB}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <Github className="h-4 w-4" /> GitHub
+            </a>
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <Linkedin className="h-4 w-4" /> LinkedIn
+            </a>
+            <a
+              href={`mailto:${EMAIL}`}
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              <Mail className="h-4 w-4" /> Email
+            </a>
+          </div>
+        </div>
+      </section>
 
-              {/* Abstract / lead */}
-              <div className="order-1 md:order-2">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
-                  Perspective &amp; Profile
-                </p>
-                <h1 className="mt-5 font-display text-4xl leading-[1.08] tracking-tight md:text-6xl">
-                  Bridging clinical intuition and{" "}
-                  <span className="italic font-normal text-[color:var(--blue-ink)]">
-                    algorithmic precision
-                  </span>
-                  .
-                </h1>
-                <p className="mt-8 max-w-xl font-display text-lg font-light leading-relaxed text-[color:var(--foreground)]/80 md:text-xl">
-                  A dual-major in{" "}
-                  <span className="border-b border-[color:var(--blue-ink)]/30 px-0.5 text-[color:var(--blue-ink)]">
-                    Data Science
-                  </span>{" "}
-                  and{" "}
-                  <span className="border-b border-[color:var(--teal-deep)]/30 px-0.5 text-[color:var(--teal-deep)]">
-                    Health Policy &amp; Management
-                  </span>{" "}
-                  at UNC-CH, exploring the messy intersection of biomedical signals,
-                  public health equity, and the models we trust to interpret them.
-                </p>
-                <div className="mt-10 flex flex-wrap items-center gap-6">
-                  <Link
-                    to="/projects"
-                    className="border-b-2 border-[color:var(--teal-deep)] pb-1 text-sm font-semibold tracking-wide transition-colors hover:text-[color:var(--teal-deep)]"
-                  >
-                    Read research
-                  </Link>
-                  <span className="h-px w-12 bg-[color:var(--rule)]" />
-                  <Link
-                    to="/contact"
-                    className="text-sm text-[color:var(--muted-ink)] transition-colors hover:text-foreground"
-                  >
-                    Correspondence
-                  </Link>
-                </div>
+      {/* PROJECTS */}
+      <section id="projects" className="scroll-mt-20 border-b border-border">
+        <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+          <SectionHeader
+            eyebrow="Projects"
+            title="Selected work"
+            description="Machine learning, healthcare analytics, and full-stack builds."
+          />
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {projects.map((p) => (
+              <ProjectCard key={p.title} project={p} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SKILLS */}
+      <section id="skills" className="scroll-mt-20 border-b border-border bg-muted/40">
+        <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+          <SectionHeader eyebrow="Skills" title="Tools I build with" />
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {skills.map((group) => (
+              <div key={group.label}>
+                <h3 className="text-sm font-semibold uppercase tracking-wide text-primary">
+                  {group.label}
+                </h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {group.items.map((item) => (
+                    <li
+                      key={item}
+                      className="rounded-md border border-border bg-background px-3 py-1.5 text-sm text-foreground"
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
-
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Editorial note */}
-      <section className="border-b border-[var(--rule)] bg-[color:var(--paper-warm)]/40">
-        <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 md:grid-cols-[160px_1fr] md:gap-12 md:px-10">
-          <div className="space-y-2">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
-              A Note
+      {/* ABOUT */}
+      <section id="about" className="scroll-mt-20 border-b border-border">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[1fr_2fr] md:px-10">
+          <SectionHeader eyebrow="About" title="Why I build with data" compact />
+          <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
+            <p className="text-muted-foreground italic">
+              [Replace with a short, personal paragraph on what draws you to data
+              and building software.]
             </p>
-          </div>
-          <div>
-            <p className="font-display text-2xl leading-snug text-foreground/85 md:text-3xl">
-              I&apos;m curious about how clinicians, patients, and policymakers learn to
-              trust a model — and what it costs them when that trust is misplaced. My
-              work lives in that small, careful margin.
-            </p>
-            <Link
-              to="/about"
-              className="mt-8 inline-flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.22em] text-foreground hover:text-[color:var(--teal-deep)]"
-            >
-              <span className="border-b border-[color:var(--teal-deep)] pb-0.5">More on the work</span>
-              <span aria-hidden>→</span>
-            </Link>
           </div>
         </div>
       </section>
 
-      {/* Featured article */}
-      <section>
-        <div className="mx-auto max-w-5xl px-6 py-20 md:px-10">
-          <div className="flex items-end justify-between border-b border-[var(--rule)] pb-6">
-            <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
-                Featured
-              </p>
-              <h2 className="mt-2 font-display text-3xl italic tracking-tight">
-                Selected research
-              </h2>
-            </div>
-            <Link
-              to="/projects"
-              className="text-[11px] uppercase tracking-[0.22em] text-[color:var(--muted-ink)] hover:text-foreground"
-            >
-              All work →
-            </Link>
+      {/* BEYOND CODE */}
+      <section className="scroll-mt-20 border-b border-border bg-muted/40">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[1fr_2fr] md:px-10">
+          <SectionHeader eyebrow="Beyond Code" title="Off the clock" compact />
+          <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
+            <p className="text-muted-foreground italic">
+              [Replace with a couple of sentences about what you like to do
+              outside of tech — hobbies, interests.]
+            </p>
           </div>
-          <div className="mt-2">
-            {featured && <FeaturedArticle project={featured} />}
+        </div>
+      </section>
+
+      {/* CONTACT */}
+      <section id="contact" className="scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
+          <SectionHeader
+            eyebrow="Contact"
+            title="Let's talk"
+            description="Open to internships and collaborations in data, health analytics, and software engineering."
+            center
+          />
+          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={`mailto:${EMAIL}`}
+              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            >
+              <Mail className="h-4 w-4" /> {EMAIL}
+            </a>
+            <a
+              href={LINKEDIN}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <Linkedin className="h-4 w-4" /> LinkedIn
+            </a>
+            <a
+              href={GITHUB}
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
+              <Github className="h-4 w-4" /> GitHub
+            </a>
           </div>
         </div>
       </section>
@@ -175,46 +240,76 @@ function Index() {
   );
 }
 
-function FeaturedArticle({
-  project,
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  center,
+  compact,
 }: {
-  project: (typeof projects)[number];
+  eyebrow: string;
+  title: string;
+  description?: string;
+  center?: boolean;
+  compact?: boolean;
 }) {
   return (
-    <article className="grid gap-10 py-12 md:grid-cols-[160px_1fr] md:gap-12">
-      <div className="space-y-2">
-        <p className="text-[11px] italic text-[color:var(--muted-ink)]">{project.dates}</p>
-      </div>
-      <div>
-        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
-          {project.role}{project.org ? ` — ${project.org}` : ""}
+    <div className={center ? "mx-auto max-w-2xl" : compact ? "" : "max-w-2xl"}>
+      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
+        {eyebrow}
+      </p>
+      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+        {title}
+      </h2>
+      {description && (
+        <p className="mt-4 text-base text-muted-foreground md:text-lg">
+          {description}
         </p>
-        <h3 className="mt-3 font-display text-4xl leading-[1.1] tracking-tight md:text-5xl">
+      )}
+    </div>
+  );
+}
+
+function ProjectCard({ project }: { project: Project }) {
+  return (
+    <article className="group flex flex-col justify-between rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/40 hover:shadow-sm">
+      <div>
+        <h3 className="text-xl font-semibold tracking-tight text-foreground">
           {project.title}
         </h3>
-        <p className="mt-6 max-w-2xl font-display text-lg leading-relaxed text-foreground/80">
+        <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
           {project.description}
         </p>
-        <div className="mt-8 flex flex-wrap items-center gap-3">
-          {project.metric && (
-            <span className="inline-flex items-baseline gap-2 border border-[color:var(--teal-deep)]/30 bg-[color:var(--paper-warm)] px-3 py-1.5">
-              <span className="font-display text-lg italic text-[color:var(--teal-deep)]">
-                {project.metric.value}
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.22em] text-[color:var(--muted-ink)]">
-                {project.metric.label}
-              </span>
-            </span>
-          )}
+        <ul className="mt-5 flex flex-wrap gap-1.5">
           {project.tags.map((t) => (
-            <span
+            <li
               key={t}
-              className="border border-[var(--rule)] px-3 py-1 text-[10px] uppercase tracking-[0.2em] text-[color:var(--muted-ink)]"
+              className="rounded-md bg-muted px-2 py-1 text-xs font-medium text-foreground/80"
             >
               {t}
-            </span>
+            </li>
           ))}
-        </div>
+        </ul>
+      </div>
+      <div className="mt-6 flex flex-wrap gap-2">
+        <a
+          href={project.code}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+        >
+          <Github className="h-3.5 w-3.5" /> Code
+        </a>
+        {project.demo && (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+          >
+            <ExternalLink className="h-3.5 w-3.5" /> Live Demo
+          </a>
+        )}
       </div>
     </article>
   );
