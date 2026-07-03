@@ -176,7 +176,12 @@ function Index() {
       {/* ABOUT */}
       <section id="about" className="scroll-mt-20 border-t-2 border-white">
         <div className="mx-auto max-w-6xl px-6 py-28 md:px-10">
-          <blockquote className="font-display text-2xl leading-snug tracking-tight text-foreground md:text-3xl">
+          <SectionHeader
+            number="03"
+            eyebrow="About"
+            title="Why I build with data"
+          />
+          <blockquote className="mt-10 max-w-4xl font-display text-2xl leading-snug tracking-tight text-foreground md:text-3xl">
             <span className="mr-1 text-gold">“</span>
             Data is everywhere, but the glamorous part is the smallest part. You
             spend something like 95% of your time cleaning data and maybe 5%
@@ -186,15 +191,6 @@ function Index() {
             in the first place.
             <span className="ml-1 text-gold">”</span>
           </blockquote>
-          <div className="mt-12 grid gap-12 md:grid-cols-[1fr_2fr]">
-            <SectionHeader
-              number="03"
-              eyebrow="About"
-              title="Why I build with data"
-              compact
-            />
-            <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg" />
-          </div>
         </div>
         <div className="mx-auto h-px max-w-6xl bg-border" />
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
