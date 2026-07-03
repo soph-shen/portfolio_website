@@ -82,9 +82,8 @@ const EMAIL = "xiyuan.shen@outlook.com";
 function Index() {
   return (
     <>
-      {/* HERO — cream + dotted grid */}
+      {/* HERO — solid warm cream */}
       <section id="home" className="relative scroll-mt-20 overflow-hidden bg-cream">
-        <div className="dot-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden />
         <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-24 text-center md:px-10 md:py-32">
           <div className="h-32 w-32 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-40 md:w-40">
             <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
@@ -173,8 +172,8 @@ function Index() {
         </div>
       </section>
 
-      {/* ABOUT — dark charcoal with gold accents */}
-      <section id="about" className="scroll-mt-20 bg-charcoal text-cream">
+      {/* ABOUT — deep muted teal with cream text */}
+      <section id="about" className="scroll-mt-20 bg-teal text-cream">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
           <SectionHeader
             number="03"
