@@ -63,17 +63,15 @@ const projects: Project[] = [
 ];
 
 const skills = [
+  { label: "Languages", items: ["Python", "SQL", "R"] },
   {
-    label: "Languages",
-    items: ["Python", "TypeScript", "JavaScript", "SQL"],
+    label: "Libraries & ML",
+    items: ["NumPy", "Pandas", "Scikit-Learn", "Matplotlib", "Seaborn"],
   },
+  { label: "Web & App", items: ["React", "FastAPI"] },
   {
-    label: "Frameworks & Libraries",
-    items: ["React", "FastAPI", "PyTorch", "scikit-learn", "pandas", "NumPy"],
-  },
-  {
-    label: "Tools",
-    items: ["Git", "GitHub", "Vite"],
+    label: "Tools & Platforms",
+    items: ["Tableau", "Stata", "Excel", "GitHub", "Claude Code"],
   },
 ];
 
@@ -153,7 +151,7 @@ function Index() {
       <section id="skills" className="scroll-mt-20 border-t border-border bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader number="02" eyebrow="Skills" title="Tools I build with" />
-          <div className="mt-12 grid gap-8 md:grid-cols-3">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {skills.map((group) => (
               <div key={group.label}>
                 <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-gold">
