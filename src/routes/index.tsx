@@ -130,7 +130,7 @@ function Index() {
       </section>
 
       {/* PROJECTS → ABOUT — mixed yellow gradient */}
-      <div className="yellow-mix border-t border-border">
+      <div className="yellow-mix border-t-2 border-charcoal/25">
       <section id="projects" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader
@@ -148,7 +148,7 @@ function Index() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="scroll-mt-20 border-t border-border">
+      <section id="skills" className="scroll-mt-20 border-t-2 border-charcoal/25">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader number="02" eyebrow="Skills" title="Tools I build with" />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -174,7 +174,7 @@ function Index() {
       </section>
 
       {/* ABOUT */}
-      <section id="about" className="scroll-mt-20 border-t border-border">
+      <section id="about" className="scroll-mt-20 border-t-2 border-charcoal/25">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
           <SectionHeader
             number="03"
@@ -208,7 +208,7 @@ function Index() {
       </div>
 
       {/* CONTACT — white */}
-      <section id="contact" className="scroll-mt-20 border-t border-border bg-paper">
+      <section id="contact" className="scroll-mt-20 border-t-2 border-charcoal/25 bg-paper">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
           <SectionHeader
             number="05"
