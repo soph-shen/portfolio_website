@@ -207,7 +207,7 @@ function Index() {
           />
           <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
             <p>
-              Gym, get outside, and rate meals on Beli. Currently hunting for
+              Things I do in my free time: Gym, get outside, and rate meals on Beli. Currently hunting for
               good hiking trails around RTP (recs welcome).
             </p>
           </div>
