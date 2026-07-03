@@ -76,6 +76,37 @@ const skills = [
   },
 ];
 
+type Experience = {
+  role: string;
+  org: string;
+  dates: string;
+  description: string;
+};
+
+const experience: Experience[] = [
+  {
+    role: "Computational Neuroimaging Research Engineer",
+    org: "Boerwinkle Lab",
+    dates: "Feb 2026 – Present",
+    description:
+      "Built a Python pipeline to classify resting-state fMRI components into brain networks, seizure-onset zones, and noise for pediatric epilepsy research.",
+  },
+  {
+    role: "Predictive Analytics Researcher",
+    org: "UNC School of Data Science & Society",
+    dates: "May 2025 – May 2026",
+    description:
+      "Developed a LASSO-based risk screener from 650+ survey records; contributed to a CDC-funded study and was selected to present at NACCHO360 2026.",
+  },
+  {
+    role: "Data Visualization Intern",
+    org: "UNC Water Institute",
+    dates: "Jan – Sept 2025",
+    description:
+      "Built an interactive Tableau dashboard synthesizing 4,000+ studies on environmental health services for policymakers.",
+  },
+];
+
 const GITHUB = "https://github.com/soph-shen";
 const LINKEDIN = "https://www.linkedin.com/in/xiyuan-shen-13a41b2b1";
 const EMAIL = "xiyuan.shen@outlook.com";
@@ -170,10 +201,40 @@ function Index() {
         </div>
       </section>
 
+      {/* EXPERIENCE */}
+      <section id="experience" className="scroll-mt-20">
+        <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+          <SectionHeader number="02" eyebrow="Experience" title="Where I've worked" />
+          <ol className="mt-12 space-y-8">
+            {experience.map((item) => (
+              <li
+                key={item.role}
+                className="grid gap-2 border-t border-charcoal/15 pt-6 md:grid-cols-[1fr_2fr] md:gap-8"
+              >
+                <div>
+                  <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+                    {item.dates}
+                  </p>
+                </div>
+                <div>
+                  <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">
+                    {item.role}
+                  </h3>
+                  <p className="mt-1 text-sm text-muted-foreground">{item.org}</p>
+                  <p className="mt-3 text-base leading-relaxed text-foreground/85">
+                    {item.description}
+                  </p>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       {/* SKILLS */}
       <section id="skills" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
-          <SectionHeader number="02" eyebrow="Skills" title="Tools I build with" />
+          <SectionHeader number="03" eyebrow="Skills" title="Tools I build with" />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {skills.map((group) => (
               <div key={group.label}>
@@ -200,7 +261,7 @@ function Index() {
       <section id="off-the-clock" className="scroll-mt-20">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
           <SectionHeader
-            number="03"
+            number="04"
             eyebrow="Beyond Code"
             title="Off the clock"
             compact
@@ -219,7 +280,7 @@ function Index() {
       <section id="contact" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
           <SectionHeader
-            number="04"
+            number="05"
             eyebrow="Contact"
             title="Let's talk"
             description="Open to internships and collaborations in data, health analytics, and software engineering."
