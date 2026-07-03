@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
+import portrait from "@/assets/sophia-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -85,10 +86,13 @@ function Index() {
       {/* HERO — solid warm cream */}
       <section id="home" className="relative scroll-mt-20 overflow-hidden bg-cream">
         <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-24 text-center md:px-10 md:py-32">
-          <div className="h-32 w-32 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-40 md:w-40">
-            <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
-              Photo
-            </div>
+          <div className="h-40 w-40 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-48 md:w-48">
+            <img
+              src={portrait.url}
+              alt="Sophia (Xiyuan) Shen"
+              className="h-full w-full object-cover"
+              style={{ objectPosition: "68% 30%" }}
+            />
           </div>
           <div className="max-w-3xl space-y-5">
             <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl">
