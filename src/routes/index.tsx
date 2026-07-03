@@ -135,7 +135,7 @@ function Index() {
         <div className="mx-auto max-w-[680px] px-6 pb-24 pt-6 text-center md:px-8 md:pb-28 md:pt-8">
           <blockquote
             style={{ fontFamily: "var(--font-quote)" }}
-            className="text-[28px] italic leading-[1.25] tracking-tight text-charcoal md:text-[32px] md:leading-[1.3]"
+            className="text-[23px] italic leading-[1.25] tracking-tight text-charcoal md:text-[27px] md:leading-[1.3]"
           >
             <span className="mr-1 text-gold">“</span>
             Data is everywhere, but the glamorous part is the smallest part. You
