@@ -152,7 +152,8 @@ function Index() {
         </div>
       </section>
 
-      {/* PROJECTS */}
+      {/* PROJECTS → OFF THE CLOCK — warm gradient band */}
+      <div className="warm-gradient">
       <section id="projects" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader
@@ -212,6 +213,7 @@ function Index() {
           </div>
         </div>
       </section>
+      </div>
 
       {/* CONTACT */}
       <section id="contact" className="scroll-mt-20">
