@@ -83,8 +83,8 @@ const EMAIL = "xiyuan.shen@outlook.com";
 function Index() {
   return (
     <>
-      {/* HERO — solid warm cream */}
-      <section id="home" className="relative scroll-mt-20 overflow-hidden bg-cream">
+      {/* HERO */}
+      <section id="home" className="relative scroll-mt-20 overflow-hidden">
         <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-6 pt-10 text-center md:px-10 md:pb-8 md:pt-14">
           <div className="h-40 w-40 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-48 md:w-48">
             <img
@@ -149,8 +149,7 @@ function Index() {
         </div>
       </section>
 
-      {/* PROJECTS → OFF THE CLOCK — mixed yellow gradient */}
-      <div className="yellow-mix">
+      {/* PROJECTS */}
       <section id="projects" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader
@@ -168,7 +167,7 @@ function Index() {
       </section>
 
       {/* SKILLS */}
-      <section id="skills" className="scroll-mt-20 border-t border-charcoal/30">
+      <section id="skills" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader number="02" eyebrow="Skills" title="Tools I build with" />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -194,7 +193,7 @@ function Index() {
       </section>
 
       {/* OFF THE CLOCK */}
-      <section id="off-the-clock" className="scroll-mt-20 border-t border-charcoal/30">
+      <section id="off-the-clock" className="scroll-mt-20">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
           <SectionHeader
             number="03"
@@ -210,10 +209,9 @@ function Index() {
           </div>
         </div>
       </section>
-      </div>
 
-      {/* CONTACT — white */}
-      <section id="contact" className="scroll-mt-20 border-t border-charcoal/30 bg-cream">
+      {/* CONTACT */}
+      <section id="contact" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
           <SectionHeader
             number="04"
