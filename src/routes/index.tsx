@@ -85,7 +85,7 @@ function Index() {
     <>
       {/* HERO — solid warm cream */}
       <section id="home" className="relative scroll-mt-20 overflow-hidden bg-cream">
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-24 text-center md:px-10 md:py-32">
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-6 pt-24 text-center md:px-10 md:pb-8 md:pt-32">
           <div className="h-40 w-40 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-48 md:w-48">
             <img
               src={portrait.url}
@@ -131,14 +131,8 @@ function Index() {
             </a>
           </div>
         </div>
-      </section>
-
-      {/* PULL QUOTE — standalone butter block */}
-      <section
-        aria-label="Statement"
-        className="scroll-mt-20 border-y border-charcoal/30 bg-butter"
-      >
-        <div className="mx-auto max-w-[680px] px-6 py-20 text-center md:px-8 md:py-24">
+        {/* PULL QUOTE — continues the hero */}
+        <div className="mx-auto max-w-[680px] px-6 pb-24 pt-6 text-center md:px-8 md:pb-28 md:pt-8">
           <blockquote
             style={{ fontFamily: "var(--font-quote)" }}
             className="text-[28px] italic leading-[1.25] tracking-tight text-charcoal md:text-[32px] md:leading-[1.3]"
