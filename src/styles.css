@@ -66,6 +66,7 @@
   --font-display: "Fraunces", "Playfair Display", Georgia, serif;
   --font-body: "Inter", system-ui, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-quote: "Cormorant Garamond", "Fraunces", Georgia, serif;
   /* Warm cream + charcoal + golden yellow palette */
   --cream: oklch(0.972 0.014 85);
   --cream-deep: oklch(0.955 0.02 85);

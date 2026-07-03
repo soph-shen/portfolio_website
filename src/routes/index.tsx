@@ -131,7 +131,26 @@ function Index() {
 
       {/* PROJECTS → ABOUT — mixed yellow gradient */}
       <div className="yellow-mix border-t border-charcoal/30">
-      <section id="projects" className="scroll-mt-20">
+      {/* PULL QUOTE — standalone hook */}
+      <section aria-label="Statement" className="scroll-mt-20">
+        <div className="mx-auto max-w-4xl px-6 py-24 text-center md:px-10 md:py-28">
+          <blockquote
+            style={{ fontFamily: "var(--font-quote)" }}
+            className="text-[28px] italic leading-[1.5] tracking-tight text-charcoal md:text-[32px] md:leading-[1.55]"
+          >
+            <span className="mr-1 text-gold">“</span>
+            Data is everywhere, but the glamorous part is the smallest part. You
+            spend something like 95% of your time cleaning data and maybe 5%
+            actually modeling it. I've also stopped believing good data science
+            means hitting 90%+ accuracy. It means serving the people the data
+            came from, and that starts with picking the right metric to measure
+            in the first place.
+            <span className="ml-1 text-gold">”</span>
+          </blockquote>
+        </div>
+      </section>
+
+      <section id="projects" className="scroll-mt-20 border-t border-charcoal/30">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader
             number="01"
@@ -173,29 +192,11 @@ function Index() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="scroll-mt-20 border-t border-charcoal/30">
-        <div className="mx-auto max-w-6xl px-6 py-28 md:px-10">
-          <SectionHeader
-            number="03"
-            eyebrow="About"
-            title="Why I build with data"
-          />
-          <blockquote className="mt-10 max-w-4xl font-display text-2xl leading-snug tracking-tight text-foreground md:text-3xl">
-            <span className="mr-1 text-gold">“</span>
-            Data is everywhere, but the glamorous part is the smallest part. You
-            spend something like 95% of your time cleaning data and maybe 5%
-            actually modeling it. I've also stopped believing good data science
-            means hitting 90%+ accuracy. It means serving the people the data
-            came from, and that starts with picking the right metric to measure
-            in the first place.
-            <span className="ml-1 text-gold">”</span>
-          </blockquote>
-        </div>
-        <div className="h-px w-full bg-charcoal/30" />
+      {/* OFF THE CLOCK */}
+      <section id="off-the-clock" className="scroll-mt-20 border-t border-charcoal/30">
         <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
           <SectionHeader
-            number="04"
+            number="03"
             eyebrow="Beyond Code"
             title="Off the clock"
             compact
@@ -215,7 +216,7 @@ function Index() {
       <section id="contact" className="scroll-mt-20 border-t border-charcoal/30 bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
           <SectionHeader
-            number="05"
+            number="04"
             eyebrow="Contact"
             title="Let's talk"
             description="Open to internships and collaborations in data, health analytics, and software engineering."
