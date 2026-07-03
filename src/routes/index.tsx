@@ -154,14 +154,14 @@ function Index() {
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {skills.map((group) => (
               <div key={group.label}>
-                <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-gold">
+                <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-charcoal">
                   {group.label}
                 </h3>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-md border border-border bg-paper px-3 py-1.5 text-sm text-foreground"
+                      className="rounded-md border border-charcoal/20 bg-paper px-3 py-1.5 text-sm text-foreground"
                     >
                       {item}
                     </li>
