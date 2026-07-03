@@ -16,7 +16,7 @@ export function SiteHeader() {
             Sophia Shen
           </span>
           <span className="hidden text-[10px] uppercase tracking-[0.22em] text-[color:var(--muted-ink)] sm:inline">
-            Vol. 01
+            Issue 01
           </span>
         </Link>
         <nav className="flex items-center gap-1 text-[11px] uppercase tracking-[0.22em]">
