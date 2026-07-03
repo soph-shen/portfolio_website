@@ -212,7 +212,7 @@ function Index() {
       </div>
 
       {/* CONTACT — white */}
-      <section id="contact" className="scroll-mt-20 border-t border-charcoal/30 bg-paper">
+      <section id="contact" className="scroll-mt-20 border-t border-charcoal/30 bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
           <SectionHeader
             number="05"
