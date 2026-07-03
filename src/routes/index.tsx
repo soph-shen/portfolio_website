@@ -84,23 +84,22 @@ const EMAIL = "xiyuan.shen@outlook.com";
 function Index() {
   return (
     <>
-      {/* HERO */}
-      <section
-        id="home"
-        className="scroll-mt-20 border-b border-border"
-      >
-        <div className="mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-24 text-center md:px-10 md:py-32">
-          <div className="h-32 w-32 overflow-hidden rounded-full border border-border bg-muted md:h-40 md:w-40">
+      {/* HERO — cream + dotted grid */}
+      <section id="home" className="relative scroll-mt-20 overflow-hidden bg-cream">
+        <div className="dot-grid pointer-events-none absolute inset-0 opacity-60" aria-hidden />
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-10 px-6 py-24 text-center md:px-10 md:py-32">
+          <div className="h-32 w-32 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-40 md:w-40">
             <div className="flex h-full w-full items-center justify-center text-xs text-muted-foreground">
               Photo
             </div>
           </div>
-          <div className="space-y-4">
-            <h1 className="text-4xl font-semibold tracking-tight text-foreground md:text-6xl">
-              Sophia (Xiyuan) Shen
+          <div className="max-w-3xl space-y-5">
+            <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl">
+              Sophia <span className="italic text-charcoal">(Xiyuan)</span> Shen
             </h1>
-            <p className="text-lg text-muted-foreground md:text-xl">
-              {/* tagline placeholder — update later */}
+            <p className="font-display text-xl leading-snug text-foreground/85 md:text-2xl">
+              {/* tagline — highlight one keyword when set. Example structure kept below. */}
+              A data <span className="highlight-swipe">builder</span> at the intersection of health &amp; software.
             </p>
             <p className="text-sm text-muted-foreground md:text-base">
               Data Science &amp; Health Policy @ UNC–Chapel Hill
@@ -111,32 +110,33 @@ function Index() {
               href={GITHUB}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
             >
-              <Github className="h-4 w-4" /> GitHub
+              <Github className="h-4 w-4 text-gold" /> GitHub
             </a>
             <a
               href={LINKEDIN}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
             >
-              <Linkedin className="h-4 w-4" /> LinkedIn
+              <Linkedin className="h-4 w-4 text-gold" /> LinkedIn
             </a>
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex items-center gap-2 rounded-md bg-charcoal px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-charcoal-soft"
             >
-              <Mail className="h-4 w-4" /> Email
+              <Mail className="h-4 w-4 text-gold" /> Email
             </a>
           </div>
         </div>
       </section>
 
-      {/* PROJECTS */}
-      <section id="projects" className="scroll-mt-20 border-b border-border">
+      {/* PROJECTS — white */}
+      <section id="projects" className="scroll-mt-20 border-t border-border bg-paper">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader
+            number="01"
             eyebrow="Projects"
             title="Selected work"
             description="Machine learning, healthcare analytics, and full-stack builds."
@@ -149,21 +149,21 @@ function Index() {
         </div>
       </section>
 
-      {/* SKILLS */}
-      <section id="skills" className="scroll-mt-20 border-b border-border bg-muted/40">
+      {/* SKILLS — cream */}
+      <section id="skills" className="scroll-mt-20 border-t border-border bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
-          <SectionHeader eyebrow="Skills" title="Tools I build with" />
+          <SectionHeader number="02" eyebrow="Skills" title="Tools I build with" />
           <div className="mt-12 grid gap-8 md:grid-cols-3">
             {skills.map((group) => (
               <div key={group.label}>
-                <h3 className="text-sm font-semibold uppercase tracking-wide text-primary">
+                <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-gold">
                   {group.label}
                 </h3>
                 <ul className="mt-4 flex flex-wrap gap-2">
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-md border border-border bg-background px-3 py-1.5 text-sm text-foreground"
+                      className="rounded-md border border-border bg-paper px-3 py-1.5 text-sm text-foreground"
                     >
                       {item}
                     </li>
@@ -175,25 +175,34 @@ function Index() {
         </div>
       </section>
 
-      {/* ABOUT */}
-      <section id="about" className="scroll-mt-20 border-b border-border">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[1fr_2fr] md:px-10">
-          <SectionHeader eyebrow="About" title="Why I build with data" compact />
-          <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
-            <p className="text-muted-foreground italic">
+      {/* ABOUT — dark charcoal with gold accents */}
+      <section id="about" className="scroll-mt-20 bg-charcoal text-cream">
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
+          <SectionHeader
+            number="03"
+            eyebrow="About"
+            title="Why I build with data"
+            compact
+            invert
+          />
+          <div className="space-y-6 text-base leading-relaxed text-cream/85 md:text-lg">
+            <p className="italic text-cream/60">
               [Replace with a short, personal paragraph on what draws you to data
               and building software.]
             </p>
           </div>
         </div>
-      </section>
-
-      {/* BEYOND CODE */}
-      <section className="scroll-mt-20 border-b border-border bg-muted/40">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-24 md:grid-cols-[1fr_2fr] md:px-10">
-          <SectionHeader eyebrow="Beyond Code" title="Off the clock" compact />
-          <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
-            <p className="text-muted-foreground italic">
+        <div className="mx-auto h-px max-w-6xl bg-cream/10" />
+        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
+          <SectionHeader
+            number="04"
+            eyebrow="Beyond Code"
+            title="Off the clock"
+            compact
+            invert
+          />
+          <div className="space-y-6 text-base leading-relaxed text-cream/85 md:text-lg">
+            <p className="italic text-cream/60">
               [Replace with a couple of sentences about what you like to do
               outside of tech — hobbies, interests.]
             </p>
@@ -201,10 +210,11 @@ function Index() {
         </div>
       </section>
 
-      {/* CONTACT */}
-      <section id="contact" className="scroll-mt-20">
+      {/* CONTACT — cream */}
+      <section id="contact" className="scroll-mt-20 border-t border-border bg-cream">
         <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
           <SectionHeader
+            number="05"
             eyebrow="Contact"
             title="Let's talk"
             description="Open to internships and collaborations in data, health analytics, and software engineering."
@@ -213,25 +223,25 @@ function Index() {
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+              className="inline-flex items-center gap-2 rounded-md bg-charcoal px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-charcoal-soft"
             >
-              <Mail className="h-4 w-4" /> {EMAIL}
+              <Mail className="h-4 w-4 text-gold" /> {EMAIL}
             </a>
             <a
               href={LINKEDIN}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
             >
-              <Linkedin className="h-4 w-4" /> LinkedIn
+              <Linkedin className="h-4 w-4 text-gold" /> LinkedIn
             </a>
             <a
               href={GITHUB}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-background px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
             >
-              <Github className="h-4 w-4" /> GitHub
+              <Github className="h-4 w-4 text-gold" /> GitHub
             </a>
           </div>
         </div>
@@ -241,28 +251,34 @@ function Index() {
 }
 
 function SectionHeader({
+  number,
   eyebrow,
   title,
   description,
   center,
   compact,
+  invert,
 }: {
+  number?: string;
   eyebrow: string;
   title: string;
   description?: string;
   center?: boolean;
   compact?: boolean;
+  invert?: boolean;
 }) {
+  const titleColor = invert ? "text-cream" : "text-foreground";
+  const descColor = invert ? "text-cream/70" : "text-muted-foreground";
   return (
     <div className={center ? "mx-auto max-w-2xl" : compact ? "" : "max-w-2xl"}>
-      <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
-        {eyebrow}
+      <p className={`font-mono text-xs font-semibold uppercase tracking-[0.22em] text-gold ${center ? "justify-center" : ""}`}>
+        {number ? `${number} — ` : ""}{eyebrow}
       </p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+      <h2 className={`mt-4 font-display text-4xl leading-[1.1] tracking-tight md:text-5xl ${titleColor}`}>
         {title}
       </h2>
       {description && (
-        <p className="mt-4 text-base text-muted-foreground md:text-lg">
+        <p className={`mt-4 text-base md:text-lg ${descColor}`}>
           {description}
         </p>
       )}
@@ -272,9 +288,9 @@ function SectionHeader({
 
 function ProjectCard({ project }: { project: Project }) {
   return (
-    <article className="group flex flex-col justify-between rounded-lg border border-border bg-card p-6 transition-all hover:border-primary/40 hover:shadow-sm">
+    <article className="card-lift group flex flex-col justify-between rounded-xl border border-border bg-paper p-6 hover:border-gold/50">
       <div>
-        <h3 className="text-xl font-semibold tracking-tight text-foreground">
+        <h3 className="font-display text-2xl font-medium tracking-tight text-foreground">
           {project.title}
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
@@ -284,7 +300,7 @@ function ProjectCard({ project }: { project: Project }) {
           {project.tags.map((t) => (
             <li
               key={t}
-              className="rounded-md bg-muted px-2 py-1 text-xs font-medium text-foreground/80"
+              className="rounded-md bg-cream px-2 py-1 font-mono text-[11px] font-medium text-foreground/75"
             >
               {t}
             </li>
@@ -296,18 +312,18 @@ function ProjectCard({ project }: { project: Project }) {
           href={project.code}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-1.5 rounded-md border border-border bg-background px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-primary hover:text-primary"
+          className="inline-flex items-center gap-1.5 rounded-md border border-border bg-paper px-3 py-1.5 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
         >
-          <Github className="h-3.5 w-3.5" /> Code
+          <Github className="h-3.5 w-3.5 text-gold" /> Code
         </a>
         {project.demo && (
           <a
             href={project.demo}
             target="_blank"
             rel="noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-md bg-primary px-3 py-1.5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center gap-1.5 rounded-md bg-charcoal px-3 py-1.5 text-sm font-medium text-cream transition-colors hover:bg-charcoal-soft"
           >
-            <ExternalLink className="h-3.5 w-3.5" /> Live Demo
+            <ExternalLink className="h-3.5 w-3.5 text-gold" /> Live Demo
           </a>
         )}
       </div>
