@@ -16,7 +16,7 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
     return (
       <article className="group relative grid gap-6 border-t border-[var(--rule)] py-12 md:grid-cols-[160px_1fr] md:gap-12">
         <div className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
-          No. {num} / forthcoming
+          Forthcoming
         </div>
         <div className="rounded-sm border border-dashed border-[var(--rule)] bg-[color:var(--paper-warm)] p-8">
           <p className="font-display text-2xl italic text-foreground/70">A study in progress.</p>
@@ -30,9 +30,6 @@ export function ProjectCard({ project, index }: { project: Project; index: numbe
   return (
     <article className="group relative grid gap-6 border-t border-[var(--rule)] py-12 md:grid-cols-[160px_1fr] md:gap-12">
       <div className="space-y-2">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
-          Article No. {num}
-        </p>
         <p className="text-[11px] italic text-[color:var(--muted-ink)]">{project.dates}</p>
       </div>
       <div>

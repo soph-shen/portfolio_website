@@ -27,6 +27,12 @@ function Index() {
             <div className="relative grid gap-12 md:grid-cols-[1fr_2fr] md:gap-16">
               {/* Methodology / sidebar */}
               <aside className="order-2 space-y-7 md:order-1 md:border-r md:border-[var(--rule)] md:pr-10">
+                <div className="aspect-[4/5] w-full overflow-hidden border border-[var(--rule)] bg-[color:var(--paper-warm)]">
+                  {/* Portrait — replace src with your photo */}
+                  <div className="flex h-full w-full items-center justify-center text-[10px] uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
+                    Portrait
+                  </div>
+                </div>
                 <div>
                   <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
                     Researcher
@@ -46,7 +52,7 @@ function Index() {
                     <p className="mb-1 text-[10px] font-semibold uppercase tracking-[0.25em] text-[color:var(--muted-ink)]">
                       Class
                     </p>
-                    <p className="text-sm">2027</p>
+                    <p className="text-sm">2028</p>
                   </div>
                 </div>
                 <div>
@@ -112,12 +118,6 @@ function Index() {
               </div>
             </div>
 
-            <div className="mt-14 flex items-center justify-end gap-2 border-t border-[var(--rule)] pt-4">
-              <span className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
-                Issue 01 / No. 01
-              </span>
-              <div className="h-px w-4 bg-[color:var(--rule)]" />
-            </div>
           </div>
         </div>
       </section>
@@ -127,9 +127,8 @@ function Index() {
         <div className="mx-auto grid max-w-5xl gap-10 px-6 py-20 md:grid-cols-[160px_1fr] md:gap-12 md:px-10">
           <div className="space-y-2">
             <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
-              From the Editor
+              A Note
             </p>
-            <p className="text-[11px] italic text-[color:var(--muted-ink)]">Note 01</p>
           </div>
           <div>
             <p className="font-display text-2xl leading-snug text-foreground/85 md:text-3xl">
@@ -154,7 +153,7 @@ function Index() {
           <div className="flex items-end justify-between border-b border-[var(--rule)] pb-6">
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--teal-deep)]">
-                Featured Article
+                Featured
               </p>
               <h2 className="mt-2 font-display text-3xl italic tracking-tight">
                 Selected research
@@ -164,7 +163,7 @@ function Index() {
               to="/projects"
               className="text-[11px] uppercase tracking-[0.22em] text-[color:var(--muted-ink)] hover:text-foreground"
             >
-              Index of work →
+              All work →
             </Link>
           </div>
           <div className="mt-2">
@@ -184,9 +183,6 @@ function FeaturedArticle({
   return (
     <article className="grid gap-10 py-12 md:grid-cols-[160px_1fr] md:gap-12">
       <div className="space-y-2">
-        <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[color:var(--muted-ink)]">
-          Article No. 01
-        </p>
         <p className="text-[11px] italic text-[color:var(--muted-ink)]">{project.dates}</p>
       </div>
       <div>
