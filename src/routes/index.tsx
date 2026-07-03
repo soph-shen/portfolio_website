@@ -205,26 +205,31 @@ function Index() {
       <section id="experience" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader number="02" eyebrow="Experience" title="Where I've worked" />
-          <ol className="mt-12 space-y-8">
+          <ol className="relative mt-12 space-y-10 pl-10 md:pl-14">
+            {/* vertical timeline line */}
+            <span
+              aria-hidden
+              className="absolute left-3 top-2 bottom-2 w-px bg-charcoal/25 md:left-5"
+            />
             {experience.map((item) => (
-              <li
-                key={item.role}
-                className="grid gap-2 border-t border-charcoal/15 pt-6 md:grid-cols-[1fr_2fr] md:gap-8"
-              >
-                <div>
-                  <p className="font-mono text-xs font-medium uppercase tracking-[0.14em] text-muted-foreground">
+              <li key={item.role} className="relative">
+                {/* gold dot marker */}
+                <span
+                  aria-hidden
+                  className="absolute -left-[30px] top-6 h-3 w-3 rounded-full bg-gold ring-4 ring-cream md:-left-[38px]"
+                />
+                <article className="rounded-xl border border-charcoal/20 bg-paper p-6 shadow-sm">
+                  <p className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-gold">
                     {item.dates}
                   </p>
-                </div>
-                <div>
-                  <h3 className="font-display text-xl font-semibold tracking-tight text-foreground">
+                  <h3 className="mt-2 font-display text-2xl font-medium tracking-tight text-foreground">
                     {item.role}
                   </h3>
                   <p className="mt-1 text-sm text-muted-foreground">{item.org}</p>
                   <p className="mt-3 text-base leading-relaxed text-foreground/85">
                     {item.description}
                   </p>
-                </div>
+                </article>
               </li>
             ))}
           </ol>
