@@ -96,7 +96,7 @@ function Index() {
             </h1>
             <p className="font-display text-xl leading-snug text-foreground/85 md:text-2xl">
               {/* tagline — highlight one keyword when set. Example structure kept below. */}
-              A data <span className="highlight-swipe">builder</span> at the intersection of health &amp; software.
+              A data <span className="highlight-swipe">builder</span> at the intersection of health &amp; ML.
             </p>
             <p className="text-sm text-muted-foreground md:text-base">
               Data Science &amp; Health Policy @ UNC–Chapel Hill
@@ -206,9 +206,8 @@ function Index() {
           />
           <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
             <p>
-              Things I do off the clock: gym, get outside, and rate meals on
-              Beli. Currently hunting for good hiking trails around RTP (recs
-              welcome).
+              Gym, get outside, and rate meals on Beli. Currently hunting for
+              good hiking trails around RTP (recs welcome).
             </p>
           </div>
         </div>
