@@ -70,9 +70,11 @@
   --cream: oklch(0.972 0.014 85);
   --cream-deep: oklch(0.955 0.02 85);
   --paper: oklch(0.995 0.003 85);
-  --charcoal: oklch(0.22 0.008 60);
-  --charcoal-soft: oklch(0.28 0.008 60);
+  --charcoal: oklch(0.28 0.012 55);
+  --charcoal-soft: oklch(0.34 0.012 55);
   --gold: oklch(0.79 0.14 82);
+  --teal: oklch(0.36 0.04 195);
+  --teal-soft: oklch(0.42 0.04 195);
   --gold-soft: oklch(0.88 0.11 85);
   --background: var(--cream);
   --foreground: oklch(0.24 0.012 60);
@@ -116,6 +118,8 @@
   --color-charcoal-soft: var(--charcoal-soft);
   --color-gold: var(--gold);
   --color-gold-soft: var(--gold-soft);
+  --color-teal: var(--teal);
+  --color-teal-soft: var(--teal-soft);
 }
 
 .dark {
