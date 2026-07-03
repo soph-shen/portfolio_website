@@ -213,6 +213,7 @@ function Index() {
           </div>
         </div>
       </section>
+      </div>
 
       {/* CONTACT */}
       <section id="contact" className="scroll-mt-20">
