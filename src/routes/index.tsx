@@ -139,7 +139,7 @@ function Index() {
             </h1>
             <p className="font-display text-xl leading-snug text-foreground/85 md:text-2xl">
               {/* tagline — highlight one keyword when set. Example structure kept below. */}
-              A data <span className="highlight-swipe">scientist</span> at the intersection of health and ML.
+              A <span className="highlight-swipe">data</span> scientist at the intersection of health and ML.
             </p>
             <p className="text-sm text-muted-foreground md:text-base">
               Data Science &amp; Health Policy @ UNC–Chapel Hill
