@@ -289,10 +289,11 @@ function Index() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className={
+                      className="rounded-md border border-charcoal/20 px-3 py-1.5 text-sm text-foreground"
+                      style={
                         CORE_SKILLS.has(item)
-                          ? "rounded-md border border-gold bg-gold px-3 py-1.5 text-sm font-medium text-charcoal"
-                          : "rounded-md border border-charcoal/20 bg-paper px-3 py-1.5 text-sm text-foreground"
+                          ? { backgroundColor: "color-mix(in oklab, var(--gold) 22%, transparent)" }
+                          : undefined
                       }
                     >
                       {item}
