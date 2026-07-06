@@ -26,6 +26,7 @@ export const Route = createFileRoute("/")({
 
 type Project = {
   title: string;
+  category: string;
   description: string;
   tags: string[];
   code: string;
@@ -34,31 +35,35 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Chinese Digit Classifier",
-    description:
-      "A neural network built from scratch (no ML libraries) with a draw-to-predict web app.",
-    tags: ["Python", "FastAPI", "React", "TypeScript", "NumPy"],
-    code: "https://github.com/soph-shen/neuralnetwork",
-  },
-  {
     title: "FrozenLake RL",
+    category: "Reinforcement Learning",
     description:
       "Reinforcement learning agents (DQN, DRQN, QR-DRQN, RND-DRQN) for a partially observable, windy grid world, with a full research paper.",
     tags: ["Python", "PyTorch", "Gymnasium"],
     code: "https://github.com/soph-shen/FrozenLake-RL",
   },
   {
-    title: "Predicting Diabetes Risk",
-    description: "Modeling the top drivers of diabetes from CDC survey data.",
-    tags: ["Python", "scikit-learn", "pandas"],
-    code: "https://github.com/soph-shen/predictingdiabetes",
+    title: "Chinese Digit Classifier",
+    category: "Deep Learning",
+    description:
+      "A neural network built from scratch (no ML libraries) with a draw-to-predict web app.",
+    tags: ["Python", "NumPy", "FastAPI", "React", "TypeScript"],
+    code: "https://github.com/soph-shen/neuralnetwork",
   },
   {
     title: "Federal Budget Analysis",
+    category: "Policy Analytics",
     description:
       "Predicting federal grant cuts across the UNC system with ML.",
-    tags: ["Python", "scikit-learn", "pandas"],
+    tags: ["Python", "Scikit-learn", "Statsmodels", "Seaborn", "Pandas"],
     code: "https://github.com/soph-shen/DataAnalysis_FederalBudget",
+  },
+  {
+    title: "Predicting Diabetes Risk",
+    category: "Health Analytics",
+    description: "Modeling the top drivers of diabetes from CDC survey data.",
+    tags: ["Python", "Scikit-learn", "Pandas", "Matplotlib"],
+    code: "https://github.com/soph-shen/predictingdiabetes",
   },
 ];
 
@@ -380,7 +385,10 @@ function ProjectCard({ project }: { project: Project }) {
   return (
     <article className="card-lift group flex flex-col justify-between rounded-xl border border-charcoal/20 bg-paper p-6 hover:border-gold">
       <div>
-        <h3 className="font-display text-2xl font-medium tracking-tight text-foreground">
+        <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
+          {project.category}
+        </p>
+        <h3 className="mt-2 font-display text-2xl font-medium tracking-tight text-foreground">
           {project.title}
         </h3>
         <p className="mt-3 text-sm leading-relaxed text-foreground/80">
