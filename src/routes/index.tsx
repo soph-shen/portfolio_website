@@ -55,7 +55,6 @@ const projects: Project[] = [
     code: "https://github.com/soph-shen/neuralnetwork",
     images: [
       "https://raw.githubusercontent.com/soph-shen/neuralnetwork/main/demo_five.jpg",
-      "https://raw.githubusercontent.com/soph-shen/neuralnetwork/main/demo_eight.jpg",
     ],
   },
   {
