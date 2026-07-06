@@ -35,7 +35,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "FrozenLake RL",
+    title: "Frozen Lake Simulation",
     category: "Reinforcement Learning",
     description:
       "Reinforcement learning agents (DQN, DRQN, QR-DRQN, RND-DRQN) for a partially observable, windy grid world, with a full research paper.",
