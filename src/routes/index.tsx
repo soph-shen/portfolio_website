@@ -63,15 +63,19 @@ const projects: Project[] = [
 ];
 
 const skills = [
-  { label: "Languages", items: ["Python", "SQL", "R"] },
+  { label: "Languages", items: ["Python", "SQL", "R", "HTML", "CSS", "Java"] },
   {
     label: "Libraries & ML",
-    items: ["NumPy", "Pandas", "Scikit-Learn", "Matplotlib", "Seaborn"],
+    items: ["NumPy", "Pandas", "Scikit-Learn", "TensorFlow", "PyTorch", "Matplotlib", "Seaborn", "Nilearn", "NiBabel", "ANTs"],
+  },
+  {
+    label: "ML & AI",
+    items: ["Regression", "Classification", "Clustering", "Gradient Boosting", "Neural Networks", "Reinforcement Learning"],
   },
   { label: "Web & App", items: ["React", "FastAPI"] },
   {
     label: "Tools & Platforms",
-    items: ["Tableau", "Stata", "Excel", "GitHub", "Claude Code"],
+    items: ["Tableau", "Stata", "Excel", "GitHub", "Claude Code", "VSCode", "Jupyter Notebook", "Git", "Docker", "Notion"],
   },
 ];
 
@@ -80,6 +84,7 @@ type Experience = {
   org: string;
   dates: string;
   description: string;
+  link?: { href: string; label: string };
 };
 
 const experience: Experience[] = [
@@ -103,6 +108,10 @@ const experience: Experience[] = [
     dates: "Jan – Sept 2025",
     description:
       "Built an interactive Tableau dashboard synthesizing 4,000+ studies on environmental health services for policymakers.",
+    link: {
+      href: "https://public.tableau.com/app/profile/water.institute/viz/UNCWaterInstituteEnviornmentalHealthServicesinHealthcareFacilitiesEvidenceMap_17702392540970/Datadashboard",
+      label: "View Dashboard",
+    },
   },
 ];
 
@@ -130,7 +139,7 @@ function Index() {
             </h1>
             <p className="font-display text-xl leading-snug text-foreground/85 md:text-2xl">
               {/* tagline — highlight one keyword when set. Example structure kept below. */}
-              A data <span className="highlight-swipe">builder</span> at the intersection of health &amp; ML.
+              A data <span className="highlight-swipe">scientist</span> at the intersection of health and ML.
             </p>
             <p className="text-sm text-muted-foreground md:text-base">
               Data Science &amp; Health Policy @ UNC–Chapel Hill
@@ -228,6 +237,16 @@ function Index() {
                   <p className="mt-2 text-sm leading-snug text-foreground/85">
                     {item.description}
                   </p>
+                  {item.link && (
+                    <a
+                      href={item.link.href}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-gold hover:underline"
+                    >
+                      <ExternalLink className="h-3.5 w-3.5" /> {item.link.label}
+                    </a>
+                  )}
                 </article>
               </li>
             ))}
@@ -239,7 +258,7 @@ function Index() {
       <section id="skills" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader number="03" eyebrow="Skills" title="Tools I build with" />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
             {skills.map((group) => (
               <div key={group.label}>
                 <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-charcoal">
@@ -287,7 +306,7 @@ function Index() {
             number="05"
             eyebrow="Contact"
             title="Let's talk"
-            description="Open to internships and collaborations in data, health analytics, and software engineering."
+            description="I love hearing about what people are building in data, health, and ML. Always happy to connect!"
             center
           />
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
