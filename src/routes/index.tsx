@@ -74,6 +74,15 @@ const projects: Project[] = [
   },
 ];
 
+const CORE_SKILLS = new Set([
+  "Python",
+  "SQL",
+  "Pandas",
+  "NumPy",
+  "Scikit-Learn",
+  "GitHub",
+]);
+
 const skills = [
   { label: "Languages", items: ["Python", "SQL", "R", "HTML", "CSS", "Java"] },
   {
@@ -84,10 +93,9 @@ const skills = [
     label: "ML & AI",
     items: ["Regression", "Classification", "Clustering", "Gradient Boosting", "Neural Networks", "Reinforcement Learning"],
   },
-  { label: "Web & App", items: ["React", "FastAPI"] },
   {
-    label: "Tools & Platforms",
-    items: ["Tableau", "Stata", "Excel", "GitHub", "Claude Code", "VSCode", "Jupyter Notebook", "Git", "Docker", "Notion"],
+    label: "Frameworks & Tools",
+    items: ["React", "FastAPI", "Tableau", "Stata", "Excel", "GitHub", "VSCode", "Jupyter Notebook", "Git", "Docker", "Claude Code", "Notion"],
   },
 ];
 
@@ -271,7 +279,7 @@ function Index() {
       <section id="skills" className="scroll-mt-20">
         <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
           <SectionHeader number="03" eyebrow="Skills" title="Tools I build with" />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {skills.map((group) => (
               <div key={group.label}>
                 <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-charcoal">
@@ -281,7 +289,11 @@ function Index() {
                   {group.items.map((item) => (
                     <li
                       key={item}
-                      className="rounded-md border border-charcoal/20 bg-paper px-3 py-1.5 text-sm text-foreground"
+                      className={
+                        CORE_SKILLS.has(item)
+                          ? "rounded-md border border-gold bg-gold px-3 py-1.5 text-sm font-medium text-charcoal"
+                          : "rounded-md border border-charcoal/20 bg-paper px-3 py-1.5 text-sm text-foreground"
+                      }
                     >
                       {item}
                     </li>
