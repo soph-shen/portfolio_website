@@ -229,23 +229,25 @@ function Index() {
                   <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
                     {item.dates}
                   </p>
-                  <h3 className="mt-1.5 font-display text-lg font-medium leading-snug tracking-tight text-foreground">
-                    {item.role}
-                  </h3>
+                  <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
+                    <h3 className="font-display text-lg font-medium leading-snug tracking-tight text-foreground">
+                      {item.role}
+                    </h3>
+                    {item.link && (
+                      <a
+                        href={item.link.href}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-1 rounded-md border border-charcoal/20 bg-paper px-2 py-1 font-mono text-[11px] font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
+                      >
+                        <ExternalLink className="h-3 w-3 text-gold" /> {item.link.label}
+                      </a>
+                    )}
+                  </div>
                   <p className="mt-0.5 text-xs text-muted-foreground">{item.org}</p>
                   <p className="mt-2 text-sm leading-snug text-foreground/85">
                     {item.description}
                   </p>
-                  {item.link && (
-                    <a
-                      href={item.link.href}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-gold hover:underline"
-                    >
-                      <ExternalLink className="h-3.5 w-3.5" /> {item.link.label}
-                    </a>
-                  )}
                 </article>
               </li>
             ))}
