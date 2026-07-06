@@ -55,7 +55,7 @@ const projects: Project[] = [
     category: "Policy Analytics",
     description:
       "Predicting federal grant cuts across the UNC system with ML.",
-    tags: ["Python", "Scikit-learn", "Statsmodels", "Seaborn", "Pandas"],
+    tags: ["Python", "Scikit-learn", "Seaborn", "Pandas"],
     code: "https://github.com/soph-shen/DataAnalysis_FederalBudget",
   },
   {
