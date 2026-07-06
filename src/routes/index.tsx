@@ -184,8 +184,7 @@ function Index() {
             spend something like 95% of your time cleaning data and maybe 5%
             actually modeling it. I've also stopped believing good data science
             means hitting 90%+ accuracy. It means serving the people the data
-            came from, and that starts with picking the right metric to measure
-            in the first place.
+            came from, and that starts with picking the right metric to measure.
             <span className="ml-1 text-gold">”</span>
           </blockquote>
         </div>
