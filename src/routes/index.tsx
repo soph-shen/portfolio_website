@@ -66,7 +66,7 @@ const skills = [
   { label: "Languages", items: ["Python", "SQL", "R", "HTML", "CSS", "Java"] },
   {
     label: "Libraries & ML",
-    items: ["NumPy", "Pandas", "Scikit-Learn", "TensorFlow", "PyTorch", "Matplotlib", "Seaborn", "Nilearn", "NiBabel", "ANTs"],
+    items: ["NumPy", "Pandas", "Scikit-Learn", "TensorFlow", "PyTorch", "Matplotlib", "Seaborn"],
   },
   {
     label: "ML & AI",
