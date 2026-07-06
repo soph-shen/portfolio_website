@@ -103,7 +103,7 @@ const experience: Experience[] = [
       "Developed a LASSO-based risk screener from 650+ survey records; contributed to a CDC-funded study and was selected to present at NACCHO360 2026.",
   },
   {
-    role: "Data Visualization Intern",
+    role: "Data Visualization & Analytics Intern",
     org: "UNC Water Institute",
     dates: "Jan – Sept 2025",
     description:
@@ -229,11 +229,15 @@ function Index() {
                   <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
                     {item.dates}
                   </p>
-                  <div className="mt-1.5 flex flex-wrap items-center gap-x-3 gap-y-1.5">
-                    <h3 className="font-display text-lg font-medium leading-snug tracking-tight text-foreground">
-                      {item.role}
-                    </h3>
-                    {item.link && (
+                  <h3 className="mt-1.5 font-display text-lg font-medium leading-snug tracking-tight text-foreground">
+                    {item.role}
+                  </h3>
+                  <p className="mt-0.5 text-xs text-muted-foreground">{item.org}</p>
+                  <p className="mt-2 text-sm leading-snug text-foreground/85">
+                    {item.description}
+                  </p>
+                  {item.link && (
+                    <div className="mt-3">
                       <a
                         href={item.link.href}
                         target="_blank"
@@ -242,12 +246,8 @@ function Index() {
                       >
                         <ExternalLink className="h-3 w-3 text-gold" /> {item.link.label}
                       </a>
-                    )}
-                  </div>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{item.org}</p>
-                  <p className="mt-2 text-sm leading-snug text-foreground/85">
-                    {item.description}
-                  </p>
+                    </div>
+                  )}
                 </article>
               </li>
             ))}
