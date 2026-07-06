@@ -90,7 +90,7 @@ type Experience = {
 const experience: Experience[] = [
   {
     role: "Computational Neuroimaging Research Engineer",
-    org: "UNC School of Medicine Boerwinkle Lab",
+    org: "UNC Department of Neurology: Boerwinkle Lab",
     dates: "Feb 2026 – Present",
     description:
       "Built a Python pipeline to classify resting-state fMRI components into brain networks, seizure-onset zones, and noise for pediatric epilepsy research.",
