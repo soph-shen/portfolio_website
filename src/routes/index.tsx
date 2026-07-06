@@ -31,6 +31,7 @@ type Project = {
   tags: string[];
   code: string;
   demo?: string;
+  images?: string[];
 };
 
 const projects: Project[] = [
@@ -41,6 +42,9 @@ const projects: Project[] = [
       "Reinforcement learning agents (DQN, DRQN, QR-DRQN, RND-DRQN) for a partially observable, windy grid world, with a full research paper.",
     tags: ["Python", "PyTorch", "Gymnasium"],
     code: "https://github.com/soph-shen/FrozenLake-RL",
+    images: [
+      "https://raw.githubusercontent.com/soph-shen/FrozenLake-RL/main/assets/map8_v5_RND-DRQN_20260419_194828.gif",
+    ],
   },
   {
     title: "Chinese Digit Classifier",
@@ -49,6 +53,10 @@ const projects: Project[] = [
       "A neural network built from scratch (no ML libraries) with a draw-to-predict web app.",
     tags: ["Python", "NumPy", "FastAPI", "React", "TypeScript"],
     code: "https://github.com/soph-shen/neuralnetwork",
+    images: [
+      "https://raw.githubusercontent.com/soph-shen/neuralnetwork/main/demo_five.jpg",
+      "https://raw.githubusercontent.com/soph-shen/neuralnetwork/main/demo_eight.jpg",
+    ],
   },
   {
     title: "Federal Budget Analysis",
