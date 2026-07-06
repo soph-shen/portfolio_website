@@ -394,14 +394,21 @@ function ProjectCard({ project }: { project: Project }) {
     <article className="card-lift group flex flex-col justify-between overflow-hidden rounded-xl border border-charcoal/20 bg-paper p-6 hover:border-gold">
       <div>
         {project.images && project.images.length > 0 && (
-          <div className="-mx-6 -mt-6 mb-5 grid gap-1.5 bg-charcoal/5" style={{ gridTemplateColumns: `repeat(${project.images.length}, minmax(0, 1fr))` }}>
+          <div
+            className="-mx-6 -mt-6 mb-5 grid gap-1.5 bg-paper"
+            style={{ gridTemplateColumns: `repeat(${project.images.length}, minmax(0, 1fr))` }}
+          >
             {project.images.map((src) => (
               <img
                 key={src}
                 src={src}
                 alt=""
                 loading="lazy"
-                className="h-48 w-full object-cover"
+                className={
+                  project.images!.length === 1
+                    ? "h-48 w-full bg-paper object-contain"
+                    : "h-48 w-full object-cover object-top"
+                }
               />
             ))}
           </div>
