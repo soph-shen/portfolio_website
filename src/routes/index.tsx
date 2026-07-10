@@ -153,11 +153,11 @@ function Index() {
               style={{ objectPosition: "68% 30%" }}
             />
           </div>
-          <div className="max-w-3xl space-y-5">
+          <div className="max-w-4xl space-y-5">
             <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl">
               Sophia <span className="italic text-charcoal">(Xiyuan)</span> Shen
             </h1>
-            <p className="font-display text-xl leading-snug text-foreground/85 md:text-2xl">
+            <p className="font-display text-base leading-snug text-foreground/85 sm:text-lg md:text-xl lg:whitespace-nowrap">
               Data scientist and builder, working across <span className="highlight-swipe">ML, full-stack, and analytics</span>.
             </p>
             <p className="text-sm text-muted-foreground md:text-base">
