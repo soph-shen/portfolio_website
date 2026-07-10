@@ -158,7 +158,7 @@ function Index() {
               Sophia <span className="italic text-charcoal">(Xiyuan)</span> Shen
             </h1>
             <p className="font-display text-base leading-snug text-foreground/85 sm:text-lg md:text-xl lg:whitespace-nowrap">
-              Data <span className="highlight-swipe">scientist</span> and <span className="highlight-swipe">builder</span>, working across ML, full-stack, and analytics.
+              A data <span className="highlight-swipe">scientist</span> and <span className="highlight-swipe">builder</span>, working across ML, full-stack, and analytics.
             </p>
             <p className="text-sm text-muted-foreground md:text-base">
               Data Science &amp; Health Policy @ UNC–Chapel Hill
