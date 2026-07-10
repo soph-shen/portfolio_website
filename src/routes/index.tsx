@@ -158,8 +158,7 @@ function Index() {
               Sophia <span className="italic text-charcoal">(Xiyuan)</span> Shen
             </h1>
             <p className="font-display text-xl leading-snug text-foreground/85 md:text-2xl">
-              {/* tagline — highlight one keyword when set. Example structure kept below. */}
-              A <span className="highlight-swipe">data</span> scientist at the intersection of health and ML.
+              Data scientist and builder, working across <span className="highlight-swipe">ML, full-stack, and analytics</span>.
             </p>
             <p className="text-sm text-muted-foreground md:text-base">
               Data Science &amp; Health Policy @ UNC–Chapel Hill
@@ -218,7 +217,6 @@ function Index() {
             number="01"
             eyebrow="Projects"
             title="Selected work"
-            description="Machine learning, healthcare analytics, and full-stack builds."
           />
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {projects.map((p) => (
