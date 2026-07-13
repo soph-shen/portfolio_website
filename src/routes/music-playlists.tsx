@@ -24,7 +24,7 @@ export const Route = createFileRoute("/music-playlists")({
 function MusicPlaylistsPage() {
   return (
     <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-5xl px-6 py-20 md:px-10 md:py-28">
+      <div className="mx-auto max-w-5xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
         <Link
           to="/"
           className="group inline-flex items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
@@ -36,7 +36,7 @@ function MusicPlaylistsPage() {
           </span>
         </Link>
 
-        <h1 className="mt-12 font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
+        <h1 className="mt-10 font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
           Playlists
         </h1>
         <p className="mt-6 max-w-2xl text-base text-foreground/70 md:text-lg">
@@ -45,7 +45,7 @@ function MusicPlaylistsPage() {
           languages, genres, moods, and eras.
         </p>
 
-        <div className="mt-20 flex items-center justify-center">
+        <div className="mt-10 flex items-center justify-center">
           <div className="w-full max-w-md rounded-xl border border-charcoal/20 bg-paper p-10 text-center">
             <Headphones className="mx-auto h-8 w-8 text-gold" strokeWidth={1.5} />
             <p className="mt-5 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
