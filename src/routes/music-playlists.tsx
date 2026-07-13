@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Headphones } from "lucide-react";
+import { ArrowLeft, Headphones, Music } from "lucide-react";
 
 export const Route = createFileRoute("/music-playlists")({
   head: () => ({
