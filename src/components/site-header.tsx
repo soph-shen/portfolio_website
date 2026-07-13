@@ -346,6 +346,7 @@ export function SiteHeader() {
           </Link>
         )}
         <nav className="hidden items-center gap-1 text-sm md:flex">
+          <AnchorLink hash="home" label="Home" />
           <NavDropdown label="Work" items={workDropdownItems} />
           <TopRouteLink to="/thoughts" label="Thoughts" />
           <NavDropdown label="Living Life" items={livingLifeDropdownItems} />
@@ -362,6 +363,11 @@ export function SiteHeader() {
       </div>
       {mobileOpen && (
         <nav className="flex flex-col gap-3 border-t border-border bg-cream/95 px-6 py-4 text-sm md:hidden">
+          <MobileAnchorLink
+            hash="home"
+            label="Home"
+            onNavigate={() => setMobileOpen(false)}
+          />
           <MobileAccordion
             label="Work"
             items={workDropdownItems}
