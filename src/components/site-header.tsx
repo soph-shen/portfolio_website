@@ -204,7 +204,7 @@ function MobileAccordion({
         type="button"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="inline-flex items-center gap-1 text-left text-muted-foreground transition-colors hover:text-foreground"
+        className="inline-flex items-center gap-1 self-start text-left text-muted-foreground transition-colors hover:text-foreground"
       >
         {label}
         <ChevronDown
