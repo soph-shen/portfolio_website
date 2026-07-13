@@ -153,7 +153,7 @@ function LocationPage() {
         {guide.travel.length === 0 ? (
           <EmptyState message="Travel notes coming soon." />
         ) : (
-          <ul className="divide-y divide-cream/10 rounded-xl border border-cream/15 bg-paper">
+          <ul className="divide-y divide-charcoal/10 rounded-xl border border-charcoal/20 bg-paper">
             {guide.travel.map((note, i) => (
               <li key={i} className="p-5">
                 <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
