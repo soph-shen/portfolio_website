@@ -58,8 +58,8 @@ function AroundTheWorldIndex() {
         Where I&apos;ve been, eaten, and explored
       </h1>
       <p className="mt-6 max-w-2xl text-base text-cream/70 md:text-lg">
-        Restaurant recs, local guides, and favorite spots. Most are in the US,
-        but I am adding more to my collection.
+        Restaurant recs, local guides, and favorite spots. Most are in the US, but I am adding more
+        to my collection.
       </p>
 
       <div className="mt-16 grid gap-6 md:grid-cols-2">
@@ -90,9 +90,7 @@ function LocationCard({ location }: { location: Location }) {
         <h3 className="font-display text-2xl font-medium tracking-tight text-foreground">
           {location.title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-foreground/80">
-          {location.description}
-        </p>
+        <p className="mt-2 text-sm leading-relaxed text-foreground/80">{location.description}</p>
         <ul className="mt-4 flex flex-wrap gap-1.5">
           {location.tags.map((tag) => (
             <li
