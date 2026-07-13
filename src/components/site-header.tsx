@@ -223,7 +223,7 @@ function MobileAccordion({
                   setOpen(false);
                   onNavigate();
                 }}
-                className="text-left text-muted-foreground transition-colors hover:text-foreground"
+                className="w-fit text-left text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
               </Link>
