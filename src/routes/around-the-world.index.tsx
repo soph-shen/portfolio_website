@@ -26,7 +26,7 @@ function AroundTheWorldIndex() {
     <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
       <BackLink />
 
-      <div className="inline-block">
+      <div className="grid grid-cols-[minmax(0,max-content)]">
         <div className="mt-10 flex items-center gap-3">
           <span className="text-2xl md:text-3xl" aria-hidden="true">
             🌍🌎🌏
