@@ -314,18 +314,6 @@ function Index() {
           </div>
         </section>
 
-        {/* OFF THE CLOCK */}
-        <section id="off-the-clock" className="scroll-mt-20">
-          <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
-            <SectionHeader number="04" eyebrow="Beyond Code" title="Off the clock" compact />
-            <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
-              <p>
-                Things I do in my free time: Gym, get outside, and rate meals on Beli. Currently
-                hunting for good hiking trails around RTP (recs welcome).
-              </p>
-            </div>
-          </div>
-        </section>
       </div>
     </>
   );
