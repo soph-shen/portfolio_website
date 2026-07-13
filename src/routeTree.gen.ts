@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThoughtsRouteImport } from './routes/thoughts'
 import { Route as McpRouteImport } from './routes/mcp'
+import { Route as AroundTheWorldRouteImport } from './routes/around-the-world'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
@@ -24,6 +25,11 @@ const ThoughtsRoute = ThoughtsRouteImport.update({
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AroundTheWorldRoute = AroundTheWorldRouteImport.update({
+  id: '/around-the-world',
+  path: '/around-the-world',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IndexRoute = IndexRouteImport.update({
@@ -52,6 +58,7 @@ const Char91DotmcpChar93InvokeToolToolRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/around-the-world': typeof AroundTheWorldRoute
   '/mcp': typeof McpRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -60,6 +67,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/around-the-world': typeof AroundTheWorldRoute
   '/mcp': typeof McpRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -69,6 +77,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/around-the-world': typeof AroundTheWorldRoute
   '/mcp': typeof McpRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
@@ -79,6 +88,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/around-the-world'
     | '/mcp'
     | '/thoughts'
     | '/.mcp/list-tools'
@@ -87,6 +97,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/around-the-world'
     | '/mcp'
     | '/thoughts'
     | '/.mcp/list-tools'
@@ -95,6 +106,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/around-the-world'
     | '/mcp'
     | '/thoughts'
     | '/.mcp/list-tools'
@@ -104,6 +116,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AroundTheWorldRoute: typeof AroundTheWorldRoute
   McpRoute: typeof McpRoute
   ThoughtsRoute: typeof ThoughtsRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
@@ -125,6 +138,13 @@ declare module '@tanstack/react-router' {
       path: '/mcp'
       fullPath: '/mcp'
       preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/around-the-world': {
+      id: '/around-the-world'
+      path: '/around-the-world'
+      fullPath: '/around-the-world'
+      preLoaderRoute: typeof AroundTheWorldRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -160,6 +180,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AroundTheWorldRoute: AroundTheWorldRoute,
   McpRoute: McpRoute,
   ThoughtsRoute: ThoughtsRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
