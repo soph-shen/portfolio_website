@@ -260,6 +260,49 @@ function TopRouteLink({ to, label, onNavigate }: { to: string; label: string; on
   );
 }
 
+function MobileTopLink({ to, label, onNavigate }: { to: string; label: string; onNavigate?: () => void }) {
+  return (
+    <Link
+      to={to}
+      onClick={onNavigate}
+      className="text-left text-muted-foreground transition-colors hover:text-foreground"
+    >
+      {label}
+    </Link>
+  );
+}
+
+function MobileAnchorLink({ hash, label, onNavigate }: { hash: string; label: string; onNavigate?: () => void }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+
+  const baseCls = "text-left text-muted-foreground transition-colors hover:text-foreground";
+
+  if (isHome) {
+    return (
+      <a
+        href={`#${hash}`}
+        onClick={(e) => {
+          e.preventDefault();
+          const el = document.getElementById(hash);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          history.replaceState(null, "", `#${hash}`);
+          onNavigate?.();
+        }}
+        className={baseCls}
+      >
+        {label}
+      </a>
+    );
+  }
+
+  return (
+    <Link to="/" hash={hash} onClick={onNavigate} className={baseCls}>
+      {label}
+    </Link>
+  );
+}
+
 const workDropdownItems: readonly DropdownItem[] = workItems.map((i) => ({
   kind: "anchor" as const,
   hash: i.hash,
