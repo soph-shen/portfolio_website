@@ -7,14 +7,12 @@ export const Route = createFileRoute("/contact")({
       { title: "Contact — Sophia Shen" },
       {
         name: "description",
-        content:
-          "Get in touch with Sophia Shen — Data Science & Health Policy at UNC–Chapel Hill.",
+        content: "Get in touch with Sophia Shen — Data Science & Health Policy at UNC–Chapel Hill.",
       },
       { property: "og:title", content: "Contact — Sophia Shen" },
       {
         property: "og:description",
-        content:
-          "Get in touch with Sophia Shen — Data Science & Health Policy at UNC–Chapel Hill.",
+        content: "Get in touch with Sophia Shen — Data Science & Health Policy at UNC–Chapel Hill.",
       },
     ],
   }),
@@ -35,8 +33,8 @@ function ContactPage() {
           Let&apos;s talk
         </h1>
         <p className="mt-6 text-base text-foreground/70 md:text-lg">
-          I love hearing about what people are building in data, health, and ML.
-          Always happy to connect!
+          I love hearing about what people are building in data, health, and ML. Always happy to
+          connect!
         </p>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-3">

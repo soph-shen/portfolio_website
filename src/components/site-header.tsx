@@ -407,11 +407,7 @@ export function SiteHeader() {
             items={livingLifeDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <MobileTopLink
-            to="/contact"
-            label="Contact"
-            onNavigate={() => setMobileOpen(false)}
-          />
+          <MobileTopLink to="/contact" label="Contact" onNavigate={() => setMobileOpen(false)} />
         </nav>
       )}
     </header>
