@@ -26,17 +26,19 @@ function AroundTheWorldIndex() {
     <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
       <BackLink />
 
-      <div className="mt-10 flex items-center gap-3">
-        <span className="text-2xl md:text-3xl" aria-hidden="true">
-          🌍🌎🌏
-        </span>
-        <h1 className="font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
-          Where I&apos;ve been, eaten, and explored
-        </h1>
+      <div className="w-fit">
+        <div className="mt-10 flex items-center gap-3">
+          <span className="text-2xl md:text-3xl" aria-hidden="true">
+            🌍🌎🌏
+          </span>
+          <h1 className="font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
+            Where I&apos;ve been, eaten, and explored
+          </h1>
+        </div>
+        <p className="mt-6 w-full text-base text-foreground/70 md:text-lg">
+          I love to travel. Not to tourist sites, but to explore local culture, scenery, and food. I&apos;m a big fan of road trips (thank you NC for making me like nature). Recently, most of my trips have been within the US, but I&apos;m adding more to the collection.
+        </p>
       </div>
-      <p className="mt-6 text-base text-foreground/70 md:text-lg">
-        I love to travel. Not to tourist sites, but to explore local culture, scenery, and food. I&apos;m a big fan of road trips (thank you NC for making me like nature). Recently, most of my trips have been within the US, but I&apos;m adding more to the collection.
-      </p>
 
       <div className="mt-10">
         <ComingSoonCard />
