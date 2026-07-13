@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Headphones } from "lucide-react";
+import { ArrowLeft, Headphones, Music } from "lucide-react";
 
 export const Route = createFileRoute("/music-playlists")({
   head: () => ({
@@ -23,8 +23,51 @@ export const Route = createFileRoute("/music-playlists")({
 
 function MusicPlaylistsPage() {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <div className="mx-auto max-w-5xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
+    <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
+      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-[0.04]">
+        <svg
+          className="h-full w-full text-charcoal"
+          viewBox="0 0 1200 600"
+          preserveAspectRatio="xMidYMid slice"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M0 300 C 150 240, 300 360, 450 300 S 750 240, 900 300 S 1050 360, 1200 300"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          />
+          <path
+            d="M0 330 C 120 270, 240 390, 360 330 S 600 270, 720 330 S 960 390, 1200 330"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          />
+          <path
+            d="M0 270 C 180 210, 360 330, 540 270 S 900 210, 1080 270 S 1140 330, 1200 270"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          />
+          <g fill="currentColor">
+            <circle cx="80" cy="180" r="4" />
+            <circle cx="95" cy="165" r="3" />
+            <circle cx="280" cy="420" r="4" />
+            <circle cx="295" cy="435" r="3" />
+            <circle cx="520" cy="150" r="4" />
+            <circle cx="535" cy="165" r="3" />
+            <circle cx="740" cy="440" r="4" />
+            <circle cx="755" cy="425" r="3" />
+            <circle cx="980" cy="190" r="4" />
+            <circle cx="995" cy="205" r="3" />
+            <circle cx="1120" cy="390" r="4" />
+            <circle cx="1135" cy="375" r="3" />
+          </g>
+        </svg>
+      </div>
+
+      <div className="relative mx-auto max-w-5xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
         <Link
           to="/"
           className="group inline-flex items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
@@ -36,9 +79,12 @@ function MusicPlaylistsPage() {
           </span>
         </Link>
 
-        <h1 className="mt-10 font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
-          Playlists
-        </h1>
+        <div className="mt-10 flex items-center gap-3">
+          <h1 className="font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
+            Playlists
+          </h1>
+          <Music className="h-6 w-6 text-gold md:h-8 md:w-8" strokeWidth={1.5} />
+        </div>
         <p className="mt-6 max-w-2xl text-base text-foreground/70 md:text-lg">
           I get bored of English pop pretty easily, so I&apos;m always digging for
           something new. Here you&apos;ll find playlists spanning different
@@ -46,7 +92,7 @@ function MusicPlaylistsPage() {
         </p>
 
         <div className="mt-10 flex items-center justify-center">
-          <div className="w-full max-w-md rounded-xl border border-charcoal/20 bg-paper p-10 text-center">
+          <div className="w-full max-w-md rounded-xl border border-gold/30 bg-paper/80 p-10 text-center shadow-sm">
             <Headphones className="mx-auto h-8 w-8 text-gold" strokeWidth={1.5} />
             <p className="mt-5 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
               Coming soon
