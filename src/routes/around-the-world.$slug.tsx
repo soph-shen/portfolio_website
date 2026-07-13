@@ -50,12 +50,11 @@ function LocationPage() {
             Coming soon
           </p>
           <p className="mt-3 text-sm leading-relaxed text-cream/60">
-            I&apos;m still gathering notes, photos, and favorite spots for this
-            guide. It will land here once it&apos;s ready to share.
+            I&apos;m still gathering notes, photos, and favorite spots for this guide. It will land
+            here once it&apos;s ready to share.
           </p>
         </div>
       </div>
     </div>
   );
 }
-
