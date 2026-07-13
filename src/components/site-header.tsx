@@ -13,7 +13,15 @@ const livingLifeItems = [
   { to: "/music-playlists", label: "Music Playlists" },
 ] as const;
 
-function AnchorLink({ hash, label, onNavigate }: { hash: string; label: string; onNavigate?: () => void }) {
+function AnchorLink({
+  hash,
+  label,
+  onNavigate,
+}: {
+  hash: string;
+  label: string;
+  onNavigate?: () => void;
+}) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
 
@@ -245,7 +253,15 @@ function MobileAccordion({
   );
 }
 
-function TopRouteLink({ to, label, onNavigate }: { to: string; label: string; onNavigate?: () => void }) {
+function TopRouteLink({
+  to,
+  label,
+  onNavigate,
+}: {
+  to: string;
+  label: string;
+  onNavigate?: () => void;
+}) {
   return (
     <Link
       to={to}
@@ -260,7 +276,15 @@ function TopRouteLink({ to, label, onNavigate }: { to: string; label: string; on
   );
 }
 
-function MobileTopLink({ to, label, onNavigate }: { to: string; label: string; onNavigate?: () => void }) {
+function MobileTopLink({
+  to,
+  label,
+  onNavigate,
+}: {
+  to: string;
+  label: string;
+  onNavigate?: () => void;
+}) {
   return (
     <Link
       to={to}
@@ -272,7 +296,15 @@ function MobileTopLink({ to, label, onNavigate }: { to: string; label: string; o
   );
 }
 
-function MobileAnchorLink({ hash, label, onNavigate }: { hash: string; label: string; onNavigate?: () => void }) {
+function MobileAnchorLink({
+  hash,
+  label,
+  onNavigate,
+}: {
+  hash: string;
+  label: string;
+  onNavigate?: () => void;
+}) {
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
 
@@ -363,21 +395,13 @@ export function SiteHeader() {
       </div>
       {mobileOpen && (
         <nav className="flex flex-col gap-3 border-t border-border bg-cream/95 px-6 py-4 text-sm md:hidden">
-          <MobileAnchorLink
-            hash="home"
-            label="Home"
-            onNavigate={() => setMobileOpen(false)}
-          />
+          <MobileAnchorLink hash="home" label="Home" onNavigate={() => setMobileOpen(false)} />
           <MobileAccordion
             label="Work"
             items={workDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <MobileTopLink
-            to="/thoughts"
-            label="Thoughts"
-            onNavigate={() => setMobileOpen(false)}
-          />
+          <MobileTopLink to="/thoughts" label="Thoughts" onNavigate={() => setMobileOpen(false)} />
           <MobileAccordion
             label="Living Life"
             items={livingLifeDropdownItems}
