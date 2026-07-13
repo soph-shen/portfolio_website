@@ -154,8 +154,8 @@ function Index() {
     <>
       {/* HERO */}
       <section id="home" className="relative scroll-mt-20 overflow-hidden">
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-4 pt-10 text-center md:px-10 md:pb-5 md:pt-14">
-          <div className="h-40 w-40 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-48 md:w-48">
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 pb-3 pt-8 text-center md:px-10 md:pb-4 md:pt-12">
+          <div className="h-36 w-36 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-44 md:w-44">
             <img
               src="/profile.jpg"
               alt="Sophia (Xiyuan) Shen"
@@ -163,7 +163,7 @@ function Index() {
               style={{ objectPosition: "68% 30%" }}
             />
           </div>
-          <div className="max-w-4xl space-y-5">
+          <div className="max-w-4xl space-y-4">
             <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-foreground md:text-7xl">
               Sophia <span className="italic text-charcoal">(Xiyuan)</span> Shen
             </h1>
@@ -176,7 +176,7 @@ function Index() {
               Data Science &amp; Health Policy @ UNC–Chapel Hill
             </p>
           </div>
-          <div className="flex items-center justify-center gap-5">
+          <div className="flex items-center justify-center gap-4">
             <a
               href={GITHUB}
               target="_blank"
@@ -205,7 +205,7 @@ function Index() {
           </div>
         </div>
         {/* PULL QUOTE — continues the hero */}
-        <div className="mx-auto max-w-[680px] px-6 pb-24 pt-4 text-center md:px-8 md:pb-28 md:pt-5">
+        <div className="mx-auto max-w-[680px] px-6 pb-20 pt-3 text-center md:px-8 md:pb-24 md:pt-4">
           <blockquote
             style={{ fontFamily: "var(--font-quote)" }}
             className="text-[23px] italic leading-[1.25] tracking-tight text-charcoal md:text-[27px] md:leading-[1.3]"
