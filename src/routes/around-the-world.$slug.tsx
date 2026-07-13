@@ -71,7 +71,7 @@ const emptyGuide: LocationGuide = {
 
 export const Route = createFileRoute("/around-the-world/$slug")({
   head: ({ params }) => {
-    const title = locationTitles[params.slug] ?? params.slug;
+    const title = guides[params.slug]?.title ?? "Location";
     return {
       meta: [
         { title: `${title} — Around the World — Sophia Shen` },
@@ -87,37 +87,142 @@ export const Route = createFileRoute("/around-the-world/$slug")({
 
 function LocationPage() {
   const { slug } = Route.useParams();
-  const title = locationTitles[slug] ?? slug;
+  const guide = guides[slug] ?? emptyGuide;
 
   return (
-    <div className="mx-auto max-w-3xl px-6 py-20 md:px-10 md:py-28">
+    <div className="mx-auto max-w-4xl px-6 py-20 md:px-10 md:py-28">
       <Link
         to="/around-the-world"
         className="group inline-flex items-center gap-2 text-sm text-cream/70 transition-colors hover:text-cream"
       >
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         <span className="relative">
-          Back to Around the World
+          Around the World
           <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-gold transition-transform duration-300 group-hover:scale-x-100" />
         </span>
       </Link>
 
-      <h1 className="mt-12 font-display text-4xl leading-[1.1] tracking-tight text-cream md:text-5xl">
-        {title}
+      <h1 className="mt-10 font-display text-4xl leading-[1.05] tracking-tight text-cream md:text-6xl">
+        {guide.title}
       </h1>
+      <p className="mt-5 max-w-2xl text-base text-cream/70 md:text-lg">{guide.intro}</p>
 
-      <div className="mt-16 flex items-center justify-center">
-        <div className="w-full max-w-md rounded-lg border border-cream/15 bg-cream/5 p-10 text-center">
-          <MapPin className="mx-auto h-8 w-8 text-gold" strokeWidth={1.5} />
-          <p className="mt-5 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
-            Coming soon
-          </p>
-          <p className="mt-3 text-sm leading-relaxed text-cream/60">
-            I&apos;m still gathering notes, photos, and favorite spots for this guide. It will land
-            here once it&apos;s ready to share.
-          </p>
-        </div>
+      <CategorySection number="01" label="Eats" icon={Utensils}>
+        {guide.eats.length === 0 ? (
+          <EmptyState message="Restaurant recs coming soon." />
+        ) : (
+          <div className="grid gap-4 md:grid-cols-2">
+            {guide.eats.map((eat, i) => (
+              <div
+                key={i}
+                className="card-lift rounded-xl border border-cream/15 bg-paper p-5"
+              >
+                <div className="flex items-start justify-between gap-3">
+                  <h3 className="font-display text-xl font-medium tracking-tight text-foreground">
+                    {eat.name}
+                  </h3>
+                  {typeof eat.rating === "number" && (
+                    <span className="shrink-0 rounded-md bg-gold/20 px-2 py-1 font-mono text-[11px] font-semibold text-foreground">
+                      {eat.rating}/10
+                    </span>
+                  )}
+                </div>
+                <span className="mt-2 inline-block rounded-md border border-charcoal/15 bg-paper px-2 py-1 font-mono text-[11px] font-medium text-foreground">
+                  {eat.tag}
+                </span>
+                <p className="mt-3 text-sm leading-relaxed text-foreground/80">{eat.note}</p>
+              </div>
+            ))}
+          </div>
+        )}
+      </CategorySection>
+
+      <CategorySection number="02" label="Shop" icon={ShoppingBag}>
+        <SpotList spots={guide.shop} emptyMessage="Shop recs coming soon." />
+      </CategorySection>
+
+      <CategorySection number="03" label="Hang" icon={Coffee}>
+        <SpotList spots={guide.hang} emptyMessage="Hangout spots coming soon." />
+      </CategorySection>
+
+      <CategorySection number="04" label="Nature" icon={Trees}>
+        <SpotList spots={guide.nature} emptyMessage="Nature spots coming soon." />
+      </CategorySection>
+
+      <CategorySection number="05" label="Travel Guide Notes" icon={Compass}>
+        {guide.travel.length === 0 ? (
+          <EmptyState message="Travel notes coming soon." />
+        ) : (
+          <ul className="divide-y divide-cream/10 rounded-xl border border-cream/15 bg-paper">
+            {guide.travel.map((note, i) => (
+              <li key={i} className="p-5">
+                <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
+                  {note.label}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed text-foreground/80">{note.note}</p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </CategorySection>
+    </div>
+  );
+}
+
+function CategorySection({
+  number,
+  label,
+  icon: Icon,
+  children,
+}: {
+  number: string;
+  label: string;
+  icon: LucideIcon;
+  children: React.ReactNode;
+}) {
+  return (
+    <section className="mt-20">
+      <div className="flex items-center gap-3">
+        <Icon className="h-4 w-4 text-gold" strokeWidth={1.75} />
+        <p className="font-mono text-xs font-semibold uppercase tracking-[0.22em] text-gold">
+          {number} — {label}
+        </p>
       </div>
+      <div className="mt-6">{children}</div>
+    </section>
+  );
+}
+
+function SpotList({ spots, emptyMessage }: { spots: Spot[]; emptyMessage: string }) {
+  if (spots.length === 0) return <EmptyState message={emptyMessage} />;
+  return (
+    <div className="grid gap-4 md:grid-cols-2">
+      {spots.map((spot, i) => (
+        <div
+          key={i}
+          className="card-lift rounded-xl border border-cream/15 bg-paper p-5"
+        >
+          <h3 className="font-display text-xl font-medium tracking-tight text-foreground">
+            {spot.name}
+          </h3>
+          {spot.tag && (
+            <span className="mt-2 inline-block rounded-md border border-charcoal/15 bg-paper px-2 py-1 font-mono text-[11px] font-medium text-foreground">
+              {spot.tag}
+            </span>
+          )}
+          <p className="mt-3 text-sm leading-relaxed text-foreground/80">{spot.note}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function EmptyState({ message }: { message: string }) {
+  return (
+    <div className="rounded-xl border border-dashed border-cream/20 bg-cream/5 p-8 text-center">
+      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-cream/60">
+        {message}
+      </p>
     </div>
   );
 }
