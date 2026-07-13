@@ -265,7 +265,7 @@ function MobileTopLink({ to, label, onNavigate }: { to: string; label: string; o
     <Link
       to={to}
       onClick={onNavigate}
-      className="text-left text-muted-foreground transition-colors hover:text-foreground"
+      className="w-fit text-left text-muted-foreground transition-colors hover:text-foreground"
     >
       {label}
     </Link>
