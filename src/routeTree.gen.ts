@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThoughtsRouteImport } from './routes/thoughts'
+import { Route as MusicPlaylistsRouteImport } from './routes/music-playlists'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as AroundTheWorldRouteImport } from './routes/around-the-world'
 import { Route as IndexRouteImport } from './routes/index'
@@ -22,6 +23,11 @@ import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[
 const ThoughtsRoute = ThoughtsRouteImport.update({
   id: '/thoughts',
   path: '/thoughts',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusicPlaylistsRoute = MusicPlaylistsRouteImport.update({
+  id: '/music-playlists',
+  path: '/music-playlists',
   getParentRoute: () => rootRouteImport,
 } as any)
 const McpRoute = McpRouteImport.update({
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/around-the-world': typeof AroundTheWorldRouteWithChildren
   '/mcp': typeof McpRoute
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -82,6 +89,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/mcp': typeof McpRoute
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -94,6 +102,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/around-the-world': typeof AroundTheWorldRouteWithChildren
   '/mcp': typeof McpRoute
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -107,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/around-the-world'
     | '/mcp'
+    | '/music-playlists'
     | '/thoughts'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
@@ -117,6 +127,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/mcp'
+    | '/music-playlists'
     | '/thoughts'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
@@ -128,6 +139,7 @@ export interface FileRouteTypes {
     | '/'
     | '/around-the-world'
     | '/mcp'
+    | '/music-playlists'
     | '/thoughts'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
@@ -140,6 +152,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AroundTheWorldRoute: typeof AroundTheWorldRouteWithChildren
   McpRoute: typeof McpRoute
+  MusicPlaylistsRoute: typeof MusicPlaylistsRoute
   ThoughtsRoute: typeof ThoughtsRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
@@ -153,6 +166,13 @@ declare module '@tanstack/react-router' {
       path: '/thoughts'
       fullPath: '/thoughts'
       preLoaderRoute: typeof ThoughtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/music-playlists': {
+      id: '/music-playlists'
+      path: '/music-playlists'
+      fullPath: '/music-playlists'
+      preLoaderRoute: typeof MusicPlaylistsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mcp': {
@@ -232,6 +252,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AroundTheWorldRoute: AroundTheWorldRouteWithChildren,
   McpRoute: McpRoute,
+  MusicPlaylistsRoute: MusicPlaylistsRoute,
   ThoughtsRoute: ThoughtsRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
