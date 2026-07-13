@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as ThoughtsRouteImport } from './routes/thoughts'
 import { Route as MusicPlaylistsRouteImport } from './routes/music-playlists'
 import { Route as McpRouteImport } from './routes/mcp'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AroundTheWorldRouteImport } from './routes/around-the-world'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AroundTheWorldIndexRouteImport } from './routes/around-the-world.index'
@@ -33,6 +34,11 @@ const MusicPlaylistsRoute = MusicPlaylistsRouteImport.update({
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AroundTheWorldRoute = AroundTheWorldRouteImport.update({
@@ -77,6 +83,7 @@ const Char91DotmcpChar93InvokeToolToolRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/around-the-world': typeof AroundTheWorldRouteWithChildren
+  '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
   '/music-playlists': typeof MusicPlaylistsRoute
   '/thoughts': typeof ThoughtsRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
   '/music-playlists': typeof MusicPlaylistsRoute
   '/thoughts': typeof ThoughtsRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/around-the-world': typeof AroundTheWorldRouteWithChildren
+  '/contact': typeof ContactRoute
   '/mcp': typeof McpRoute
   '/music-playlists': typeof MusicPlaylistsRoute
   '/thoughts': typeof ThoughtsRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/around-the-world'
+    | '/contact'
     | '/mcp'
     | '/music-playlists'
     | '/thoughts'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contact'
     | '/mcp'
     | '/music-playlists'
     | '/thoughts'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/around-the-world'
+    | '/contact'
     | '/mcp'
     | '/music-playlists'
     | '/thoughts'
@@ -151,6 +163,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AroundTheWorldRoute: typeof AroundTheWorldRouteWithChildren
+  ContactRoute: typeof ContactRoute
   McpRoute: typeof McpRoute
   MusicPlaylistsRoute: typeof MusicPlaylistsRoute
   ThoughtsRoute: typeof ThoughtsRoute
@@ -180,6 +193,13 @@ declare module '@tanstack/react-router' {
       path: '/mcp'
       fullPath: '/mcp'
       preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/around-the-world': {
@@ -251,6 +271,7 @@ const AroundTheWorldRouteWithChildren = AroundTheWorldRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AroundTheWorldRoute: AroundTheWorldRouteWithChildren,
+  ContactRoute: ContactRoute,
   McpRoute: McpRoute,
   MusicPlaylistsRoute: MusicPlaylistsRoute,
   ThoughtsRoute: ThoughtsRoute,

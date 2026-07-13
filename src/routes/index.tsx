@@ -53,15 +53,12 @@ const projects: Project[] = [
       "A neural network built from scratch (no ML libraries) with a draw-to-predict web app.",
     tags: ["Python", "NumPy", "FastAPI", "React", "TypeScript"],
     code: "https://github.com/soph-shen/neuralnetwork",
-    images: [
-      "https://raw.githubusercontent.com/soph-shen/neuralnetwork/main/demo_five.jpg",
-    ],
+    images: ["https://raw.githubusercontent.com/soph-shen/neuralnetwork/main/demo_five.jpg"],
   },
   {
     title: "Federal Budget Analysis",
     category: "Policy Analytics",
-    description:
-      "Predicting federal grant cuts across the UNC system with ML.",
+    description: "Predicting federal grant cuts across the UNC system with ML.",
     tags: ["Python", "Scikit-learn", "Seaborn", "Pandas"],
     code: "https://github.com/soph-shen/DataAnalysis_FederalBudget",
   },
@@ -74,14 +71,7 @@ const projects: Project[] = [
   },
 ];
 
-const CORE_SKILLS = new Set([
-  "Python",
-  "SQL",
-  "Pandas",
-  "NumPy",
-  "Scikit-Learn",
-  "GitHub",
-]);
+const CORE_SKILLS = new Set(["Python", "SQL", "Pandas", "NumPy", "Scikit-Learn", "GitHub"]);
 
 const skills = [
   { label: "Languages", items: ["Python", "SQL", "R", "HTML", "CSS", "Java"] },
@@ -91,11 +81,31 @@ const skills = [
   },
   {
     label: "ML & AI",
-    items: ["Regression", "Classification", "Clustering", "Gradient Boosting", "Neural Networks", "Reinforcement Learning"],
+    items: [
+      "Regression",
+      "Classification",
+      "Clustering",
+      "Gradient Boosting",
+      "Neural Networks",
+      "Reinforcement Learning",
+    ],
   },
   {
     label: "Frameworks & Tools",
-    items: ["React", "FastAPI", "Tableau", "Stata", "Excel", "GitHub", "VSCode", "Jupyter Notebook", "Git", "Docker", "Claude Code", "Notion"],
+    items: [
+      "React",
+      "FastAPI",
+      "Tableau",
+      "Stata",
+      "Excel",
+      "GitHub",
+      "VSCode",
+      "Jupyter Notebook",
+      "Git",
+      "Docker",
+      "Claude Code",
+      "Notion",
+    ],
   },
 ];
 
@@ -158,7 +168,9 @@ function Index() {
               Sophia <span className="italic text-charcoal">(Xiyuan)</span> Shen
             </h1>
             <p className="font-display text-base leading-snug text-foreground/85 sm:text-lg md:text-xl lg:whitespace-nowrap">
-              A data <span className="highlight-swipe">scientist</span> and <span className="highlight-swipe">builder</span>, working across ML, full-stack, and analytics.
+              A data <span className="highlight-swipe">scientist</span> and{" "}
+              <span className="highlight-swipe">builder</span>, working across ML, full-stack, and
+              analytics.
             </p>
             <p className="text-sm text-muted-foreground md:text-base">
               Data Science &amp; Health Policy @ UNC–Chapel Hill
@@ -199,11 +211,10 @@ function Index() {
             className="text-[23px] italic leading-[1.25] tracking-tight text-charcoal md:text-[27px] md:leading-[1.3]"
           >
             <span className="mr-1 text-gold">“</span>
-            Data is everywhere, but the glamorous part is the smallest part. You
-            spend something like 95% of your time cleaning data and maybe 5%
-            actually modeling it. I've also stopped believing good data science
-            means hitting 90%+ accuracy. It means serving the people the data
-            came from, and that starts with picking the right metric to measure.
+            Data is everywhere, but the glamorous part is the smallest part. You spend something
+            like 95% of your time cleaning data and maybe 5% actually modeling it. I've also stopped
+            believing good data science means hitting 90%+ accuracy. It means serving the people the
+            data came from, and that starts with picking the right metric to measure.
             <span className="ml-1 text-gold">”</span>
           </blockquote>
         </div>
@@ -211,154 +222,111 @@ function Index() {
 
       {/* PROJECTS → OFF THE CLOCK — warm gradient band */}
       <div className="warm-gradient">
-      <section id="projects" className="scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
-          <SectionHeader
-            number="01"
-            eyebrow="Projects"
-            title="Selected work"
-          />
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {projects.map((p) => (
-              <ProjectCard key={p.title} project={p} />
-            ))}
+        <section id="projects" className="scroll-mt-20">
+          <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+            <SectionHeader number="01" eyebrow="Projects" title="Selected work" />
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              {projects.map((p) => (
+                <ProjectCard key={p.title} project={p} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* EXPERIENCE */}
-      <section id="experience" className="scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
-          <SectionHeader number="02" eyebrow="Experience" title="Where I've worked" />
-          <ol className="relative mt-10 space-y-5 pl-10 md:pl-14">
-            {/* vertical timeline line */}
-            <span
-              aria-hidden
-              className="absolute left-3 top-2 bottom-2 w-px bg-charcoal/25 md:left-5"
-            />
-            {experience.map((item) => (
-              <li key={item.role} className="relative">
-                {/* gold dot marker */}
-                <span
-                  aria-hidden
-                  className="absolute -left-[30px] top-5 h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-cream md:-left-[38px]"
-                />
-                <article className="rounded-xl border border-charcoal/20 bg-paper px-5 py-4 shadow-sm">
-                  <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
-                    {item.dates}
-                  </p>
-                  <h3 className="mt-1.5 font-display text-lg font-medium leading-snug tracking-tight text-foreground">
-                    {item.role}
+        {/* EXPERIENCE */}
+        <section id="experience" className="scroll-mt-20">
+          <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+            <SectionHeader number="02" eyebrow="Experience" title="Where I've worked" />
+            <ol className="relative mt-10 space-y-5 pl-10 md:pl-14">
+              {/* vertical timeline line */}
+              <span
+                aria-hidden
+                className="absolute left-3 top-2 bottom-2 w-px bg-charcoal/25 md:left-5"
+              />
+              {experience.map((item) => (
+                <li key={item.role} className="relative">
+                  {/* gold dot marker */}
+                  <span
+                    aria-hidden
+                    className="absolute -left-[30px] top-5 h-2.5 w-2.5 rounded-full bg-gold ring-4 ring-cream md:-left-[38px]"
+                  />
+                  <article className="rounded-xl border border-charcoal/20 bg-paper px-5 py-4 shadow-sm">
+                    <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
+                      {item.dates}
+                    </p>
+                    <h3 className="mt-1.5 font-display text-lg font-medium leading-snug tracking-tight text-foreground">
+                      {item.role}
+                    </h3>
+                    <p className="mt-0.5 text-xs text-muted-foreground">{item.org}</p>
+                    <p className="mt-2 text-sm leading-snug text-foreground/85">
+                      {item.description}
+                    </p>
+                    {item.link && (
+                      <div className="mt-3">
+                        <a
+                          href={item.link.href}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 rounded-md border border-charcoal/20 bg-paper px-2 py-1 font-mono text-[11px] font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
+                        >
+                          <ExternalLink className="h-3 w-3 text-gold" /> {item.link.label}
+                        </a>
+                      </div>
+                    )}
+                  </article>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+
+        {/* SKILLS */}
+        <section id="skills" className="scroll-mt-20">
+          <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
+            <SectionHeader number="03" eyebrow="Skills" title="Tools I build with" />
+            <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+              {skills.map((group) => (
+                <div key={group.label}>
+                  <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-charcoal">
+                    {group.label}
                   </h3>
-                  <p className="mt-0.5 text-xs text-muted-foreground">{item.org}</p>
-                  <p className="mt-2 text-sm leading-snug text-foreground/85">
-                    {item.description}
-                  </p>
-                  {item.link && (
-                    <div className="mt-3">
-                      <a
-                        href={item.link.href}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1 rounded-md border border-charcoal/20 bg-paper px-2 py-1 font-mono text-[11px] font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
+                  <ul className="mt-4 flex flex-wrap gap-2">
+                    {group.items.map((item) => (
+                      <li
+                        key={item}
+                        className="rounded-md border border-charcoal/20 px-3 py-1.5 text-sm text-foreground"
+                        style={
+                          CORE_SKILLS.has(item)
+                            ? {
+                                backgroundColor:
+                                  "color-mix(in oklab, var(--gold) 22%, transparent)",
+                              }
+                            : undefined
+                        }
                       >
-                        <ExternalLink className="h-3 w-3 text-gold" /> {item.link.label}
-                      </a>
-                    </div>
-                  )}
-                </article>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      {/* SKILLS */}
-      <section id="skills" className="scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-6 py-24 md:px-10">
-          <SectionHeader number="03" eyebrow="Skills" title="Tools I build with" />
-          <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-            {skills.map((group) => (
-              <div key={group.label}>
-                <h3 className="font-mono text-xs font-semibold uppercase tracking-[0.18em] text-charcoal">
-                  {group.label}
-                </h3>
-                <ul className="mt-4 flex flex-wrap gap-2">
-                  {group.items.map((item) => (
-                    <li
-                      key={item}
-                      className="rounded-md border border-charcoal/20 px-3 py-1.5 text-sm text-foreground"
-                      style={
-                        CORE_SKILLS.has(item)
-                          ? { backgroundColor: "color-mix(in oklab, var(--gold) 22%, transparent)" }
-                          : undefined
-                      }
-                    >
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* OFF THE CLOCK */}
-      <section id="off-the-clock" className="scroll-mt-20">
-        <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
-          <SectionHeader
-            number="04"
-            eyebrow="Beyond Code"
-            title="Off the clock"
-            compact
-          />
-          <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
-            <p>
-              Things I do in my free time: Gym, get outside, and rate meals on Beli. Currently hunting for
-              good hiking trails around RTP (recs welcome).
-            </p>
+        {/* OFF THE CLOCK */}
+        <section id="off-the-clock" className="scroll-mt-20">
+          <div className="mx-auto grid max-w-6xl gap-12 px-6 py-28 md:grid-cols-[1fr_2fr] md:px-10">
+            <SectionHeader number="04" eyebrow="Beyond Code" title="Off the clock" compact />
+            <div className="space-y-6 text-base leading-relaxed text-foreground/85 md:text-lg">
+              <p>
+                Things I do in my free time: Gym, get outside, and rate meals on Beli. Currently
+                hunting for good hiking trails around RTP (recs welcome).
+              </p>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
       </div>
-
-      {/* CONTACT */}
-      <section id="contact" className="scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
-          <SectionHeader
-            number="05"
-            eyebrow="Contact"
-            title="Let's talk"
-            description="I love hearing about what people are building in data, health, and ML. Always happy to connect!"
-            center
-          />
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={GITHUB}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
-            >
-              <Github className="h-4 w-4 text-gold" /> GitHub
-            </a>
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
-            >
-              <Linkedin className="h-4 w-4 text-gold" /> LinkedIn
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-md bg-charcoal px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-charcoal-soft"
-            >
-              <Mail className="h-4 w-4 text-gold" /> Email
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
@@ -384,17 +352,18 @@ function SectionHeader({
   const descColor = invert ? "text-cream/70" : "text-muted-foreground";
   return (
     <div className={center ? "mx-auto max-w-2xl" : compact ? "" : "max-w-2xl"}>
-      <p className={`font-mono text-xs font-semibold uppercase tracking-[0.22em] ${invert ? "text-gold" : "text-charcoal"} ${center ? "justify-center" : ""}`}>
-        {number ? `${number} — ` : ""}{eyebrow}
+      <p
+        className={`font-mono text-xs font-semibold uppercase tracking-[0.22em] ${invert ? "text-gold" : "text-charcoal"} ${center ? "justify-center" : ""}`}
+      >
+        {number ? `${number} — ` : ""}
+        {eyebrow}
       </p>
-      <h2 className={`mt-4 font-display text-4xl leading-[1.1] tracking-tight md:text-5xl ${titleColor}`}>
+      <h2
+        className={`mt-4 font-display text-4xl leading-[1.1] tracking-tight md:text-5xl ${titleColor}`}
+      >
         {title}
       </h2>
-      {description && (
-        <p className={`mt-4 text-base md:text-lg ${descColor}`}>
-          {description}
-        </p>
-      )}
+      {description && <p className={`mt-4 text-base md:text-lg ${descColor}`}>{description}</p>}
     </div>
   );
 }
@@ -429,9 +398,7 @@ function ProjectCard({ project }: { project: Project }) {
         <h3 className="mt-2 font-display text-2xl font-medium tracking-tight text-foreground">
           {project.title}
         </h3>
-        <p className="mt-3 text-sm leading-relaxed text-foreground/80">
-          {project.description}
-        </p>
+        <p className="mt-3 text-sm leading-relaxed text-foreground/80">{project.description}</p>
         <ul className="mt-5 flex flex-wrap gap-1.5">
           {project.tags.map((t) => (
             <li

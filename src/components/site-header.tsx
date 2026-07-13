@@ -382,7 +382,7 @@ export function SiteHeader() {
           <NavDropdown label="Work" items={workDropdownItems} />
           <TopRouteLink to="/thoughts" label="Thoughts" />
           <NavDropdown label="Living Life" items={livingLifeDropdownItems} />
-          <AnchorLink hash="contact" label="Contact" />
+          <TopRouteLink to="/contact" label="Contact" />
         </nav>
         <button
           type="button"
@@ -407,11 +407,7 @@ export function SiteHeader() {
             items={livingLifeDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <MobileAnchorLink
-            hash="contact"
-            label="Contact"
-            onNavigate={() => setMobileOpen(false)}
-          />
+          <MobileTopLink to="/contact" label="Contact" onNavigate={() => setMobileOpen(false)} />
         </nav>
       )}
     </header>
