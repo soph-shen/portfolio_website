@@ -13,6 +13,7 @@ import { Route as ThoughtsRouteImport } from './routes/thoughts'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as AroundTheWorldRouteImport } from './routes/around-the-world'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AroundTheWorldSlugRouteImport } from './routes/around-the-world.$slug'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
@@ -37,6 +38,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AroundTheWorldSlugRoute = AroundTheWorldSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => AroundTheWorldRoute,
+} as any)
 const Char91DotwellKnownChar93OauthProtectedResourceRoute =
   Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
     id: '/.well-known/oauth-protected-resource',
@@ -58,30 +64,33 @@ const Char91DotmcpChar93InvokeToolToolRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/around-the-world': typeof AroundTheWorldRoute
+  '/around-the-world': typeof AroundTheWorldRouteWithChildren
   '/mcp': typeof McpRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/around-the-world': typeof AroundTheWorldRoute
+  '/around-the-world': typeof AroundTheWorldRouteWithChildren
   '/mcp': typeof McpRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/around-the-world': typeof AroundTheWorldRoute
+  '/around-the-world': typeof AroundTheWorldRouteWithChildren
   '/mcp': typeof McpRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRouteTypes {
@@ -93,6 +102,7 @@ export interface FileRouteTypes {
     | '/thoughts'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/around-the-world/$slug'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -102,6 +112,7 @@ export interface FileRouteTypes {
     | '/thoughts'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/around-the-world/$slug'
     | '/.mcp/invoke-tool/$tool'
   id:
     | '__root__'
@@ -111,12 +122,13 @@ export interface FileRouteTypes {
     | '/thoughts'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/around-the-world/$slug'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  AroundTheWorldRoute: typeof AroundTheWorldRoute
+  AroundTheWorldRoute: typeof AroundTheWorldRouteWithChildren
   McpRoute: typeof McpRoute
   ThoughtsRoute: typeof ThoughtsRoute
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
@@ -154,6 +166,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/around-the-world/$slug': {
+      id: '/around-the-world/$slug'
+      path: '/$slug'
+      fullPath: '/around-the-world/$slug'
+      preLoaderRoute: typeof AroundTheWorldSlugRouteImport
+      parentRoute: typeof AroundTheWorldRoute
+    }
     '/.well-known/oauth-protected-resource': {
       id: '/.well-known/oauth-protected-resource'
       path: '/.well-known/oauth-protected-resource'
@@ -178,9 +197,21 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AroundTheWorldRouteChildren {
+  AroundTheWorldSlugRoute: typeof AroundTheWorldSlugRoute
+}
+
+const AroundTheWorldRouteChildren: AroundTheWorldRouteChildren = {
+  AroundTheWorldSlugRoute: AroundTheWorldSlugRoute,
+}
+
+const AroundTheWorldRouteWithChildren = AroundTheWorldRoute._addFileChildren(
+  AroundTheWorldRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  AroundTheWorldRoute: AroundTheWorldRoute,
+  AroundTheWorldRoute: AroundTheWorldRouteWithChildren,
   McpRoute: McpRoute,
   ThoughtsRoute: ThoughtsRoute,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
