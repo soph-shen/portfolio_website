@@ -1,16 +1,14 @@
 import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
+import { ChevronDown } from "lucide-react";
 
-const anchorNav = [
-  { hash: "home", label: "Home" },
+const workItems = [
   { hash: "projects", label: "Projects" },
   { hash: "experience", label: "Experience" },
   { hash: "skills", label: "Skills" },
-  { hash: "contact", label: "Contact" },
-];
+] as const;
 
 const livingLifeItems = [
-  { to: "/thoughts", label: "Thoughts" },
   { to: "/around-the-world", label: "Around the World" },
   { to: "/music-playlists", label: "Music Playlists" },
 ] as const;
@@ -53,10 +51,16 @@ function AnchorLink({ hash, label, onNavigate }: { hash: string; label: string; 
   );
 }
 
-function LivingLifeDropdown() {
+type DropdownItem =
+  | { kind: "route"; to: string; label: string }
+  | { kind: "anchor"; hash: string; label: string };
+
+function NavDropdown({ label, items }: { label: string; items: readonly DropdownItem[] }) {
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
 
   useEffect(() => {
     if (!open) return;
@@ -85,10 +89,10 @@ function LivingLifeDropdown() {
   const onItemKey = (e: React.KeyboardEvent, idx: number) => {
     if (e.key === "ArrowDown") {
       e.preventDefault();
-      itemRefs.current[(idx + 1) % livingLifeItems.length]?.focus();
+      itemRefs.current[(idx + 1) % items.length]?.focus();
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      itemRefs.current[(idx - 1 + livingLifeItems.length) % livingLifeItems.length]?.focus();
+      itemRefs.current[(idx - 1 + items.length) % items.length]?.focus();
     }
   };
 
@@ -105,40 +109,94 @@ function LivingLifeDropdown() {
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
         onKeyDown={onTriggerKey}
-        className="group relative rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
+        className="group relative inline-flex items-center gap-1 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:text-foreground"
       >
         <span className="relative">
-          Living Life
+          {label}
           <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-gold transition-transform duration-300 group-hover:scale-x-100" />
         </span>
+        <ChevronDown
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          aria-hidden
+        />
       </button>
       {open && (
         <div
           role="menu"
           className="absolute right-0 top-full min-w-[180px] rounded-md border border-border bg-paper py-1 shadow-lg"
         >
-          {livingLifeItems.map((item, idx) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              role="menuitem"
-              ref={(el) => {
-                itemRefs.current[idx] = el;
-              }}
-              onClick={() => setOpen(false)}
-              onKeyDown={(e) => onItemKey(e, idx)}
-              className="block px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-cream hover:text-foreground focus:bg-cream focus:text-foreground focus:outline-none"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {items.map((item, idx) => {
+            const cls =
+              "block px-4 py-2 text-sm text-muted-foreground transition-colors hover:bg-cream hover:text-foreground focus:bg-cream focus:text-foreground focus:outline-none";
+            const setRef = (el: HTMLAnchorElement | null) => {
+              itemRefs.current[idx] = el;
+            };
+            if (item.kind === "route") {
+              return (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  role="menuitem"
+                  ref={setRef}
+                  onClick={() => setOpen(false)}
+                  onKeyDown={(e) => onItemKey(e, idx)}
+                  className={cls}
+                >
+                  {item.label}
+                </Link>
+              );
+            }
+            if (isHome) {
+              return (
+                <a
+                  key={item.hash}
+                  href={`#${item.hash}`}
+                  role="menuitem"
+                  ref={setRef}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById(item.hash);
+                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                    history.replaceState(null, "", `#${item.hash}`);
+                    setOpen(false);
+                  }}
+                  onKeyDown={(e) => onItemKey(e, idx)}
+                  className={cls}
+                >
+                  {item.label}
+                </a>
+              );
+            }
+            return (
+              <Link
+                key={item.hash}
+                to="/"
+                hash={item.hash}
+                role="menuitem"
+                ref={setRef}
+                onClick={() => setOpen(false)}
+                onKeyDown={(e) => onItemKey(e, idx)}
+                className={cls}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>
   );
 }
 
-function MobileLivingLife({ onNavigate }: { onNavigate: () => void }) {
+function MobileAccordion({
+  label,
+  items,
+  onNavigate,
+}: {
+  label: string;
+  items: readonly DropdownItem[];
+  onNavigate: () => void;
+}) {
   const [open, setOpen] = useState(false);
   return (
     <div className="flex flex-col">
@@ -146,30 +204,72 @@ function MobileLivingLife({ onNavigate }: { onNavigate: () => void }) {
         type="button"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="text-left text-muted-foreground transition-colors hover:text-foreground"
+        className="inline-flex items-center gap-1 self-start text-left text-muted-foreground transition-colors hover:text-foreground"
       >
-        Living Life
+        {label}
+        <ChevronDown
+          className={`h-3.5 w-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`}
+          aria-hidden
+        />
       </button>
       {open && (
         <div className="mt-2 flex flex-col gap-2 pl-3">
-          {livingLifeItems.map((item) => (
-            <Link
-              key={item.to}
-              to={item.to}
-              onClick={() => {
-                setOpen(false);
-                onNavigate();
-              }}
-              className="text-muted-foreground transition-colors hover:text-foreground"
-            >
-              {item.label}
-            </Link>
-          ))}
+          {items.map((item) =>
+            item.kind === "route" ? (
+              <Link
+                key={item.to}
+                to={item.to}
+                onClick={() => {
+                  setOpen(false);
+                  onNavigate();
+                }}
+                className="text-muted-foreground transition-colors hover:text-foreground"
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <AnchorLink
+                key={item.hash}
+                hash={item.hash}
+                label={item.label}
+                onNavigate={() => {
+                  setOpen(false);
+                  onNavigate();
+                }}
+              />
+            ),
+          )}
         </div>
       )}
     </div>
   );
 }
+
+function TopRouteLink({ to, label, onNavigate }: { to: string; label: string; onNavigate?: () => void }) {
+  return (
+    <Link
+      to={to}
+      onClick={onNavigate}
+      className="group relative rounded-md px-3 py-2 text-muted-foreground transition-colors hover:text-foreground"
+    >
+      <span className="relative">
+        {label}
+        <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-gold transition-transform duration-300 group-hover:scale-x-100" />
+      </span>
+    </Link>
+  );
+}
+
+const workDropdownItems: readonly DropdownItem[] = workItems.map((i) => ({
+  kind: "anchor" as const,
+  hash: i.hash,
+  label: i.label,
+}));
+const livingLifeDropdownItems: readonly DropdownItem[] = livingLifeItems.map((i) => ({
+  kind: "route" as const,
+  to: i.to,
+  label: i.label,
+}));
 
 function BrandMark() {
   return (
@@ -203,10 +303,10 @@ export function SiteHeader() {
           </Link>
         )}
         <nav className="hidden items-center gap-1 text-sm md:flex">
-          {anchorNav.map((item) => (
-            <AnchorLink key={item.hash} hash={item.hash} label={item.label} />
-          ))}
-          <LivingLifeDropdown />
+          <NavDropdown label="Work" items={workDropdownItems} />
+          <TopRouteLink to="/thoughts" label="Thoughts" />
+          <NavDropdown label="Living Life" items={livingLifeDropdownItems} />
+          <AnchorLink hash="contact" label="Contact" />
         </nav>
         <button
           type="button"
@@ -219,15 +319,26 @@ export function SiteHeader() {
       </div>
       {mobileOpen && (
         <nav className="flex flex-col gap-3 border-t border-border bg-cream/95 px-6 py-4 text-sm md:hidden">
-          {anchorNav.slice(1).map((item) => (
-            <AnchorLink
-              key={item.hash}
-              hash={item.hash}
-              label={item.label}
-              onNavigate={() => setMobileOpen(false)}
-            />
-          ))}
-          <MobileLivingLife onNavigate={() => setMobileOpen(false)} />
+          <MobileAccordion
+            label="Work"
+            items={workDropdownItems}
+            onNavigate={() => setMobileOpen(false)}
+          />
+          <TopRouteLink
+            to="/thoughts"
+            label="Thoughts"
+            onNavigate={() => setMobileOpen(false)}
+          />
+          <MobileAccordion
+            label="Living Life"
+            items={livingLifeDropdownItems}
+            onNavigate={() => setMobileOpen(false)}
+          />
+          <AnchorLink
+            hash="contact"
+            label="Contact"
+            onNavigate={() => setMobileOpen(false)}
+          />
         </nav>
       )}
     </header>
