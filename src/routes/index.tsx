@@ -154,7 +154,7 @@ function Index() {
     <>
       {/* HERO */}
       <section id="home" className="relative scroll-mt-20 overflow-hidden">
-        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-6 pt-10 text-center md:px-10 md:pb-8 md:pt-14">
+        <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-8 px-6 pb-4 pt-10 text-center md:px-10 md:pb-5 md:pt-14">
           <div className="h-40 w-40 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-48 md:w-48">
             <img
               src="/profile.jpg"
