@@ -51,13 +51,10 @@ function AroundTheWorldIndex() {
     <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
       <BackLink />
 
-      <p className="mt-12 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-gold">
-        01 — Around the World
-      </p>
-      <h1 className="mt-4 font-display text-4xl leading-[1.1] tracking-tight text-cream md:text-5xl">
+      <h1 className="mt-12 font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
         Where I&apos;ve been, eaten, and explored
       </h1>
-      <p className="mt-6 max-w-2xl text-base text-cream/70 md:text-lg">
+      <p className="mt-6 max-w-2xl text-base text-foreground/70 md:text-lg">
         Restaurant recs, local guides, and favorite spots. Most are in the US, but I am adding more
         to my collection.
       </p>
@@ -76,7 +73,7 @@ function LocationCard({ location }: { location: Location }) {
     <Link
       to="/around-the-world/$slug"
       params={{ slug: location.slug }}
-      className="card-lift group block overflow-hidden rounded-xl border border-cream/15 bg-paper hover:border-gold"
+      className="card-lift group block overflow-hidden rounded-xl border border-charcoal/20 bg-paper hover:border-gold"
     >
       <div className="aspect-video overflow-hidden bg-cream-deep">
         <img
@@ -110,7 +107,7 @@ function BackLink() {
   return (
     <Link
       to="/"
-      className="group inline-flex items-center gap-2 text-sm text-cream/70 transition-colors hover:text-cream"
+      className="group inline-flex items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
     >
       <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
       <span className="relative">
