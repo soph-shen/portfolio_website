@@ -35,7 +35,7 @@ function AroundTheWorldIndex() {
             Where I&apos;ve been, eaten, and explored
           </h1>
         </div>
-        <p className="mt-6 min-w-0 text-base text-foreground/70 md:text-lg">
+        <p className="mt-6 w-full min-w-0 text-base text-foreground/70 md:text-lg">
           I love to travel. Not to tourist sites, but to explore local culture, scenery, and food. I&apos;m a big fan of road trips (thank you NC for making me like nature). Recently, most of my trips have been within the US, but I&apos;m adding more to the collection.
         </p>
       </div>
