@@ -59,7 +59,7 @@ function NavDropdown({ label, items }: { label: string; items: readonly Dropdown
   const [open, setOpen] = useState(false);
   const wrapRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
-  const pathname = useRouterState((s) => s.location.pathname);
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
 
   useEffect(() => {
