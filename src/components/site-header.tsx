@@ -12,6 +12,7 @@ const anchorNav = [
 const livingLifeItems = [
   { to: "/thoughts", label: "Thoughts" },
   { to: "/around-the-world", label: "Around the World" },
+  { to: "/music-playlists", label: "Music Playlists" },
 ] as const;
 
 function AnchorLink({ hash, label, onNavigate }: { hash: string; label: string; onNavigate?: () => void }) {
