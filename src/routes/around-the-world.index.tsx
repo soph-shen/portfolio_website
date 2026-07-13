@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, Globe } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 
 export const Route = createFileRoute("/around-the-world/")({
   head: () => ({
@@ -27,14 +27,15 @@ function AroundTheWorldIndex() {
       <BackLink />
 
       <div className="mt-10 flex items-center gap-3">
-        <Globe className="h-6 w-6 text-gold" strokeWidth={1.5} />
+        <span className="text-2xl md:text-3xl" aria-hidden="true">
+          🌍🌎🌏
+        </span>
         <h1 className="font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
           Where I&apos;ve been, eaten, and explored
         </h1>
       </div>
-      <p className="mt-6 max-w-2xl text-base text-foreground/70 md:text-lg">
-        Restaurant recs, local guides, and favorite spots. Most are in the US, but I am adding more
-        to my collection.
+      <p className="mt-6 max-w-4xl text-base text-foreground/70 md:text-lg">
+        I love to travel. Not to tourist sites, but to explore local culture, scenery, and food. I&apos;m a big fan of road trips (thank you NC for making me like nature). Recently, most of my trips have been within the US, but I&apos;m adding more to the collection.
       </p>
 
       <div className="mt-10">
@@ -48,7 +49,9 @@ function ComingSoonCard() {
   return (
     <div className="card-lift group max-w-md overflow-hidden rounded-xl border border-charcoal/20 bg-paper p-6">
       <div className="flex items-center justify-center rounded-lg bg-cream-deep py-10">
-        <Globe className="h-10 w-10 text-charcoal/25" strokeWidth={1.5} />
+        <span className="text-5xl" aria-hidden="true">
+          🌍🌎🌏
+        </span>
       </div>
       <div className="mt-5">
         <h3 className="font-display text-2xl font-medium tracking-tight text-foreground">
