@@ -276,7 +276,7 @@ function MobileAnchorLink({ hash, label, onNavigate }: { hash: string; label: st
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
 
-  const baseCls = "text-left text-muted-foreground transition-colors hover:text-foreground";
+  const baseCls = "w-fit text-left text-muted-foreground transition-colors hover:text-foreground";
 
   if (isHome) {
     return (
