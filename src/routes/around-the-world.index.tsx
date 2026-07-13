@@ -1,30 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft } from "lucide-react";
-
-type Location = {
-  slug: string;
-  title: string;
-  description: string;
-  tags: string[];
-  image: string;
-};
-
-const locations: Location[] = [
-  {
-    slug: "chapel-hill-rtp",
-    title: "Chapel Hill / RTP",
-    description: "A local guide to my home base — study spots, coffee, and weekend trails.",
-    tags: ["Eats", "Hang", "Nature"],
-    image: "https://placehold.co/800x450/FAF7F1/2B2622?text=Chapel+Hill+%2F+RTP",
-  },
-  {
-    slug: "coming-soon",
-    title: "Coming soon",
-    description: "More cities and neighborhoods are on the way. Check back for updates.",
-    tags: ["Eats", "Shop", "Hang", "Nature"],
-    image: "https://placehold.co/800x450/FAF7F1/2B2622?text=Coming+soon",
-  },
-];
+import { ArrowLeft, Globe } from "lucide-react";
 
 export const Route = createFileRoute("/around-the-world/")({
   head: () => ({
@@ -48,58 +23,42 @@ export const Route = createFileRoute("/around-the-world/")({
 
 function AroundTheWorldIndex() {
   return (
-    <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
+    <div className="relative mx-auto max-w-6xl px-6 pt-12 pb-20 md:px-10 md:pt-16 md:pb-28">
       <BackLink />
 
-      <h1 className="mt-12 font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
-        Where I&apos;ve been, eaten, and explored
-      </h1>
+      <div className="mt-10 flex items-center gap-3">
+        <Globe className="h-6 w-6 text-gold" strokeWidth={1.5} />
+        <h1 className="font-display text-4xl leading-[1.1] tracking-tight text-foreground md:text-6xl">
+          Where I&apos;ve been, eaten, and explored
+        </h1>
+      </div>
       <p className="mt-6 max-w-2xl text-base text-foreground/70 md:text-lg">
         Restaurant recs, local guides, and favorite spots. Most are in the US, but I am adding more
         to my collection.
       </p>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-2">
-        {locations.map((location) => (
-          <LocationCard key={location.slug} location={location} />
-        ))}
+      <div className="mt-14">
+        <ComingSoonCard />
       </div>
     </div>
   );
 }
 
-function LocationCard({ location }: { location: Location }) {
+function ComingSoonCard() {
   return (
-    <Link
-      to="/around-the-world/$slug"
-      params={{ slug: location.slug }}
-      className="card-lift group block overflow-hidden rounded-xl border border-charcoal/20 bg-paper hover:border-gold"
-    >
-      <div className="aspect-video overflow-hidden bg-cream-deep">
-        <img
-          src={location.image}
-          alt={location.title}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-        />
+    <div className="card-lift group max-w-md overflow-hidden rounded-xl border border-charcoal/20 bg-paper p-6">
+      <div className="flex items-center justify-center rounded-lg bg-cream-deep py-10">
+        <Globe className="h-10 w-10 text-charcoal/25" strokeWidth={1.5} />
       </div>
-      <div className="p-6">
+      <div className="mt-5">
         <h3 className="font-display text-2xl font-medium tracking-tight text-foreground">
-          {location.title}
+          Coming Soon
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-foreground/80">{location.description}</p>
-        <ul className="mt-4 flex flex-wrap gap-1.5">
-          {location.tags.map((tag) => (
-            <li
-              key={tag}
-              className="rounded-md border border-charcoal/15 bg-paper px-2 py-1 font-mono text-[11px] font-medium text-foreground"
-            >
-              {tag}
-            </li>
-          ))}
-        </ul>
+        <p className="mt-2 text-sm leading-relaxed text-foreground/80">
+          More cities and neighborhoods are on the way. Check back for updates.
+        </p>
       </div>
-    </Link>
+    </div>
   );
 }
 
