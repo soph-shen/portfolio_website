@@ -36,10 +36,7 @@ function ThoughtsPage() {
           </span>
         </Link>
 
-        <p className="mt-12 font-mono text-xs font-semibold uppercase tracking-[0.22em] text-gold">
-          01 — Thoughts
-        </p>
-        <h1 className="mt-4 font-display text-4xl leading-[1.1] tracking-tight text-cream md:text-5xl">
+        <h1 className="mt-12 font-display text-4xl leading-[1.1] tracking-tight text-cream md:text-5xl">
           Notes on data, health, and building things
         </h1>
         <p className="mt-6 text-base text-cream/70 md:text-lg">
