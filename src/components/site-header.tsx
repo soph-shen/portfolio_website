@@ -223,12 +223,12 @@ function MobileAccordion({
                   setOpen(false);
                   onNavigate();
                 }}
-                className="text-muted-foreground transition-colors hover:text-foreground"
+                className="w-fit text-left text-muted-foreground transition-colors hover:text-foreground"
               >
                 {item.label}
               </Link>
             ) : (
-              <AnchorLink
+              <MobileAnchorLink
                 key={item.hash}
                 hash={item.hash}
                 label={item.label}
@@ -256,6 +256,49 @@ function TopRouteLink({ to, label, onNavigate }: { to: string; label: string; on
         {label}
         <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-gold transition-transform duration-300 group-hover:scale-x-100" />
       </span>
+    </Link>
+  );
+}
+
+function MobileTopLink({ to, label, onNavigate }: { to: string; label: string; onNavigate?: () => void }) {
+  return (
+    <Link
+      to={to}
+      onClick={onNavigate}
+      className="w-fit text-left text-muted-foreground transition-colors hover:text-foreground"
+    >
+      {label}
+    </Link>
+  );
+}
+
+function MobileAnchorLink({ hash, label, onNavigate }: { hash: string; label: string; onNavigate?: () => void }) {
+  const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const isHome = pathname === "/";
+
+  const baseCls = "w-fit text-left text-muted-foreground transition-colors hover:text-foreground";
+
+  if (isHome) {
+    return (
+      <a
+        href={`#${hash}`}
+        onClick={(e) => {
+          e.preventDefault();
+          const el = document.getElementById(hash);
+          if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+          history.replaceState(null, "", `#${hash}`);
+          onNavigate?.();
+        }}
+        className={baseCls}
+      >
+        {label}
+      </a>
+    );
+  }
+
+  return (
+    <Link to="/" hash={hash} onClick={onNavigate} className={baseCls}>
+      {label}
     </Link>
   );
 }
@@ -324,7 +367,7 @@ export function SiteHeader() {
             items={workDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <TopRouteLink
+          <MobileTopLink
             to="/thoughts"
             label="Thoughts"
             onNavigate={() => setMobileOpen(false)}
@@ -334,7 +377,7 @@ export function SiteHeader() {
             items={livingLifeDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <AnchorLink
+          <MobileAnchorLink
             hash="contact"
             label="Contact"
             onNavigate={() => setMobileOpen(false)}
