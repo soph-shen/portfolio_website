@@ -49,7 +49,9 @@ function ComingSoonCard() {
   return (
     <div className="card-lift group max-w-md overflow-hidden rounded-xl border border-charcoal/20 bg-paper p-6">
       <div className="flex items-center justify-center rounded-lg bg-cream-deep py-10">
-        <Globe className="h-10 w-10 text-charcoal/25" strokeWidth={1.5} />
+        <span className="text-5xl" aria-hidden="true">
+          🌍🌎🌏
+        </span>
       </div>
       <div className="mt-5">
         <h3 className="font-display text-2xl font-medium tracking-tight text-foreground">
