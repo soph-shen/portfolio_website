@@ -67,7 +67,7 @@ function MusicPlaylistsPage() {
         </svg>
       </div>
 
-      <div className="relative mx-auto max-w-5xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
+      <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
         <Link
           to="/"
           className="group inline-flex items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
