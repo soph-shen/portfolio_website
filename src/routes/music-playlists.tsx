@@ -92,7 +92,7 @@ function MusicPlaylistsPage() {
         </p>
 
         <div className="mt-10 flex items-center justify-center">
-          <div className="w-full max-w-md rounded-xl border border-charcoal/20 bg-paper p-10 text-center">
+          <div className="w-full max-w-md rounded-xl border border-gold/30 bg-paper/80 p-10 text-center shadow-sm">
             <Headphones className="mx-auto h-8 w-8 text-gold" strokeWidth={1.5} />
             <p className="mt-5 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-gold">
               Coming soon
