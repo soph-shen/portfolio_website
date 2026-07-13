@@ -123,7 +123,7 @@ function NavDropdown({ label, items }: { label: string; items: readonly Dropdown
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-full min-w-[180px] rounded-md border border-border bg-paper py-1 shadow-lg"
+          className="absolute right-0 top-full w-fit min-w-fit whitespace-nowrap rounded-md border border-border bg-paper py-1 shadow-lg"
         >
           {items.map((item, idx) => {
             const cls =
