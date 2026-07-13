@@ -367,7 +367,7 @@ export function SiteHeader() {
             items={workDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <TopRouteLink
+          <MobileTopLink
             to="/thoughts"
             label="Thoughts"
             onNavigate={() => setMobileOpen(false)}
@@ -377,7 +377,7 @@ export function SiteHeader() {
             items={livingLifeDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <AnchorLink
+          <MobileAnchorLink
             hash="contact"
             label="Contact"
             onNavigate={() => setMobileOpen(false)}
