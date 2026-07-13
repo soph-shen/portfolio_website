@@ -93,7 +93,7 @@ function LocationPage() {
     <div className="mx-auto max-w-4xl px-6 py-20 md:px-10 md:py-28">
       <Link
         to="/around-the-world"
-        className="group inline-flex items-center gap-2 text-sm text-cream/70 transition-colors hover:text-cream"
+        className="group inline-flex items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         <span className="relative">
@@ -102,10 +102,10 @@ function LocationPage() {
         </span>
       </Link>
 
-      <h1 className="mt-10 font-display text-4xl leading-[1.05] tracking-tight text-cream md:text-6xl">
+      <h1 className="mt-10 font-display text-4xl leading-[1.05] tracking-tight text-foreground md:text-6xl">
         {guide.title}
       </h1>
-      <p className="mt-5 max-w-2xl text-base text-cream/70 md:text-lg">{guide.intro}</p>
+      <p className="mt-5 max-w-2xl text-base text-foreground/70 md:text-lg">{guide.intro}</p>
 
       <CategorySection number="01" label="Eats" icon={Utensils}>
         {guide.eats.length === 0 ? (
@@ -115,7 +115,7 @@ function LocationPage() {
             {guide.eats.map((eat, i) => (
               <div
                 key={i}
-                className="card-lift rounded-xl border border-cream/15 bg-paper p-5"
+                className="card-lift rounded-xl border border-charcoal/20 bg-paper p-5"
               >
                 <div className="flex items-start justify-between gap-3">
                   <h3 className="font-display text-xl font-medium tracking-tight text-foreground">
@@ -200,7 +200,7 @@ function SpotList({ spots, emptyMessage }: { spots: Spot[]; emptyMessage: string
       {spots.map((spot, i) => (
         <div
           key={i}
-          className="card-lift rounded-xl border border-cream/15 bg-paper p-5"
+          className="card-lift rounded-xl border border-charcoal/20 bg-paper p-5"
         >
           <h3 className="font-display text-xl font-medium tracking-tight text-foreground">
             {spot.name}
@@ -219,8 +219,8 @@ function SpotList({ spots, emptyMessage }: { spots: Spot[]; emptyMessage: string
 
 function EmptyState({ message }: { message: string }) {
   return (
-    <div className="rounded-xl border border-dashed border-cream/20 bg-cream/5 p-8 text-center">
-      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-cream/60">
+    <div className="rounded-xl border border-dashed border-charcoal/20 bg-paper p-8 text-center">
+      <p className="font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {message}
       </p>
     </div>
