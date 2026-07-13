@@ -23,7 +23,7 @@ export const Route = createFileRoute("/around-the-world/")({
 
 function AroundTheWorldIndex() {
   return (
-    <div className="relative mx-auto max-w-6xl px-6 pt-12 pb-20 md:px-10 md:pt-16 md:pb-28">
+    <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
       <BackLink />
 
       <div className="mt-10 flex items-center gap-3">
@@ -37,7 +37,7 @@ function AroundTheWorldIndex() {
         to my collection.
       </p>
 
-      <div className="mt-14">
+      <div className="mt-10">
         <ComingSoonCard />
       </div>
     </div>
