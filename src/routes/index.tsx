@@ -205,7 +205,7 @@ function Index() {
           </div>
         </div>
         {/* PULL QUOTE — continues the hero */}
-        <div className="mx-auto max-w-[680px] px-6 pb-24 pt-6 text-center md:px-8 md:pb-28 md:pt-8">
+        <div className="mx-auto max-w-[680px] px-6 pb-24 pt-4 text-center md:px-8 md:pb-28 md:pt-5">
           <blockquote
             style={{ fontFamily: "var(--font-quote)" }}
             className="text-[23px] italic leading-[1.25] tracking-tight text-charcoal md:text-[27px] md:leading-[1.3]"
