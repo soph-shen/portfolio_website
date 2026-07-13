@@ -322,43 +322,6 @@ function Index() {
         </div>
       </section>
       </div>
-
-      {/* CONTACT */}
-      <section id="contact" className="scroll-mt-20">
-        <div className="mx-auto max-w-6xl px-6 py-24 text-center md:px-10">
-          <SectionHeader
-            number="05"
-            eyebrow="Contact"
-            title="Let's talk"
-            description="I love hearing about what people are building in data, health, and ML. Always happy to connect!"
-            center
-          />
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href={GITHUB}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
-            >
-              <Github className="h-4 w-4 text-gold" /> GitHub
-            </a>
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-border bg-paper px-4 py-2 text-sm font-medium text-foreground transition-colors hover:border-gold hover:text-charcoal"
-            >
-              <Linkedin className="h-4 w-4 text-gold" /> LinkedIn
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-md bg-charcoal px-4 py-2 text-sm font-medium text-cream transition-colors hover:bg-charcoal-soft"
-            >
-              <Mail className="h-4 w-4 text-gold" /> Email
-            </a>
-          </div>
-        </div>
-      </section>
     </>
   );
 }
