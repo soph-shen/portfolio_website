@@ -6,7 +6,7 @@ export const Route = createFileRoute("/around-the-world")({
 
 function AroundTheWorldLayout() {
   return (
-    <div className="min-h-screen bg-charcoal">
+    <div className="min-h-screen bg-background text-foreground">
       <Outlet />
     </div>
   );
