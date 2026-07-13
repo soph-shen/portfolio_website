@@ -1,9 +1,72 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, MapPin } from "lucide-react";
+import { ArrowLeft, Utensils, ShoppingBag, Coffee, Trees, Compass } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
 
-const locationTitles: Record<string, string> = {
-  "chapel-hill-rtp": "Chapel Hill / RTP",
-  "coming-soon": "Coming soon",
+type Eat = {
+  name: string;
+  tag: string;
+  note: string;
+  rating?: number;
+};
+
+type Spot = {
+  name: string;
+  tag?: string;
+  note: string;
+};
+
+type TravelNote = {
+  label: string;
+  note: string;
+};
+
+type LocationGuide = {
+  title: string;
+  intro: string;
+  eats: Eat[];
+  shop: Spot[];
+  hang: Spot[];
+  nature: Spot[];
+  travel: TravelNote[];
+};
+
+const guides: Record<string, LocationGuide> = {
+  "chapel-hill-rtp": {
+    title: "Chapel Hill / RTP",
+    intro: "My go-to spots after a few years living and studying in the Triangle.",
+    eats: [
+      { name: "Coming soon", tag: "Cuisine", note: "A favorite spot for late-night study fuel.", rating: 9 },
+      { name: "Coming soon", tag: "Cuisine", note: "Best weekend brunch on Franklin Street.", rating: 8 },
+      { name: "Coming soon", tag: "Cuisine", note: "Cozy dinner pick for visiting family." },
+    ],
+    shop: [
+      { name: "Coming soon", tag: "Bookstore", note: "Independent shop I can lose an hour in." },
+      { name: "Coming soon", tag: "Market", note: "Saturday morning farmers market pick-ups." },
+    ],
+    hang: [
+      { name: "Coming soon", tag: "Cafe", note: "My default remote-work spot with good light." },
+      { name: "Coming soon", tag: "Bar", note: "Low-key patio for post-class hangs." },
+    ],
+    nature: [
+      { name: "Coming soon", tag: "Trail", note: "Easy loop when I need to reset between deadlines." },
+      { name: "Coming soon", tag: "Park", note: "Where I go for sunset walks in the fall." },
+    ],
+    travel: [
+      { label: "Best time to visit", note: "Coming soon — fall for foliage, spring for basketball season." },
+      { label: "Getting around", note: "Coming soon — a car helps, but the Chapel Hill Transit is free." },
+      { label: "Where to stay", note: "Coming soon — notes on Franklin Street vs. Southern Village." },
+    ],
+  },
+};
+
+const emptyGuide: LocationGuide = {
+  title: "Coming soon",
+  intro: "I'm still gathering notes, photos, and favorite spots for this guide.",
+  eats: [],
+  shop: [],
+  hang: [],
+  nature: [],
+  travel: [],
 };
 
 export const Route = createFileRoute("/around-the-world/$slug")({
