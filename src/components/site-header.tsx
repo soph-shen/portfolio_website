@@ -380,8 +380,8 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-1 text-sm md:flex">
           <AnchorLink hash="home" label="Home" />
           <NavDropdown label="Work" items={workDropdownItems} />
-          <TopRouteLink to="/thoughts" label="Thoughts" />
           <NavDropdown label="Living Life" items={livingLifeDropdownItems} />
+          <TopRouteLink to="/thoughts" label="Thoughts" />
           <TopRouteLink to="/contact" label="Contact" />
         </nav>
         <button
@@ -401,12 +401,12 @@ export function SiteHeader() {
             items={workDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <MobileTopLink to="/thoughts" label="Thoughts" onNavigate={() => setMobileOpen(false)} />
           <MobileAccordion
             label="Living Life"
             items={livingLifeDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
+          <MobileTopLink to="/thoughts" label="Thoughts" onNavigate={() => setMobileOpen(false)} />
           <MobileTopLink to="/contact" label="Contact" onNavigate={() => setMobileOpen(false)} />
         </nav>
       )}
