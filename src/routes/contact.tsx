@@ -20,7 +20,7 @@ export const Route = createFileRoute("/contact")({
 });
 
 const GITHUB = "https://github.com/soph-shen";
-const LINKEDIN = "https://www.linkedin.com/in/xiyuan-shen-13a41b2b1";
+const LINKEDIN = "https://www.linkedin.com/in/xiyuan-sophia-shen/";
 const EMAIL = "xiyuan.shen@outlook.com";
 
 function ContactPage() {

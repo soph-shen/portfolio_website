@@ -13,7 +13,7 @@ export default defineTool({
       affiliation: "Data Science & Health Policy @ UNC–Chapel Hill",
       links: {
         github: "https://github.com/soph-shen",
-        linkedin: "https://www.linkedin.com/in/xiyuan-shen-13a41b2b1",
+        linkedin: "https://www.linkedin.com/in/xiyuan-sophia-shen/",
         email: "xiyuan.shen@outlook.com",
       },
     };
