@@ -1,6 +1,6 @@
 import { createFileRoute, Outlet } from "@tanstack/react-router";
 
-export const Route = createFileRoute("/around-the-world")({
+export const Route = createFileRoute("/wandering")({
   component: AroundTheWorldLayout,
 });
 

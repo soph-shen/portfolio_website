@@ -8,9 +8,10 @@ const workItems = [
   { hash: "skills", label: "Skills" },
 ] as const;
 
-const livingLifeItems = [
-  { to: "/around-the-world", label: "Around the World" },
-  { to: "/music-playlists", label: "Music Playlists" },
+const offTheClockItems = [
+  { to: "/wandering", label: "Wandering", description: "Places I've been, eaten, and explored" },
+  { to: "/eating", label: "Eating", description: "My Beli recs, ranked honestly" },
+  { to: "/on-repeat", label: "On Repeat", description: "Playlists in every language but English pop" },
 ] as const;
 
 function AnchorLink({
@@ -60,7 +61,7 @@ function AnchorLink({
 }
 
 type DropdownItem =
-  | { kind: "route"; to: string; label: string }
+  | { kind: "route"; to: string; label: string; description?: string }
   | { kind: "anchor"; hash: string; label: string };
 
 function NavDropdown({ label, items }: { label: string; items: readonly DropdownItem[] }) {
@@ -69,6 +70,7 @@ function NavDropdown({ label, items }: { label: string; items: readonly Dropdown
   const itemRefs = useRef<Array<HTMLAnchorElement | null>>([]);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
   const isHome = pathname === "/";
+  const hasDescriptions = items.some((item) => item.kind === "route" && item.description);
 
   useEffect(() => {
     if (!open) return;
@@ -131,7 +133,7 @@ function NavDropdown({ label, items }: { label: string; items: readonly Dropdown
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-full w-fit min-w-fit whitespace-nowrap rounded-md border border-border bg-paper py-1 shadow-lg"
+          className={`absolute right-0 top-full rounded-md border border-border bg-paper py-1 shadow-lg ${hasDescriptions ? "w-72" : "w-fit min-w-fit whitespace-nowrap"}`}
         >
           {items.map((item, idx) => {
             const cls =
@@ -150,7 +152,12 @@ function NavDropdown({ label, items }: { label: string; items: readonly Dropdown
                   onKeyDown={(e) => onItemKey(e, idx)}
                   className={cls}
                 >
-                  {item.label}
+                  <span className="block">{item.label}</span>
+                  {item.description && (
+                    <span className="mt-0.5 block text-xs text-muted-foreground/70">
+                      {item.description}
+                    </span>
+                  )}
                 </Link>
               );
             }
@@ -233,7 +240,12 @@ function MobileAccordion({
                 }}
                 className="w-fit text-left text-muted-foreground transition-colors hover:text-foreground"
               >
-                {item.label}
+                <span className="block">{item.label}</span>
+                {item.description && (
+                  <span className="mt-0.5 block text-xs text-muted-foreground/70">
+                    {item.description}
+                  </span>
+                )}
               </Link>
             ) : (
               <MobileAnchorLink
@@ -340,10 +352,11 @@ const workDropdownItems: readonly DropdownItem[] = workItems.map((i) => ({
   hash: i.hash,
   label: i.label,
 }));
-const livingLifeDropdownItems: readonly DropdownItem[] = livingLifeItems.map((i) => ({
+const offTheClockDropdownItems: readonly DropdownItem[] = offTheClockItems.map((i) => ({
   kind: "route" as const,
   to: i.to,
   label: i.label,
+  description: i.description,
 }));
 
 function BrandMark() {
@@ -380,9 +393,9 @@ export function SiteHeader() {
         <nav className="hidden items-center gap-1 text-sm md:flex">
           <AnchorLink hash="home" label="Home" />
           <NavDropdown label="Work" items={workDropdownItems} />
-          <NavDropdown label="Living Life" items={livingLifeDropdownItems} />
-          <TopRouteLink to="/thoughts" label="Thoughts" />
-          <TopRouteLink to="/contact" label="Contact" />
+          <NavDropdown label="Off the Clock" items={offTheClockDropdownItems} />
+          <TopRouteLink to="/notes" label="Notes" />
+          <TopRouteLink to="/say-hi" label="Say Hi" />
         </nav>
         <button
           type="button"
@@ -402,12 +415,12 @@ export function SiteHeader() {
             onNavigate={() => setMobileOpen(false)}
           />
           <MobileAccordion
-            label="Living Life"
-            items={livingLifeDropdownItems}
+            label="Off the Clock"
+            items={offTheClockDropdownItems}
             onNavigate={() => setMobileOpen(false)}
           />
-          <MobileTopLink to="/thoughts" label="Thoughts" onNavigate={() => setMobileOpen(false)} />
-          <MobileTopLink to="/contact" label="Contact" onNavigate={() => setMobileOpen(false)} />
+          <MobileTopLink to="/notes" label="Notes" onNavigate={() => setMobileOpen(false)} />
+          <MobileTopLink to="/say-hi" label="Say Hi" onNavigate={() => setMobileOpen(false)} />
         </nav>
       )}
     </header>
