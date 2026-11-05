@@ -1,12 +1,13 @@
-import { describe, expect, test } from "bun:test";
+import { describe, it } from "node:test";
+import { strict as assert } from "node:assert";
 import { hasSpotifyLink } from "./playlist";
 
 describe("Spotify controls visibility", () => {
-  test("empty Spotify URL hides controls", () => {
-    expect(hasSpotifyLink("")).toBe(false);
-    expect(hasSpotifyLink("   ")).toBe(false);
+  it("empty Spotify URL hides controls", () => {
+    assert.equal(hasSpotifyLink(""), false);
+    assert.equal(hasSpotifyLink("   "), false);
   });
-  test("a supplied Spotify URL shows controls", () => {
-    expect(hasSpotifyLink("https://open.spotify.com/playlist/example")).toBe(true);
+  it("a supplied Spotify URL shows controls", () => {
+    assert.equal(hasSpotifyLink("https://open.spotify.com/playlist/example"), true);
   });
 });
