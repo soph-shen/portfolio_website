@@ -25,10 +25,9 @@ export function PlaylistBlock() {
       </div>
       <ol className="mt-2 list-none p-0" aria-label="Playlist tracks">
         {tracks.map((track, index) => (
-          <li key={`${track.title}-${track.artist}`} className="group grid min-h-[72px] grid-cols-[24px_minmax(0,1fr)] items-center gap-4 rounded px-2 py-3 hover:bg-playlist-hover sm:px-3">
-            <span className="relative flex h-6 w-6 items-center justify-center text-sm tabular-nums text-playlist-muted">
-              <span className="group-hover:opacity-0">{index + 1}</span>
-              <Play className="absolute h-3.5 w-3.5 text-playlist-foreground opacity-0 group-hover:opacity-100" fill="currentColor" aria-hidden="true" />
+          <li key={`${track.title}-${track.artist}`} className="grid min-h-[72px] grid-cols-[24px_minmax(0,1fr)] items-center gap-4 rounded px-2 py-3 hover:bg-playlist-hover sm:px-3">
+            <span className="flex h-6 w-6 items-center justify-center text-sm tabular-nums text-playlist-muted">
+              {index + 1}
             </span>
             <div className="min-w-0">
               <span className="block text-base leading-snug text-playlist-foreground">{track.title}</span>
