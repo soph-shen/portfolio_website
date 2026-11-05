@@ -277,6 +277,7 @@
 .doodles-top { right: 9%; top: 1%; transform: rotate(12deg); }
 .doodles-bottom { left: 6%; bottom: 30%; transform: rotate(-8deg); }
 .collage-calm { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0%, color-mix(in oklab, var(--cream) 45%, transparent) 15%, var(--cream) 29%, var(--cream) 70%, color-mix(in oklab, var(--cream) 40%, transparent) 88%, transparent 100%); }
+.collage-calm::before { content: ""; position: absolute; top: 0; left: 0; width: 76%; height: 370px; background: linear-gradient(180deg, color-mix(in oklab, var(--cream) 96%, transparent) 0%, color-mix(in oklab, var(--cream) 96%, transparent) 76%, transparent 100%); }
 .collage-grain { position: absolute; inset: 0; opacity: 0.055; mix-blend-mode: multiply; }
 @media (min-width: 1500px) {
   .collage-scrap { width: 350px; }
@@ -299,4 +300,5 @@
   .ticket-left { width: 145px; left: -73px; bottom: 29%; }
   .collage-tape { width: 65px; height: 22px; }
   .collage-calm { background: linear-gradient(90deg, color-mix(in oklab, var(--cream) 35%, transparent), var(--cream) 24%, var(--cream) 77%, color-mix(in oklab, var(--cream) 35%, transparent)); }
+  .collage-calm::before { width: 100%; height: 340px; }
 }
