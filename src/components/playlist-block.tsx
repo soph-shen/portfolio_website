@@ -1,5 +1,4 @@
-import { useState } from "react";
-import { ChevronDown, ChevronUp, Clock, Play } from "lucide-react";
+import { Clock, Play } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   formatDuration,
@@ -8,15 +7,10 @@ import {
   type Playlist,
 } from "@/lib/playlist";
 
-const COLLAPSED_COUNT = 10;
-
 export function PlaylistBlock({ playlist }: { playlist: Playlist }) {
-  const [expanded, setExpanded] = useState(false);
   const { tracks } = playlist;
   const hasAlbum = tracks.some((track) => track.album != null);
   const hasDuration = tracks.some((track) => track.duration != null);
-  const collapsible = tracks.length > COLLAPSED_COUNT;
-  const visibleTracks = collapsible && !expanded ? tracks.slice(0, COLLAPSED_COUNT) : tracks;
 
   // Album shows from md up; duration is always visible when present.
   const gridCols = hasAlbum
@@ -35,7 +29,7 @@ export function PlaylistBlock({ playlist }: { playlist: Playlist }) {
         <p className="mt-3 text-sm text-playlist-muted">{playlistSubtitle(playlist)}</p>
         {hasSpotifyLink(playlist.spotifyUrl) && (
           <div className="mt-5 flex items-center gap-3">
-            <Button asChild size="icon" className="h-12 w-12 rounded-full bg-spotify text-spotify-foreground hover:bg-spotify/90" title="Listen on Spotify">
+            <Button asChild size="icon" className="playlist-play-btn h-12 w-12 rounded-full" title="Listen on Spotify">
               <a href={playlist.spotifyUrl} target="_blank" rel="noopener noreferrer" aria-label={`Play ${playlist.title} on Spotify`}><Play fill="currentColor" aria-hidden="true" /></a>
             </Button>
             <Button asChild variant="link" className="px-0 text-playlist-foreground">
@@ -55,7 +49,7 @@ export function PlaylistBlock({ playlist }: { playlist: Playlist }) {
         )}
       </div>
       <ol className="mt-2 list-none p-0" aria-label={`${playlist.title} tracks`}>
-        {visibleTracks.map((track, index) => (
+        {tracks.map((track, index) => (
           <li key={`${track.title}-${track.artist}`} className={`grid min-h-[72px] ${gridCols} items-center gap-4 rounded px-2 py-3 hover:bg-playlist-hover sm:px-3`}>
             <span className="flex h-6 w-6 items-center justify-center text-sm tabular-nums text-playlist-muted">
               {index + 1}
@@ -75,22 +69,6 @@ export function PlaylistBlock({ playlist }: { playlist: Playlist }) {
           </li>
         ))}
       </ol>
-      {collapsible && (
-        <div className="mt-2 flex justify-center border-t border-playlist-divider pt-4">
-          <Button
-            variant="link"
-            className="gap-1.5 px-0 text-sm text-playlist-muted hover:text-playlist-foreground"
-            onClick={() => setExpanded((value) => !value)}
-            aria-expanded={expanded}
-          >
-            {expanded ? (
-              <>Show less<ChevronUp className="h-4 w-4" aria-hidden="true" /></>
-            ) : (
-              <>Show all {tracks.length} songs<ChevronDown className="h-4 w-4" aria-hidden="true" /></>
-            )}
-          </Button>
-        </div>
-      )}
     </article>
   );
 }
