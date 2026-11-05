@@ -231,6 +231,27 @@
   );
 }
 
+/* Playlist surface retains its dark listening-room theme in either site mode. */
+:root {
+  --playlist: oklch(0.182 0 0);
+  --playlist-foreground: oklch(1 0 0);
+  --playlist-muted: oklch(0.73 0 0);
+  --playlist-hover: oklch(0.26 0 0);
+  --playlist-divider: oklch(0.36 0 0);
+  --spotify: oklch(0.76 0.2 149);
+  --spotify-foreground: oklch(0.15 0 0);
+}
+@theme inline {
+  --color-playlist: var(--playlist);
+  --color-playlist-foreground: var(--playlist-foreground);
+  --color-playlist-muted: var(--playlist-muted);
+  --color-playlist-hover: var(--playlist-hover);
+  --color-playlist-divider: var(--playlist-divider);
+  --color-spotify: var(--spotify);
+  --color-spotify-foreground: var(--spotify-foreground);
+}
+.playlist-block, .playlist-block .playlist-title { font-family: var(--font-body); letter-spacing: 0; }
+
 /* Static music scrapbook; all selectors are exclusive to Playlists decoration. */
 :root {
   --collage-rose: oklch(0.79 0.06 12);
