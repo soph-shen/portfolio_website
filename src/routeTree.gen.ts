@@ -23,7 +23,7 @@ import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AroundTheWorldIndexRouteImport } from './routes/around-the-world.index'
 import { Route as AroundTheWorldSlugRouteImport } from './routes/around-the-world.$slug'
-import { Route as MusicPlaylistsSlugRouteImport } from './routes/music-playlists.$slug'
+import { Route as MusicPlaylistsSlugRouteImport } from './routes/music-playlists_.$slug'
 import { Route as OnRepeatIndexRouteImport } from './routes/on-repeat.index'
 import { Route as OnRepeatSlugRouteImport } from './routes/on-repeat.$slug'
 import { Route as WanderingIndexRouteImport } from './routes/wandering.index'
@@ -103,9 +103,9 @@ const AroundTheWorldSlugRoute = AroundTheWorldSlugRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const MusicPlaylistsSlugRoute = MusicPlaylistsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => MusicPlaylistsRoute,
+  id: '/music-playlists_/$slug',
+  path: '/music-playlists/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const OnRepeatIndexRoute = OnRepeatIndexRouteImport.update({
   id: '/',
@@ -139,7 +139,7 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
-  '/music-playlists': typeof MusicPlaylistsRouteWithChildren
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
   '/on-repeat': typeof OnRepeatRouteWithChildren
   '/say-hi': typeof SayHiRoute
@@ -161,7 +161,7 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
-  '/music-playlists': typeof MusicPlaylistsRouteWithChildren
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
   '/say-hi': typeof SayHiRoute
   '/thoughts': typeof ThoughtsRoute
@@ -182,7 +182,7 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
-  '/music-playlists': typeof MusicPlaylistsRouteWithChildren
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
   '/on-repeat': typeof OnRepeatRouteWithChildren
   '/say-hi': typeof SayHiRoute
@@ -191,7 +191,7 @@ export interface FileRoutesById {
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
-  '/music-playlists/$slug': typeof MusicPlaylistsSlugRoute
+  '/music-playlists_/$slug': typeof MusicPlaylistsSlugRoute
   '/on-repeat/$slug': typeof OnRepeatSlugRoute
   '/wandering/$slug': typeof WanderingSlugRoute
   '/around-the-world/': typeof AroundTheWorldIndexRoute
@@ -257,7 +257,7 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/around-the-world/$slug'
-    | '/music-playlists/$slug'
+    | '/music-playlists_/$slug'
     | '/on-repeat/$slug'
     | '/wandering/$slug'
     | '/around-the-world/'
@@ -271,7 +271,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   EatingRoute: typeof EatingRoute
   McpRoute: typeof McpRoute
-  MusicPlaylistsRoute: typeof MusicPlaylistsRouteWithChildren
+  MusicPlaylistsRoute: typeof MusicPlaylistsRoute
   NotesRoute: typeof NotesRoute
   OnRepeatRoute: typeof OnRepeatRouteWithChildren
   SayHiRoute: typeof SayHiRoute
@@ -280,6 +280,7 @@ export interface RootRouteChildren {
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   AroundTheWorldSlugRoute: typeof AroundTheWorldSlugRoute
+  MusicPlaylistsSlugRoute: typeof MusicPlaylistsSlugRoute
   AroundTheWorldIndexRoute: typeof AroundTheWorldIndexRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -384,12 +385,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AroundTheWorldSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/music-playlists/$slug': {
-      id: '/music-playlists/$slug'
-      path: '/$slug'
+    '/music-playlists_/$slug': {
+      id: '/music-playlists_/$slug'
+      path: '/music-playlists/$slug'
       fullPath: '/music-playlists/$slug'
       preLoaderRoute: typeof MusicPlaylistsSlugRouteImport
-      parentRoute: typeof MusicPlaylistsRoute
+      parentRoute: typeof rootRouteImport
     }
     '/on-repeat/': {
       id: '/on-repeat/'
@@ -429,18 +430,6 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface MusicPlaylistsRouteChildren {
-  MusicPlaylistsSlugRoute: typeof MusicPlaylistsSlugRoute
-}
-
-const MusicPlaylistsRouteChildren: MusicPlaylistsRouteChildren = {
-  MusicPlaylistsSlugRoute: MusicPlaylistsSlugRoute,
-}
-
-const MusicPlaylistsRouteWithChildren = MusicPlaylistsRoute._addFileChildren(
-  MusicPlaylistsRouteChildren,
-)
-
 interface OnRepeatRouteChildren {
   OnRepeatSlugRoute: typeof OnRepeatSlugRoute
   OnRepeatIndexRoute: typeof OnRepeatIndexRoute
@@ -474,7 +463,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   EatingRoute: EatingRoute,
   McpRoute: McpRoute,
-  MusicPlaylistsRoute: MusicPlaylistsRouteWithChildren,
+  MusicPlaylistsRoute: MusicPlaylistsRoute,
   NotesRoute: NotesRoute,
   OnRepeatRoute: OnRepeatRouteWithChildren,
   SayHiRoute: SayHiRoute,
@@ -484,6 +473,7 @@ const rootRouteChildren: RootRouteChildren = {
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
   AroundTheWorldSlugRoute: AroundTheWorldSlugRoute,
+  MusicPlaylistsSlugRoute: MusicPlaylistsSlugRoute,
   AroundTheWorldIndexRoute: AroundTheWorldIndexRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
