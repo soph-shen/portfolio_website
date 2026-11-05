@@ -4,7 +4,7 @@ import { ArrowLeft, Pencil } from "lucide-react";
 export const Route = createFileRoute("/notes")({
   head: () => ({
     meta: [
-      { title: "Thoughts — Sophia Shen" },
+      { title: "Notes — Sophia Shen" },
       {
         name: "description",
         content:

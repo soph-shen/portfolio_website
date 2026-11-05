@@ -7,13 +7,13 @@ import { playlists } from "@/lib/playlist";
 export const Route = createFileRoute("/on-repeat")({
   head: () => ({
     meta: [
-      { title: "Music Playlists — Sophia Shen" },
+      { title: "On Repeat — Sophia Shen" },
       {
         name: "description",
         content:
           "Playlists across languages, genres, moods, and eras — curated by Sophia Shen.",
       },
-      { property: "og:title", content: "Music Playlists — Sophia Shen" },
+      { property: "og:title", content: "On Repeat — Sophia Shen" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       {

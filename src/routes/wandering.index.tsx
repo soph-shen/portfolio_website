@@ -4,13 +4,13 @@ import { ArrowLeft } from "lucide-react";
 export const Route = createFileRoute("/wandering/")({
   head: () => ({
     meta: [
-      { title: "Around the World — Sophia Shen" },
+      { title: "Wandering — Sophia Shen" },
       {
         name: "description",
         content:
           "Local guides and favorite spots from places Sophia Shen has been, eaten, and explored.",
       },
-      { property: "og:title", content: "Around the World — Sophia Shen" },
+      { property: "og:title", content: "Wandering — Sophia Shen" },
       {
         property: "og:description",
         content:

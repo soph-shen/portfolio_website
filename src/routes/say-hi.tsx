@@ -4,7 +4,7 @@ import { ArrowLeft, Github, Linkedin, Mail } from "lucide-react";
 export const Route = createFileRoute("/say-hi")({
   head: () => ({
     meta: [
-      { title: "Contact — Sophia Shen" },
+      { title: "Say Hi — Sophia Shen" },
       {
         name: "description",
         content: "Get in touch with Sophia Shen — Data Science & Health Policy at UNC–Chapel Hill.",

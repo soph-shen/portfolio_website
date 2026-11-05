@@ -74,7 +74,7 @@ export const Route = createFileRoute("/wandering/$slug")({
     const title = guides[params.slug]?.title ?? "Location";
     return {
       meta: [
-        { title: `${title} — Around the World — Sophia Shen` },
+        { title: `${title} — Wandering — Sophia Shen` },
         {
           name: "description",
           content: `A local guide to ${title}: eats, shops, hangouts, and nature spots.`,
