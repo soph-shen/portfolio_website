@@ -9,9 +9,9 @@ const workItems = [
 ] as const;
 
 const offTheClockItems = [
-  { to: "/wandering", label: "Wandering", description: "Places I've been, eaten, and explored" },
-  { to: "/eating", label: "Eating", description: "My Beli recs, ranked honestly" },
-  { to: "/on-repeat", label: "On Repeat", description: "Playlists in every language but English pop" },
+  { to: "/wandering", label: "Wandering", description: "place i've been and explore" },
+  { to: "/eating", label: "Eating", description: "my Beli recs" },
+  { to: "/on-repeat", label: "On Repeat", description: "everything but rap" },
 ] as const;
 
 function AnchorLink({
