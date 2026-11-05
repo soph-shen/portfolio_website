@@ -23,6 +23,9 @@ import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
 import { Route as AroundTheWorldIndexRouteImport } from './routes/around-the-world.index'
 import { Route as AroundTheWorldSlugRouteImport } from './routes/around-the-world.$slug'
+import { Route as MusicPlaylistsSlugRouteImport } from './routes/music-playlists.$slug'
+import { Route as OnRepeatIndexRouteImport } from './routes/on-repeat.index'
+import { Route as OnRepeatSlugRouteImport } from './routes/on-repeat.$slug'
 import { Route as WanderingIndexRouteImport } from './routes/wandering.index'
 import { Route as WanderingSlugRouteImport } from './routes/wandering.$slug'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
@@ -99,6 +102,21 @@ const AroundTheWorldSlugRoute = AroundTheWorldSlugRouteImport.update({
   path: '/around-the-world/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
+const MusicPlaylistsSlugRoute = MusicPlaylistsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => MusicPlaylistsRoute,
+} as any)
+const OnRepeatIndexRoute = OnRepeatIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => OnRepeatRoute,
+} as any)
+const OnRepeatSlugRoute = OnRepeatSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => OnRepeatRoute,
+} as any)
 const WanderingIndexRoute = WanderingIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -121,17 +139,20 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
-  '/music-playlists': typeof MusicPlaylistsRoute
+  '/music-playlists': typeof MusicPlaylistsRouteWithChildren
   '/notes': typeof NotesRoute
-  '/on-repeat': typeof OnRepeatRoute
+  '/on-repeat': typeof OnRepeatRouteWithChildren
   '/say-hi': typeof SayHiRoute
   '/thoughts': typeof ThoughtsRoute
   '/wandering': typeof WanderingRouteWithChildren
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
+  '/music-playlists/$slug': typeof MusicPlaylistsSlugRoute
+  '/on-repeat/$slug': typeof OnRepeatSlugRoute
   '/wandering/$slug': typeof WanderingSlugRoute
   '/around-the-world/': typeof AroundTheWorldIndexRoute
+  '/on-repeat/': typeof OnRepeatIndexRoute
   '/wandering/': typeof WanderingIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -140,16 +161,18 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
-  '/music-playlists': typeof MusicPlaylistsRoute
+  '/music-playlists': typeof MusicPlaylistsRouteWithChildren
   '/notes': typeof NotesRoute
-  '/on-repeat': typeof OnRepeatRoute
   '/say-hi': typeof SayHiRoute
   '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
+  '/music-playlists/$slug': typeof MusicPlaylistsSlugRoute
+  '/on-repeat/$slug': typeof OnRepeatSlugRoute
   '/wandering/$slug': typeof WanderingSlugRoute
   '/around-the-world': typeof AroundTheWorldIndexRoute
+  '/on-repeat': typeof OnRepeatIndexRoute
   '/wandering': typeof WanderingIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -159,17 +182,20 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
-  '/music-playlists': typeof MusicPlaylistsRoute
+  '/music-playlists': typeof MusicPlaylistsRouteWithChildren
   '/notes': typeof NotesRoute
-  '/on-repeat': typeof OnRepeatRoute
+  '/on-repeat': typeof OnRepeatRouteWithChildren
   '/say-hi': typeof SayHiRoute
   '/thoughts': typeof ThoughtsRoute
   '/wandering': typeof WanderingRouteWithChildren
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
+  '/music-playlists/$slug': typeof MusicPlaylistsSlugRoute
+  '/on-repeat/$slug': typeof OnRepeatSlugRoute
   '/wandering/$slug': typeof WanderingSlugRoute
   '/around-the-world/': typeof AroundTheWorldIndexRoute
+  '/on-repeat/': typeof OnRepeatIndexRoute
   '/wandering/': typeof WanderingIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -189,8 +215,11 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/around-the-world/$slug'
+    | '/music-playlists/$slug'
+    | '/on-repeat/$slug'
     | '/wandering/$slug'
     | '/around-the-world/'
+    | '/on-repeat/'
     | '/wandering/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
@@ -201,14 +230,16 @@ export interface FileRouteTypes {
     | '/mcp'
     | '/music-playlists'
     | '/notes'
-    | '/on-repeat'
     | '/say-hi'
     | '/thoughts'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/around-the-world/$slug'
+    | '/music-playlists/$slug'
+    | '/on-repeat/$slug'
     | '/wandering/$slug'
     | '/around-the-world'
+    | '/on-repeat'
     | '/wandering'
     | '/.mcp/invoke-tool/$tool'
   id:
@@ -226,8 +257,11 @@ export interface FileRouteTypes {
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
     | '/around-the-world/$slug'
+    | '/music-playlists/$slug'
+    | '/on-repeat/$slug'
     | '/wandering/$slug'
     | '/around-the-world/'
+    | '/on-repeat/'
     | '/wandering/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
@@ -237,9 +271,9 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   EatingRoute: typeof EatingRoute
   McpRoute: typeof McpRoute
-  MusicPlaylistsRoute: typeof MusicPlaylistsRoute
+  MusicPlaylistsRoute: typeof MusicPlaylistsRouteWithChildren
   NotesRoute: typeof NotesRoute
-  OnRepeatRoute: typeof OnRepeatRoute
+  OnRepeatRoute: typeof OnRepeatRouteWithChildren
   SayHiRoute: typeof SayHiRoute
   ThoughtsRoute: typeof ThoughtsRoute
   WanderingRoute: typeof WanderingRouteWithChildren
@@ -350,6 +384,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AroundTheWorldSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/music-playlists/$slug': {
+      id: '/music-playlists/$slug'
+      path: '/$slug'
+      fullPath: '/music-playlists/$slug'
+      preLoaderRoute: typeof MusicPlaylistsSlugRouteImport
+      parentRoute: typeof MusicPlaylistsRoute
+    }
+    '/on-repeat/': {
+      id: '/on-repeat/'
+      path: '/'
+      fullPath: '/on-repeat/'
+      preLoaderRoute: typeof OnRepeatIndexRouteImport
+      parentRoute: typeof OnRepeatRoute
+    }
+    '/on-repeat/$slug': {
+      id: '/on-repeat/$slug'
+      path: '/$slug'
+      fullPath: '/on-repeat/$slug'
+      preLoaderRoute: typeof OnRepeatSlugRouteImport
+      parentRoute: typeof OnRepeatRoute
+    }
     '/wandering/': {
       id: '/wandering/'
       path: '/'
@@ -374,6 +429,32 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface MusicPlaylistsRouteChildren {
+  MusicPlaylistsSlugRoute: typeof MusicPlaylistsSlugRoute
+}
+
+const MusicPlaylistsRouteChildren: MusicPlaylistsRouteChildren = {
+  MusicPlaylistsSlugRoute: MusicPlaylistsSlugRoute,
+}
+
+const MusicPlaylistsRouteWithChildren = MusicPlaylistsRoute._addFileChildren(
+  MusicPlaylistsRouteChildren,
+)
+
+interface OnRepeatRouteChildren {
+  OnRepeatSlugRoute: typeof OnRepeatSlugRoute
+  OnRepeatIndexRoute: typeof OnRepeatIndexRoute
+}
+
+const OnRepeatRouteChildren: OnRepeatRouteChildren = {
+  OnRepeatSlugRoute: OnRepeatSlugRoute,
+  OnRepeatIndexRoute: OnRepeatIndexRoute,
+}
+
+const OnRepeatRouteWithChildren = OnRepeatRoute._addFileChildren(
+  OnRepeatRouteChildren,
+)
+
 interface WanderingRouteChildren {
   WanderingSlugRoute: typeof WanderingSlugRoute
   WanderingIndexRoute: typeof WanderingIndexRoute
@@ -393,9 +474,9 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   EatingRoute: EatingRoute,
   McpRoute: McpRoute,
-  MusicPlaylistsRoute: MusicPlaylistsRoute,
+  MusicPlaylistsRoute: MusicPlaylistsRouteWithChildren,
   NotesRoute: NotesRoute,
-  OnRepeatRoute: OnRepeatRoute,
+  OnRepeatRoute: OnRepeatRouteWithChildren,
   SayHiRoute: SayHiRoute,
   ThoughtsRoute: ThoughtsRoute,
   WanderingRoute: WanderingRouteWithChildren,
