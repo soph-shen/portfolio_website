@@ -395,7 +395,7 @@ export function SiteHeader() {
           <NavDropdown label="Work" items={workDropdownItems} />
           <NavDropdown label="Off the Clock" items={offTheClockDropdownItems} />
           <TopRouteLink to="/notes" label="Notes" />
-          <TopRouteLink to="/say-hi" label="Say Hi" />
+          <TopRouteLink to="/say-hi" label="Let's Chat" />
         </nav>
         <button
           type="button"
@@ -420,7 +420,7 @@ export function SiteHeader() {
             onNavigate={() => setMobileOpen(false)}
           />
           <MobileTopLink to="/notes" label="Notes" onNavigate={() => setMobileOpen(false)} />
-          <MobileTopLink to="/say-hi" label="Say Hi" onNavigate={() => setMobileOpen(false)} />
+          <MobileTopLink to="/say-hi" label="Let's Chat" onNavigate={() => setMobileOpen(false)} />
         </nav>
       )}
     </header>
