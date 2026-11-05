@@ -11,6 +11,8 @@ export interface Track {
 
 export interface Playlist {
   id: string;
+  /** URL slug for the detail page, e.g. /on-repeat/alt-rock */
+  slug: string;
   title: string;
   spotifyUrl: string;
   tracks: Track[];
@@ -19,6 +21,7 @@ export interface Playlist {
 export const playlists: Playlist[] = [
   {
     id: "alt-rock",
+    slug: "alt-rock",
     title: "alt rock (the moody kind)",
     spotifyUrl: "",
     tracks: [
@@ -36,7 +39,8 @@ export const playlists: Playlist[] = [
   },
   {
     id: "sur-la-plage",
-    title: "sur la plage, par la mer",
+    slug: "french",
+    title: "french",
     spotifyUrl: "https://open.spotify.com/playlist/4iaTtsxpMzKyCkOEpm1ygO",
     tracks: [
       { title: "conduire", artist: "Louane", album: "Conduire", duration: 170 },
@@ -82,21 +86,11 @@ export function formatDuration(seconds: number) {
   return `${m}:${String(s).padStart(2, "0")}`;
 }
 
-export function totalDurationSeconds(tracks: Track[]) {
-  return tracks.reduce((sum, track) => sum + (track.duration ?? 0), 0);
+export function getPlaylistBySlug(slug: string) {
+  return playlists.find((playlist) => playlist.slug === slug);
 }
 
-/** 5542 -> "1 hr 32 min" */
-export function formatTotalDuration(seconds: number) {
-  const hours = Math.floor(seconds / 3600);
-  const minutes = Math.round((seconds % 3600) / 60);
-  if (hours === 0) return `${minutes} min`;
-  return `${hours} hr ${minutes} min`;
-}
-
-/** "28 songs, 1 hr 32 min" — duration part only when tracks have durations. */
+/** "28 songs" */
 export function playlistSubtitle(playlist: Playlist) {
-  const songs = `${playlist.tracks.length} songs`;
-  if (!playlist.tracks.some((track) => track.duration != null)) return songs;
-  return `${songs}, ${formatTotalDuration(totalDurationSeconds(playlist.tracks))}`;
+  return `${playlist.tracks.length} songs`;
 }
