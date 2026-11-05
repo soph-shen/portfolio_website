@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Headphones, Music } from "lucide-react";
+import { MusicCollage } from "@/components/music-collage";
 
 export const Route = createFileRoute("/music-playlists")({
   head: () => ({
@@ -11,12 +12,15 @@ export const Route = createFileRoute("/music-playlists")({
           "Playlists across languages, genres, moods, and eras — curated by Sophia Shen.",
       },
       { property: "og:title", content: "Music Playlists — Sophia Shen" },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary" },
       {
         property: "og:description",
         content:
           "Playlists across languages, genres, moods, and eras — curated by Sophia Shen.",
       },
     ],
+    links: [{ rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" }],
   }),
   component: MusicPlaylistsPage,
 });
@@ -24,48 +28,7 @@ export const Route = createFileRoute("/music-playlists")({
 function MusicPlaylistsPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-background text-foreground">
-      <div className="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-[0.04]">
-        <svg
-          className="h-full w-full text-charcoal"
-          viewBox="0 0 1200 600"
-          preserveAspectRatio="xMidYMid slice"
-          xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true"
-        >
-          <path
-            d="M0 300 C 150 240, 300 360, 450 300 S 750 240, 900 300 S 1050 360, 1200 300"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <path
-            d="M0 330 C 120 270, 240 390, 360 330 S 600 270, 720 330 S 960 390, 1200 330"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <path
-            d="M0 270 C 180 210, 360 330, 540 270 S 900 210, 1080 270 S 1140 330, 1200 270"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-          <g fill="currentColor">
-            <circle cx="80" cy="180" r="4" />
-            <circle cx="95" cy="165" r="3" />
-            <circle cx="280" cy="420" r="4" />
-            <circle cx="295" cy="435" r="3" />
-            <circle cx="520" cy="150" r="4" />
-            <circle cx="535" cy="165" r="3" />
-            <circle cx="740" cy="440" r="4" />
-            <circle cx="755" cy="425" r="3" />
-            <circle cx="980" cy="190" r="4" />
-            <circle cx="995" cy="205" r="3" />
-            <circle cx="1120" cy="390" r="4" />
-            <circle cx="1135" cy="375" r="3" />
-          </g>
-        </svg>
-      </div>
+      <MusicCollage />
 
       <div className="relative mx-auto max-w-6xl px-6 pt-10 pb-20 md:px-10 md:pt-14 md:pb-28">
         <Link
