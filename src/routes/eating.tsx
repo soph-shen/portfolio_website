@@ -42,7 +42,7 @@ function EatingPage() {
         <UtensilsCrossed className="h-6 w-6 text-gold md:h-8 md:w-8" strokeWidth={1.5} />
       </div>
       <p className="mt-6 max-w-2xl text-base text-foreground/70 md:text-lg">
-        My Beli recs, ranked honestly.
+        my Beli recs.
       </p>
 
       <div className="mt-10">
