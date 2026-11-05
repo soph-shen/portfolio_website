@@ -2,6 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Headphones, Music } from "lucide-react";
 import { MusicCollage } from "@/components/music-collage";
 import { PlaylistBlock } from "@/components/playlist-block";
+import { playlists } from "@/lib/playlist";
 
 export const Route = createFileRoute("/music-playlists")({
   head: () => ({
@@ -55,12 +56,14 @@ function MusicPlaylistsPage() {
           languages, genres, moods, and eras.
         </p>
 
-        <PlaylistBlock />
+        {playlists.map((playlist) => (
+          <PlaylistBlock key={playlist.id} playlist={playlist} />
+        ))}
         <section className="playlist-paper-note relative mx-auto mt-14 w-full max-w-md bg-paper px-6 py-9 text-center text-foreground sm:px-10" aria-labelledby="more-playlists-title">
           <span className="collage-tape" aria-hidden="true" />
           <Headphones className="mx-auto h-8 w-8 text-gold" strokeWidth={1.5} aria-hidden="true" />
           <h2 id="more-playlists-title" className="mt-5 text-2xl leading-snug">More playlists coming soon</h2>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Three more on the way. Check back soon.</p>
+          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Two more on the way. Check back soon.</p>
         </section>
       </div>
     </div>
