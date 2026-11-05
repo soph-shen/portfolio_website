@@ -238,8 +238,6 @@
   --playlist-muted: oklch(0.73 0 0);
   --playlist-hover: oklch(0.26 0 0);
   --playlist-divider: oklch(0.36 0 0);
-  --spotify: oklch(0.76 0.2 149);
-  --spotify-foreground: oklch(0.15 0 0);
 }
 @theme inline {
   --color-playlist: var(--playlist);
@@ -247,9 +245,9 @@
   --color-playlist-muted: var(--playlist-muted);
   --color-playlist-hover: var(--playlist-hover);
   --color-playlist-divider: var(--playlist-divider);
-  --color-spotify: var(--spotify);
-  --color-spotify-foreground: var(--spotify-foreground);
 }
+.playlist-play-btn { background: var(--gold); color: var(--primary-foreground); }
+.playlist-play-btn:hover { background: color-mix(in oklab, var(--gold) 85%, var(--charcoal)); }
 .playlist-block, .playlist-block .playlist-title { font-family: var(--font-body); letter-spacing: 0; }
 
 /* Static music scrapbook; all selectors are exclusive to Playlists decoration. */
@@ -300,8 +298,10 @@
 .collage-calm { position: absolute; inset: 0; background: linear-gradient(90deg, transparent 0%, color-mix(in oklab, var(--cream) 45%, transparent) 15%, var(--cream) 29%, var(--cream) 70%, color-mix(in oklab, var(--cream) 40%, transparent) 88%, transparent 100%); }
 .collage-calm::before { content: ""; position: absolute; top: 0; left: 0; width: 76%; height: 370px; background: linear-gradient(180deg, color-mix(in oklab, var(--cream) 96%, transparent) 0%, color-mix(in oklab, var(--cream) 96%, transparent) 76%, transparent 100%); }
 .collage-grain { position: absolute; inset: 0; opacity: 0.055; mix-blend-mode: multiply; }
-.playlist-paper-note { transform: rotate(-2deg); box-shadow: var(--collage-shadow); }
-.playlist-paper-note > .collage-tape { left: calc(50% - 55px); transform: rotate(5deg); }
+.playlist-scrap-card { transform: rotate(-1.5deg); box-shadow: var(--collage-shadow); transition: transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1), box-shadow 300ms ease; }
+.playlist-scrap-grid > .playlist-scrap-card:nth-child(even) { transform: rotate(1.2deg); }
+a.playlist-scrap-card:hover { transform: rotate(0deg) translateY(-4px); box-shadow: 0 18px 40px -18px color-mix(in oklab, var(--charcoal) 38%, transparent); }
+.playlist-scrap-card > .collage-tape { left: calc(50% - 55px); transform: rotate(5deg); }
 @media (min-width: 1500px) {
   .collage-scrap { width: 350px; }
   .record-left { left: -170px; }
@@ -322,8 +322,9 @@
   .collage-cassette { width: 150px; left: -58px; bottom: 7%; }
   .ticket-left { width: 145px; left: -73px; bottom: 29%; }
   .collage-tape { width: 65px; height: 22px; }
-  .playlist-paper-note { transform: rotate(-1deg); }
-  .playlist-paper-note > .collage-tape { left: calc(50% - 32.5px); }
+  .playlist-scrap-card { transform: rotate(-0.8deg); }
+  .playlist-scrap-grid > .playlist-scrap-card:nth-child(even) { transform: rotate(0.8deg); }
+  .playlist-scrap-card > .collage-tape { left: calc(50% - 32.5px); }
   .collage-calm { background: linear-gradient(90deg, color-mix(in oklab, var(--cream) 35%, transparent), var(--cream) 24%, var(--cream) 77%, color-mix(in oklab, var(--cream) 35%, transparent)); }
   .collage-calm::before { width: 100%; height: 340px; }
 }
