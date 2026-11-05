@@ -4,7 +4,7 @@ import { MusicCollage } from "@/components/music-collage";
 import { PlaylistBlock } from "@/components/playlist-block";
 import { playlists } from "@/lib/playlist";
 
-export const Route = createFileRoute("/music-playlists")({
+export const Route = createFileRoute("/on-repeat")({
   head: () => ({
     meta: [
       { title: "Music Playlists — Sophia Shen" },

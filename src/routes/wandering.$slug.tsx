@@ -69,7 +69,7 @@ const emptyGuide: LocationGuide = {
   travel: [],
 };
 
-export const Route = createFileRoute("/around-the-world/$slug")({
+export const Route = createFileRoute("/wandering/$slug")({
   head: ({ params }) => {
     const title = guides[params.slug]?.title ?? "Location";
     return {
@@ -92,12 +92,12 @@ function LocationPage() {
   return (
     <div className="mx-auto max-w-4xl px-6 py-20 md:px-10 md:py-28">
       <Link
-        to="/around-the-world"
+        to="/wandering"
         className="group inline-flex items-center gap-2 text-sm text-foreground/70 transition-colors hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-0.5" />
         <span className="relative">
-          Around the World
+          Wandering
           <span className="absolute -bottom-1 left-0 h-[2px] w-full origin-left scale-x-0 bg-gold transition-transform duration-300 group-hover:scale-x-100" />
         </span>
       </Link>

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Pencil } from "lucide-react";
 
-export const Route = createFileRoute("/thoughts")({
+export const Route = createFileRoute("/notes")({
   head: () => ({
     meta: [
       { title: "Thoughts — Sophia Shen" },
@@ -10,7 +10,7 @@ export const Route = createFileRoute("/thoughts")({
         content:
           "Short notes and reflections from Sophia Shen on data, health, and building.",
       },
-      { property: "og:title", content: "Thoughts — Sophia Shen" },
+      { property: "og:title", content: "Notes — Sophia Shen" },
       {
         property: "og:description",
         content:

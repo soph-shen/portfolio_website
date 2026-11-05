@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft, Github, Linkedin, Mail } from "lucide-react";
 
-export const Route = createFileRoute("/contact")({
+export const Route = createFileRoute("/say-hi")({
   head: () => ({
     meta: [
       { title: "Contact — Sophia Shen" },
@@ -9,7 +9,7 @@ export const Route = createFileRoute("/contact")({
         name: "description",
         content: "Get in touch with Sophia Shen — Data Science & Health Policy at UNC–Chapel Hill.",
       },
-      { property: "og:title", content: "Contact — Sophia Shen" },
+      { property: "og:title", content: "Say Hi — Sophia Shen" },
       {
         property: "og:description",
         content: "Get in touch with Sophia Shen — Data Science & Health Policy at UNC–Chapel Hill.",

@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 
-export const Route = createFileRoute("/around-the-world/")({
+export const Route = createFileRoute("/wandering/")({
   head: () => ({
     meta: [
       { title: "Around the World — Sophia Shen" },
