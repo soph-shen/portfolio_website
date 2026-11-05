@@ -10,13 +10,19 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as EatingRouteImport } from './routes/eating'
 import { Route as McpRouteImport } from './routes/mcp'
+import { Route as MusicPlaylistsRouteImport } from './routes/music-playlists'
 import { Route as NotesRouteImport } from './routes/notes'
 import { Route as OnRepeatRouteImport } from './routes/on-repeat'
 import { Route as SayHiRouteImport } from './routes/say-hi'
+import { Route as ThoughtsRouteImport } from './routes/thoughts'
 import { Route as WanderingRouteImport } from './routes/wandering'
 import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as AroundTheWorldIndexRouteImport } from './routes/around-the-world.index'
+import { Route as AroundTheWorldSlugRouteImport } from './routes/around-the-world.$slug'
 import { Route as WanderingIndexRouteImport } from './routes/wandering.index'
 import { Route as WanderingSlugRouteImport } from './routes/wandering.$slug'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
@@ -26,9 +32,24 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EatingRoute = EatingRouteImport.update({
+  id: '/eating',
+  path: '/eating',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const McpRoute = McpRouteImport.update({
   id: '/mcp',
   path: '/mcp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MusicPlaylistsRoute = MusicPlaylistsRouteImport.update({
+  id: '/music-playlists',
+  path: '/music-playlists',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NotesRoute = NotesRouteImport.update({
@@ -44,6 +65,11 @@ const OnRepeatRoute = OnRepeatRouteImport.update({
 const SayHiRoute = SayHiRouteImport.update({
   id: '/say-hi',
   path: '/say-hi',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ThoughtsRoute = ThoughtsRouteImport.update({
+  id: '/thoughts',
+  path: '/thoughts',
   getParentRoute: () => rootRouteImport,
 } as any)
 const WanderingRoute = WanderingRouteImport.update({
@@ -63,6 +89,16 @@ const Char91DotwellKnownChar93OauthProtectedResourceRoute =
     path: '/.well-known/oauth-protected-resource',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AroundTheWorldIndexRoute = AroundTheWorldIndexRouteImport.update({
+  id: '/around-the-world/',
+  path: '/around-the-world/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AroundTheWorldSlugRoute = AroundTheWorldSlugRouteImport.update({
+  id: '/around-the-world/$slug',
+  path: '/around-the-world/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const WanderingIndexRoute = WanderingIndexRouteImport.update({
   id: '/',
   path: '/',
@@ -82,40 +118,58 @@ const Char91DotmcpChar93InvokeToolToolRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
   '/on-repeat': typeof OnRepeatRoute
   '/say-hi': typeof SayHiRoute
+  '/thoughts': typeof ThoughtsRoute
   '/wandering': typeof WanderingRouteWithChildren
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
   '/wandering/$slug': typeof WanderingSlugRoute
+  '/around-the-world/': typeof AroundTheWorldIndexRoute
   '/wandering/': typeof WanderingIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
   '/on-repeat': typeof OnRepeatRoute
   '/say-hi': typeof SayHiRoute
+  '/thoughts': typeof ThoughtsRoute
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
   '/wandering/$slug': typeof WanderingSlugRoute
+  '/around-the-world': typeof AroundTheWorldIndexRoute
   '/wandering': typeof WanderingIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/eating': typeof EatingRoute
   '/mcp': typeof McpRoute
+  '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
   '/on-repeat': typeof OnRepeatRoute
   '/say-hi': typeof SayHiRoute
+  '/thoughts': typeof ThoughtsRoute
   '/wandering': typeof WanderingRouteWithChildren
   '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
   '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  '/around-the-world/$slug': typeof AroundTheWorldSlugRoute
   '/wandering/$slug': typeof WanderingSlugRoute
+  '/around-the-world/': typeof AroundTheWorldIndexRoute
   '/wandering/': typeof WanderingIndexRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
@@ -123,52 +177,76 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/contact'
+    | '/eating'
     | '/mcp'
+    | '/music-playlists'
     | '/notes'
     | '/on-repeat'
     | '/say-hi'
+    | '/thoughts'
     | '/wandering'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/around-the-world/$slug'
     | '/wandering/$slug'
+    | '/around-the-world/'
     | '/wandering/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/contact'
+    | '/eating'
     | '/mcp'
+    | '/music-playlists'
     | '/notes'
     | '/on-repeat'
     | '/say-hi'
+    | '/thoughts'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/around-the-world/$slug'
     | '/wandering/$slug'
+    | '/around-the-world'
     | '/wandering'
     | '/.mcp/invoke-tool/$tool'
   id:
     | '__root__'
     | '/'
+    | '/contact'
+    | '/eating'
     | '/mcp'
+    | '/music-playlists'
     | '/notes'
     | '/on-repeat'
     | '/say-hi'
+    | '/thoughts'
     | '/wandering'
     | '/.mcp/list-tools'
     | '/.well-known/oauth-protected-resource'
+    | '/around-the-world/$slug'
     | '/wandering/$slug'
+    | '/around-the-world/'
     | '/wandering/'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  EatingRoute: typeof EatingRoute
   McpRoute: typeof McpRoute
+  MusicPlaylistsRoute: typeof MusicPlaylistsRoute
   NotesRoute: typeof NotesRoute
   OnRepeatRoute: typeof OnRepeatRoute
   SayHiRoute: typeof SayHiRoute
+  ThoughtsRoute: typeof ThoughtsRoute
   WanderingRoute: typeof WanderingRouteWithChildren
   Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
   Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  AroundTheWorldSlugRoute: typeof AroundTheWorldSlugRoute
+  AroundTheWorldIndexRoute: typeof AroundTheWorldIndexRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 
@@ -181,11 +259,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eating': {
+      id: '/eating'
+      path: '/eating'
+      fullPath: '/eating'
+      preLoaderRoute: typeof EatingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/mcp': {
       id: '/mcp'
       path: '/mcp'
       fullPath: '/mcp'
       preLoaderRoute: typeof McpRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/music-playlists': {
+      id: '/music-playlists'
+      path: '/music-playlists'
+      fullPath: '/music-playlists'
+      preLoaderRoute: typeof MusicPlaylistsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notes': {
@@ -209,6 +308,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SayHiRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/thoughts': {
+      id: '/thoughts'
+      path: '/thoughts'
+      fullPath: '/thoughts'
+      preLoaderRoute: typeof ThoughtsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/wandering': {
       id: '/wandering'
       path: '/wandering'
@@ -228,6 +334,20 @@ declare module '@tanstack/react-router' {
       path: '/.well-known/oauth-protected-resource'
       fullPath: '/.well-known/oauth-protected-resource'
       preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/around-the-world/': {
+      id: '/around-the-world/'
+      path: '/around-the-world'
+      fullPath: '/around-the-world/'
+      preLoaderRoute: typeof AroundTheWorldIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/around-the-world/$slug': {
+      id: '/around-the-world/$slug'
+      path: '/around-the-world/$slug'
+      fullPath: '/around-the-world/$slug'
+      preLoaderRoute: typeof AroundTheWorldSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/wandering/': {
@@ -270,14 +390,20 @@ const WanderingRouteWithChildren = WanderingRoute._addFileChildren(
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  EatingRoute: EatingRoute,
   McpRoute: McpRoute,
+  MusicPlaylistsRoute: MusicPlaylistsRoute,
   NotesRoute: NotesRoute,
   OnRepeatRoute: OnRepeatRoute,
   SayHiRoute: SayHiRoute,
+  ThoughtsRoute: ThoughtsRoute,
   WanderingRoute: WanderingRouteWithChildren,
   Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
   Char91DotwellKnownChar93OauthProtectedResourceRoute:
     Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  AroundTheWorldSlugRoute: AroundTheWorldSlugRoute,
+  AroundTheWorldIndexRoute: AroundTheWorldIndexRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
 export const routeTree = rootRouteImport
