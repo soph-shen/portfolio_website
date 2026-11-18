@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
-import portrait from "@/assets/sophia-face-centered.jpg.asset.json";
+import portrait from "@/assets/sophia-wider-portrait.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
