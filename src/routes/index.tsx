@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Github, Linkedin, Mail, ExternalLink } from "lucide-react";
-import portrait from "@/assets/sophia-wider-portrait.jpg.asset.json";
+import portrait from "@/assets/sophia-wider-portrait.webp";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -158,7 +158,7 @@ function Index() {
         <div className="relative mx-auto flex max-w-6xl flex-col items-center gap-6 px-6 pb-3 pt-8 text-center md:px-10 md:pb-4 md:pt-12">
           <div className="h-36 w-36 overflow-hidden rounded-full border border-border bg-paper shadow-sm md:h-44 md:w-44">
             <img
-              src={portrait.url}
+              src={portrait}
               alt="Sophia (Xiyuan) Shen"
               className="h-full w-full object-cover object-center"
             />
