@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as EatingRouteImport } from './routes/eating'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as McpRouteImport } from './routes/mcp'
 import { Route as MusicPlaylistsRouteImport } from './routes/music-playlists'
 import { Route as NotesRouteImport } from './routes/notes'
@@ -28,6 +29,7 @@ import { Route as OnRepeatIndexRouteImport } from './routes/on-repeat.index'
 import { Route as OnRepeatSlugRouteImport } from './routes/on-repeat.$slug'
 import { Route as WanderingIndexRouteImport } from './routes/wandering.index'
 import { Route as WanderingSlugRouteImport } from './routes/wandering.$slug'
+import { Route as DotlovableOauthConsentRouteImport } from './routes/[.]lovable.oauth.consent'
 import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 
 const IndexRoute = IndexRouteImport.update({
@@ -43,6 +45,11 @@ const ContactRoute = ContactRouteImport.update({
 const EatingRoute = EatingRouteImport.update({
   id: '/eating',
   path: '/eating',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const McpRoute = McpRouteImport.update({
@@ -127,6 +134,11 @@ const WanderingSlugRoute = WanderingSlugRouteImport.update({
   path: '/$slug',
   getParentRoute: () => WanderingRoute,
 } as any)
+const DotlovableOauthConsentRoute = DotlovableOauthConsentRouteImport.update({
+  id: '/.lovable/oauth/consent',
+  path: '/.lovable/oauth/consent',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const Char91DotmcpChar93InvokeToolToolRoute =
   Char91DotmcpChar93InvokeToolToolRouteImport.update({
     id: '/.mcp/invoke-tool/$tool',
@@ -138,6 +150,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
+  '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
@@ -154,12 +167,14 @@ export interface FileRoutesByFullPath {
   '/around-the-world/': typeof AroundTheWorldIndexRoute
   '/on-repeat/': typeof OnRepeatIndexRoute
   '/wandering/': typeof WanderingIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
+  '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
@@ -174,6 +189,7 @@ export interface FileRoutesByTo {
   '/around-the-world': typeof AroundTheWorldIndexRoute
   '/on-repeat': typeof OnRepeatIndexRoute
   '/wandering': typeof WanderingIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRoutesById {
@@ -181,6 +197,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/contact': typeof ContactRoute
   '/eating': typeof EatingRoute
+  '/login': typeof LoginRoute
   '/mcp': typeof McpRoute
   '/music-playlists': typeof MusicPlaylistsRoute
   '/notes': typeof NotesRoute
@@ -197,6 +214,7 @@ export interface FileRoutesById {
   '/around-the-world/': typeof AroundTheWorldIndexRoute
   '/on-repeat/': typeof OnRepeatIndexRoute
   '/wandering/': typeof WanderingIndexRoute
+  '/.lovable/oauth/consent': typeof DotlovableOauthConsentRoute
   '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 export interface FileRouteTypes {
@@ -205,6 +223,7 @@ export interface FileRouteTypes {
     | '/'
     | '/contact'
     | '/eating'
+    | '/login'
     | '/mcp'
     | '/music-playlists'
     | '/notes'
@@ -221,12 +240,14 @@ export interface FileRouteTypes {
     | '/around-the-world/'
     | '/on-repeat/'
     | '/wandering/'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/contact'
     | '/eating'
+    | '/login'
     | '/mcp'
     | '/music-playlists'
     | '/notes'
@@ -241,12 +262,14 @@ export interface FileRouteTypes {
     | '/around-the-world'
     | '/on-repeat'
     | '/wandering'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   id:
     | '__root__'
     | '/'
     | '/contact'
     | '/eating'
+    | '/login'
     | '/mcp'
     | '/music-playlists'
     | '/notes'
@@ -263,6 +286,7 @@ export interface FileRouteTypes {
     | '/around-the-world/'
     | '/on-repeat/'
     | '/wandering/'
+    | '/.lovable/oauth/consent'
     | '/.mcp/invoke-tool/$tool'
   fileRoutesById: FileRoutesById
 }
@@ -270,6 +294,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ContactRoute: typeof ContactRoute
   EatingRoute: typeof EatingRoute
+  LoginRoute: typeof LoginRoute
   McpRoute: typeof McpRoute
   MusicPlaylistsRoute: typeof MusicPlaylistsRoute
   NotesRoute: typeof NotesRoute
@@ -282,6 +307,7 @@ export interface RootRouteChildren {
   AroundTheWorldSlugRoute: typeof AroundTheWorldSlugRoute
   MusicPlaylistsSlugRoute: typeof MusicPlaylistsSlugRoute
   AroundTheWorldIndexRoute: typeof AroundTheWorldIndexRoute
+  DotlovableOauthConsentRoute: typeof DotlovableOauthConsentRoute
   Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
 }
 
@@ -306,6 +332,13 @@ declare module '@tanstack/react-router' {
       path: '/eating'
       fullPath: '/eating'
       preLoaderRoute: typeof EatingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mcp': {
@@ -420,6 +453,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WanderingSlugRouteImport
       parentRoute: typeof WanderingRoute
     }
+    '/.lovable/oauth/consent': {
+      id: '/.lovable/oauth/consent'
+      path: '/.lovable/oauth/consent'
+      fullPath: '/.lovable/oauth/consent'
+      preLoaderRoute: typeof DotlovableOauthConsentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/.mcp/invoke-tool/$tool': {
       id: '/.mcp/invoke-tool/$tool'
       path: '/.mcp/invoke-tool/$tool'
@@ -462,6 +502,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ContactRoute: ContactRoute,
   EatingRoute: EatingRoute,
+  LoginRoute: LoginRoute,
   McpRoute: McpRoute,
   MusicPlaylistsRoute: MusicPlaylistsRoute,
   NotesRoute: NotesRoute,
@@ -475,6 +516,7 @@ const rootRouteChildren: RootRouteChildren = {
   AroundTheWorldSlugRoute: AroundTheWorldSlugRoute,
   MusicPlaylistsSlugRoute: MusicPlaylistsSlugRoute,
   AroundTheWorldIndexRoute: AroundTheWorldIndexRoute,
+  DotlovableOauthConsentRoute: DotlovableOauthConsentRoute,
   Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
 }
 export const routeTree = rootRouteImport
